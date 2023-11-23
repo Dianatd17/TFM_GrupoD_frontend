@@ -1,0 +1,55 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.btn-principal, .btn-inactive {
+    background-color: #60bbdd;
+    color: white;
+}
+
+.btn-principal:hover, .btn-inactive:hover {
+    background-color: #216a92;
+}
+
+.btn-active {
+    background-color: #216a92;
+    color: white;
+}
+
+.w-logo {
+    display: none;
+}
+
+input, select {
+    background-color: #ececec;
+    color: #216a92;
+}
+
+.link_register {
+    color: #216a92;
+}
+
+.link_register:hover {
+    color: #60bbdd;
+}
+
+@media screen and (min-width: 768px) {
+
+    .w-logo {
+        display: block;
+        background-color: #60bbdd;
+        color: white;
+        height: 100vh;
+        min-width: 50%;
+    }
+    
+    .logo_img {
+        max-width: 50%;
+    }
+    
+    .w-form {
+        min-width: 50%;
+    }
+
+}

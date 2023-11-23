@@ -1,0 +1,28 @@
+<div class="d-flex">
+    <div class="w-logo flex-fill p-3 sticky-top">
+        <div class="row justify-content-center">
+            <img src="assets/images/logo1.png" class="img-fluid logo_img">
+            <p class="h1 text-center">LogopedasApp</p>
+        </div>
+    </div>
+    <div class="w-form flex-fill p-3 row align-items-center justify-content-center">
+        <form [formGroup]="formLogin" (ngSubmit)="onSubmit()" class="w-50">
+            <p class="h2 text-center mb-3">Iniciar sesión</p>
+            <div class="mb-3">
+                <label class="form-label" for="email">Email</label>
+                <input id="email" name="email" type="email" class="form-control" formControlName="email">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="password">Contraseña</label>
+                <input id="password" name="password" type="password" class="form-control" formControlName="password">
+            </div>
+            <div class="mb-3 text-center">
+                <button type="submit" class="btn btn-principal" [disabled]="!formLogin.valid">Enviar</button>
+            </div>
+            <div>{{ errorMessage }}</div>
+            <div class="row mx-auto">
+                <div class="btn mt-3 mb-3 text-center link_register" [routerLink]="['/auth/register']">¿No tienes cuenta aún? Regístrate</div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,78 @@
+<div class="d-flex">
+    <div class="w-logo flex-fill p-3 sticky-top">
+        <div class="row justify-content-center">
+            <img src="assets/images/logo1.png" class="img-fluid logo_img">
+            <p class="h1 text-center">LogopedasApp</p>
+        </div>
+    </div>
+    <div class="w-form flex-fill p-3 row justify-content-center">
+        <p class="m-3 h2 text-center">Registro de usuario</p>
+        <!-- Selector de rol-->
+        <div class="btn-group mt-3 mb-3 text-center w-75" role="group">
+            <div class="btn" (click)="cambiarRol('cliente')" 
+            [ngClass]="{'btn-active': botonRol === 'cliente', 'btn-inactive': botonRol !== 'cliente'}">
+                Cliente
+            </div>
+            <div class="btn btn-principal mr-3" (click)="cambiarRol('logopeda')"
+            [ngClass]="{'btn-active': botonRol === 'logopeda', 'btn-inactive': botonRol !== 'logopeda'}">
+                Logopeda
+            </div>
+        </div>
+        <!-- Formulario-->
+        <form [formGroup]="formRegister" (ngSubmit)="onSubmit()" class="w-75">
+            <div class="mb-3">
+                <label class="form-label" for="nombre">Nombre</label>
+                <input id="nombre" name="nombre" type="text" class="form-control" formControlName="nombre">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="nombre">Apellidos</label>
+                <input id="apellidos" name="apellidos" type="text" class="form-control" formControlName="apellidos">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="email">Email</label>
+                <input id="email" name="email" type="email" class="form-control" formControlName="email">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="password">Contraseña</label>
+                <input id="password" name="password" type="password" class="form-control" formControlName="password">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="direccion">Dirección</label>
+                <input id="direccion" name="direccion" type="text" class="form-control" formControlName="direccion">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="localidad">Localidad</label>
+                <input id="localidad" name="localidad" type="text" class="form-control" formControlName="localidad">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="provincia">Provincia</label>
+                <!-- TODO: cambiarlo por desplegable con listado -->
+                <input id="provincia" name="provincia" type="text" class="form-control" formControlName="provincia">
+            </div>
+            <!-- Campos para logopedas -->
+            <div *ngIf="botonRol === 'logopeda' then logopedas"></div>
+            <ng-template #logopedas>
+                <div class="mb-3">
+                    <label class="form-label" for="telefono">Teléfono</label>
+                    <input id="telefono" name="telefono" type="tel" class="form-control" formControlName="telefono">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="infancia_o_adulto">Clientela</label>
+                    <select class="form-select" id="infancia_o_adulto" name="infancia_o_adulto" formControlName="infancia_o_adulto">
+                        <option value="infancia" selected>Infancia</option>
+                        <option value="adulto">Adulto</option>
+                        <option value="ambos">Ambos</option>
+                    </select>
+                </div>
+            </ng-template>
+            <!---->
+            <div class="mb-3 text-center">
+                <button type="submit" class="btn btn-principal" [disabled]="!formRegister.valid">Enviar</button>
+            </div>
+            <div>{{ errorMessage }}</div>
+            <div class="row mx-auto">
+                <div class="btn mt-3 mb-3 text-center link_register" [routerLink]="['/auth/login']">¿Ya tienes cuenta? Inicia sesión</div>
+            </div>
+        </form>
+    </div>
+</div>
