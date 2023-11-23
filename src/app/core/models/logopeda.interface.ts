@@ -5,11 +5,6 @@ export interface ILogopeda {
     precio: number
     experiencia: number
     descripcion: string
-    infancia_o_adulto: Infancia_o_adulto
+    infancia_o_adulto: string//['infancia', 'adulto', 'ambos']
 
-}
-enum Infancia_o_adulto {
-    infancia,
-    adulto,
-    ambos
 }
