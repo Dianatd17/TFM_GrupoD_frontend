@@ -1,0 +1,65 @@
+* {
+    box-sizing: border-box;
+}
+
+.wrapper {
+    max-width: 1440px;
+    padding-top: 4rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.home {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.home_w-list {
+    flex-grow: 4;
+}
+
+.home__w-map {
+    flex-grow: 2;
+}
+
+.wcards {
+    display: flex;
+    flex-direction: column;
+}
+
+.wcards-logopeda {
+    height: 100px;
+    border-radius: 2rem;
+    box-shadow: rgb(6, 28, 29);
+    margin-bottom: 2rem;
+    border-color: beige;
+    border-style: inset;
+    background-color: #E5EFDF;
+
+}
+
+.wcards-logopeda_w {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.wcards-logopeda_w-img {
+    flex-grow: 2;
+    border-radius: 1rem;
+    padding: 20px;
+}
+
+.wcards-logopeda_w-text {
+    flex-grow: 5;
+    padding: 1rem;
+}
+
+@media (min-width: 1024px) {
+    .home {
+        flex-direction: row;
+    }
+}
