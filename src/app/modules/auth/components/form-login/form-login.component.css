@@ -16,9 +16,23 @@ body {
     display: none;
 }
 
+.w-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 input {
     background-color: #ececec;
     color: #216a92;
+}
+
+input.ng-invalid.ng-touched {
+    border-bottom: 3px solid tomato;
+}
+
+.error {
+    color: tomato;
 }
 
 .link_register {

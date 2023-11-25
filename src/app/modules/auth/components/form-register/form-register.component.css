@@ -21,6 +21,12 @@ body {
     display: none;
 }
 
+.w-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 input, select {
     background-color: #ececec;
     color: #216a92;

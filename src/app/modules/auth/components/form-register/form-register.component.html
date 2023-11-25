@@ -5,8 +5,8 @@
             <p class="h1 text-center">LogopedasApp</p>
         </div>
     </div>
-    <div class="w-form flex-fill p-3 row justify-content-center">
-        <p class="m-3 h2 text-center">Registro de usuario</p>
+    <div class="w-form flex-fill p-3 row">
+        <div class="m-3 h2 text-center">Registro de usuario</div>
         <!-- Selector de rol-->
         <div class="btn-group mt-3 mb-3 text-center w-75" role="group">
             <div class="btn" (click)="cambiarRol('cliente')" 
@@ -46,8 +46,9 @@
             </div>
             <div class="mb-3">
                 <label class="form-label" for="provincia">Provincia</label>
-                <!-- TODO: cambiarlo por desplegable con listado -->
-                <input id="provincia" name="provincia" type="text" class="form-control" formControlName="provincia">
+                <select class="form-select" id="provincia" name="provincia" formControlName="provincia">
+                    <option *ngFor="let prov of provincias" [value]="prov">{{ prov }}</option>
+                </select>
             </div>
             <!-- Campos para logopedas -->
             <div *ngIf="botonRol === 'logopeda' then logopedas"></div>
@@ -59,9 +60,7 @@
                 <div class="mb-3">
                     <label class="form-label" for="infancia_o_adulto">Clientela</label>
                     <select class="form-select" id="infancia_o_adulto" name="infancia_o_adulto" formControlName="infancia_o_adulto">
-                        <option value="infancia" selected>Infancia</option>
-                        <option value="adulto">Adulto</option>
-                        <option value="ambos">Ambos</option>
+                        <option *ngFor="let edad of edades" [value]="edad">{{ edad | titlecase }}</option>
                     </select>
                 </div>
             </ng-template>

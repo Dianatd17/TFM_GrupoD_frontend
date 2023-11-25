@@ -5,7 +5,7 @@
             <p class="h1 text-center">LogopedasApp</p>
         </div>
     </div>
-    <div class="w-form flex-fill p-3 row align-items-center justify-content-center">
+    <div class="w-form flex-fill p-3">
         <form [formGroup]="formLogin" (ngSubmit)="onSubmit()" class="w-50">
             <p class="h2 text-center mb-3">Iniciar sesión</p>
             <div class="mb-3">
@@ -20,8 +20,13 @@
                 <button type="submit" class="btn btn-principal" [disabled]="!formLogin.valid">Enviar</button>
             </div>
             <div>{{ errorMessage }}</div>
+            <p class="error" *ngIf="checkControl('email', 'required')">El campo es requerido</p>
+            <p class="error" *ngIf="checkControl('email', 'pattern')">El email tiene formato incorrecto</p>
+            <p class="error" *ngIf="checkControl('password', 'required')">El campo es requerido</p>
             <div class="row mx-auto">
-                <div class="btn mt-3 mb-3 text-center link_register" [routerLink]="['/auth/register']">¿No tienes cuenta aún? Regístrate</div>
+                <div class="btn mt-3 mb-3 text-center link_register" [routerLink]="['/auth/register']">
+                    ¿No tienes cuenta aún? Regístrate
+                </div>
             </div>
         </form>
     </div>
