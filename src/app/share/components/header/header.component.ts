@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { LoginService } from '../../services/login.service';
+import { UsuariosService } from 'src/app/modules/auth/services/usuarios.service';
 
 @Component({
   selector: 'app-header',
@@ -16,21 +17,19 @@ export class HeaderComponent {
   openMenu: boolean = false
   imagenLogin: any;
 
+  userService = inject(UsuariosService);
 
-  
 
   ngOnInit(){
     this.log = this.loginService.getLog();
-
   }
   
   cambiar(){
     this.loginService.loginLogOut()
     this.log = this.loginService.getLog();
-    
-    console.log('ha cambiado', this.loginService.getLog())
-    console.log('ha cambiado', this.log)
+
   }
+
 
   esconderImagen(){
     if(!this.openMenu){

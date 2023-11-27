@@ -1,8 +1,8 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
-import { jwtDecode } from 'jwt-decode';
-
+ import { jwtDecode } from 'jwt-decode';
+ 
 type FormRegisterValue = {
   nombre: string, apellidos: string, email: string,
   password: string, repitepassword: string, rol: string,

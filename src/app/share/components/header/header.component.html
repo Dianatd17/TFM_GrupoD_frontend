@@ -1,6 +1,6 @@
 <nav class="header navbar navbar-expand-md ">
   <div class="nav_wrapper container-fluid d-flex">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand iamge_brand" href="#">
       <img
         src="../../../../assets/images/logo1.png"
         alt="logo"
@@ -44,7 +44,7 @@
       </ul>
     </div>
     
-    <a class="navbar-brand" href="#" [ngStyle]="{'display': openMenu ? 'none' : 'initial'}">
+    <a class="navbar-brand image_user" href="#" [ngStyle]="{'display': openMenu ? 'none' : 'initial'}">
       <img
         src="../../../../assets/images/logo1.png"
         alt="iamgenLogin"
@@ -56,6 +56,8 @@
   </div>
 </nav>
 
-<button class="btn btn-dark" (click)="cambiar()">CAMBIAR</button>
+
+<!-- BOTON PARA CAMBIAR DE LOGIN A LOGAUT HASTA QUE ESTE EL SERVICIO -->
+ <button class="btn btn-dark" (click)="cambiar()">CAMBIAR</button> 
 
 

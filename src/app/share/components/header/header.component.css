@@ -48,3 +48,20 @@ a.activado::after{
 } 
 
 
+@media(max-width: 770px){
+    .iamge_brand{
+        order: 1;
+        margin-right: 0;
+        flex-grow: 1;
+        justify-content: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    
+    .image_user{
+        order: 2;
+        margin-right: 0;
+        
+    }
+}
