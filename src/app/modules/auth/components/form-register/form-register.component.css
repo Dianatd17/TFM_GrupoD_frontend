@@ -32,6 +32,23 @@ input, select {
     color: #216a92;
 }
 
+input.ng-invalid.ng-touched {
+    border: 1px solid tomato;
+}
+
+input.ng-valid.ng-touched {
+    border-bottom: 1px solid #B8DFA2;
+}
+
+.error {
+    color: tomato;
+    font-size: 0.75em;
+}
+
+.required {
+    color: tomato;
+}
+
 .link_register {
     color: #216a92;
 }
