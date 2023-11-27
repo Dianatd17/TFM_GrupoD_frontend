@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UsuariosService } from 'src/app/core/services/usuarios.service';
+import { UsuariosService } from '../../services/usuarios.service';
 
 @Component({
   selector: 'app-form-login',
@@ -17,24 +17,38 @@ export class FormLoginComponent {
 
   constructor() {
     this.formLogin = new FormGroup({
-      email: new FormControl(),
-      password: new FormControl()
-    });
+      email: new FormControl('', [
+        Validators.required,
+        Validators.pattern(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/)
+      ]),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.minLength(8)
+      ])
+    }, []);
   }
 
+  //TODO: si hay token debería de reenviar a home si es cliente, área de usuario si es logopeda, descomentar cuando esté bien
+  /*ngOnInit(): void {
+    if (localStorage.getItem('auth_token')) this.router.navigate(['/home']);
+  }*/
+
+  checkControl(formcontrolName: string, validator: string): boolean | undefined {
+    return this.formLogin.get(formcontrolName)?.hasError(validator) && this.formLogin.get(formcontrolName)?.touched;
+  }
+
+
   async onSubmit() {
-    //TODO: descomentar cuando esté la función de login en el servicio de usuarios
-    /*const response = await this.usuariosService.login(this.formLogin.value);
+    const response = await this.usuariosService.login(this.formLogin.value);
     if (response.fatal) {
       // Error en el login
       this.errorMessage = response.fatal;
     } else {
       // Login correcto
       localStorage.setItem('auth_token', response.token);
-      // Navego a la ruta de productos
+      //TODO: cambiar para que reenvie al área de usuario si es logopeda en vez de home
       this.router.navigate(['/home']);
     }
-    console.log(response.token);*/
   }
 
 }

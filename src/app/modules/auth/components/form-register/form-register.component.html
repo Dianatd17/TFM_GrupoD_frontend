@@ -1,12 +1,12 @@
-<div class="d-flex">
+<div class="d-flex container-fluid ps-0">
     <div class="w-logo flex-fill p-3 sticky-top">
         <div class="row justify-content-center">
             <img src="assets/images/logo1.png" class="img-fluid logo_img">
             <p class="h1 text-center">LogopedasApp</p>
         </div>
     </div>
-    <div class="w-form flex-fill p-3 row justify-content-center">
-        <p class="m-3 h2 text-center">Registro de usuario</p>
+    <div class="w-form flex-fill p-3 row">
+        <div class="m-3 h2 text-center">Registro de usuario</div>
         <!-- Selector de rol-->
         <div class="btn-group mt-3 mb-3 text-center w-75" role="group">
             <div class="btn" (click)="cambiarRol('cliente')" 
@@ -21,20 +21,29 @@
         <!-- Formulario-->
         <form [formGroup]="formRegister" (ngSubmit)="onSubmit()" class="w-75">
             <div class="mb-3">
-                <label class="form-label" for="nombre">Nombre</label>
+                <label class="form-label" for="nombre">Nombre<span class="required">*</span></label>
                 <input id="nombre" name="nombre" type="text" class="form-control" formControlName="nombre">
             </div>
             <div class="mb-3">
-                <label class="form-label" for="nombre">Apellidos</label>
+                <label class="form-label" for="nombre">Apellidos<span class="required">*</span></label>
                 <input id="apellidos" name="apellidos" type="text" class="form-control" formControlName="apellidos">
             </div>
             <div class="mb-3">
-                <label class="form-label" for="email">Email</label>
+                <label class="form-label" for="email">Email<span class="required">*</span></label>
                 <input id="email" name="email" type="email" class="form-control" formControlName="email">
+                <p class="error" *ngIf="checkControl('email', 'required')">El campo es requerido</p>
+                <p class="error" *ngIf="checkControl('email', 'pattern')">El email tiene formato incorrecto</p>
             </div>
             <div class="mb-3">
-                <label class="form-label" for="password">Contraseña</label>
-                <input id="password" name="password" type="password" class="form-control" formControlName="password">
+                <label class="form-label" for="password">Contraseña<span class="required">*</span></label>
+                <div class="input-group">
+                    <input id="password" name="password" type="password" class="form-control" formControlName="password">
+                    <span class="input-group-text">Repite contraseña:</span>
+                    <input id="repitepassword" name="repitepassword" type="password" class="form-control" formControlName="repitepassword">
+                </div>
+                <p class="error" *ngIf="checkControl('password', 'required')">El campo es requerido</p>
+                <p class="error" *ngIf="checkControl('password', 'minlength')">La longitud mínima es de 8 caracteres</p>
+                <p class="error" *ngIf="formRegister.hasError('checkpassword')">Los campos password y repite password deben ser iguales</p>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="direccion">Dirección</label>
@@ -46,22 +55,24 @@
             </div>
             <div class="mb-3">
                 <label class="form-label" for="provincia">Provincia</label>
-                <!-- TODO: cambiarlo por desplegable con listado -->
-                <input id="provincia" name="provincia" type="text" class="form-control" formControlName="provincia">
+                <select class="form-select" id="provincia" name="provincia" formControlName="provincia">
+                    <option *ngFor="let prov of provincias" [value]="prov">{{ prov }}</option>
+                </select>
             </div>
             <!-- Campos para logopedas -->
             <div *ngIf="botonRol === 'logopeda' then logopedas"></div>
             <ng-template #logopedas>
                 <div class="mb-3">
-                    <label class="form-label" for="telefono">Teléfono</label>
+                    <label class="form-label" for="telefono">Teléfono<span class="required">*</span></label>
                     <input id="telefono" name="telefono" type="tel" class="form-control" formControlName="telefono">
+                    <p class="error" *ngIf="checkControl('telefono', 'pattern')">El teléfono tiene formato incorrecto</p>
+                    <p class="error" *ngIf="checkControl('telefono', 'required')">El campo es obligatorio para logopedas</p>
+                    <p class="error" *ngIf="botonRol === 'logopeda'">{{ errorMessage }}</p>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label" for="infancia_o_adulto">Clientela</label>
+                    <label class="form-label" for="infancia_o_adulto">Clientela<span class="required">*</span></label>
                     <select class="form-select" id="infancia_o_adulto" name="infancia_o_adulto" formControlName="infancia_o_adulto">
-                        <option value="infancia" selected>Infancia</option>
-                        <option value="adulto">Adulto</option>
-                        <option value="ambos">Ambos</option>
+                        <option *ngFor="let edad of edades" [value]="edad">{{ edad | titlecase }}</option>
                     </select>
                 </div>
             </ng-template>
@@ -69,7 +80,6 @@
             <div class="mb-3 text-center">
                 <button type="submit" class="btn btn-principal" [disabled]="!formRegister.valid">Enviar</button>
             </div>
-            <div>{{ errorMessage }}</div>
             <div class="row mx-auto">
                 <div class="btn mt-3 mb-3 text-center link_register" [routerLink]="['/auth/login']">¿Ya tienes cuenta? Inicia sesión</div>
             </div>
