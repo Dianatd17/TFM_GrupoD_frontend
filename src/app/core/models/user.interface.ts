@@ -6,6 +6,7 @@ export interface IUser {
     apellidos: string
     email: string
     password: string
+    telefono?: string
     longitud?: number
     latitud?: number
     direccion?: string
@@ -13,8 +14,12 @@ export interface IUser {
     provincia?: string
     status: boolean
     rol: string//['admin', 'logopeda','cliente']
-    imagen: string
-    logopeda?: ILogopeda[]
+    imagen?: string
+    precio?: number
+    experiencia?: number
+    descripcion?: string
+    infancia_o_adulto: string
+
 }
 
 

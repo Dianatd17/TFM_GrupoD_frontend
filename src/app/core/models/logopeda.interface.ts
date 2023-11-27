@@ -1,10 +1,16 @@
 export interface ILogopeda {
-    usuario_id: number
+    id: number
+    email: string
     telefono: string
-    conocimiento: string
-    precio: number
-    experiencia: number
-    descripcion: string
+    longitud?: number
+    latitud?: number
+    precio?: number
+    experiencia?: number
+    descripcion?: string
+    imagen?: string
     infancia_o_adulto: string//['infancia', 'adulto', 'ambos']
+    puntuacion?: number
+    comentarios?: string[]
+    especialidades?: string[]
 
 }

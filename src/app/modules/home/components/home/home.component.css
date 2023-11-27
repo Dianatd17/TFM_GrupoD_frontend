@@ -11,55 +11,51 @@
     margin-right: auto
 }
 
-.home {
+.main {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
 
 }
 
-.home_w-list {
-    flex-grow: 4;
-}
-
-.home__w-map {
-    flex-grow: 2;
-}
-
-.wcards {
-    display: flex;
-    flex-direction: column;
-}
-
-.wcards-logopeda {
-    height: 100px;
-    border-radius: 2rem;
-    box-shadow: rgb(6, 28, 29);
-    margin-bottom: 2rem;
-    border-color: beige;
-    border-style: inset;
-    background-color: #E5EFDF;
-
-}
-
-.wcards-logopeda_w {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.wcards-logopeda_w-img {
-    flex-grow: 2;
-    border-radius: 1rem;
-    padding: 20px;
-}
-
-.wcards-logopeda_w-text {
+.main_w-list {
     flex-grow: 5;
-    padding: 1rem;
 }
 
-@media (min-width: 1024px) {
-    .home {
+.main__w-map {
+    flex-grow: 1;
+    margin-top: 2cap;
+}
+
+.main_w-edad {
+    margin-right: 5cap;
+    text-align: center;
+
+}
+
+.btn {
+    padding-right: 8cap;
+}
+
+.btn-principal,
+.btn-inactive {
+    background-color: #60bbdd;
+    color: white;
+
+}
+
+.btn-principal:hover,
+.btn-inactive:hover {
+    background-color: #216a92;
+}
+
+.btn-active {
+    background-color: #216a92;
+    color: white;
+}
+
+
+@media only screen and (min-width: 1024px) and (max-width: 1920px) {
+    .main {
         flex-direction: row;
     }
 }

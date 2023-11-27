@@ -7,4 +7,18 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  botonEdad: string = "ambos";
+
+
+
+
+  cambiarSeleccion(edad: string) {
+    this.botonEdad = "ambos";
+    if (edad == "infancia" || edad == "adulto") {
+      this.botonEdad = edad;
+    }
+
+
+  }
+
 }
