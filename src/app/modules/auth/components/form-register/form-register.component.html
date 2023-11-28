@@ -67,7 +67,6 @@
                     <input id="telefono" name="telefono" type="tel" class="form-control" formControlName="telefono">
                     <p class="error" *ngIf="checkControl('telefono', 'pattern')">El teléfono tiene formato incorrecto</p>
                     <p class="error" *ngIf="checkControl('telefono', 'required')">El campo es obligatorio para logopedas</p>
-                    <p class="error" *ngIf="botonRol === 'logopeda'">{{ errorMessage }}</p>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="infancia_o_adulto">Clientela<span class="required">*</span></label>
@@ -80,6 +79,7 @@
             <div class="mb-3 text-center">
                 <button type="submit" class="btn btn-principal" [disabled]="!formRegister.valid">Enviar</button>
             </div>
+            <p class="error">{{ errorMessage }}</p>
             <div class="row mx-auto">
                 <div class="btn mt-3 mb-3 text-center link_register" [routerLink]="['/auth/login']">¿Ya tienes cuenta? Inicia sesión</div>
             </div>
