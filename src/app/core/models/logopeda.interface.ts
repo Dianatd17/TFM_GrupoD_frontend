@@ -1,5 +1,7 @@
 export interface ILogopeda {
     id: number
+    nombre: string
+    apellidos: string
     email: string
     telefono: string
     longitud?: number

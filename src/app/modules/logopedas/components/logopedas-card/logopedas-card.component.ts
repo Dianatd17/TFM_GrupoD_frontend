@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { ILogopeda } from 'src/app/core/models/logopeda.interface';
-import { IUser } from 'src/app/core/models/user.interface';
 
 @Component({
   selector: 'app-logopedas-card',
@@ -9,17 +8,19 @@ import { IUser } from 'src/app/core/models/user.interface';
 })
 export class LogopedasCardComponent {
 
-  datosLogopeda: any = [];
-  @Input() miLogopeda: IUser = {
-    id: 0, nombre: "", apellidos: "", email: "", password: "", rol: "logopeda", status: true, imagen: "", logopeda: [{ usuario_id: 0, telefono: "", precio: 0, experiencia: 0, descripcion: "", infancia_o_adulto: "" }]
+
+
+  @Input() miLogopeda: ILogopeda = {
+    id: 0, nombre: "", apellidos: "", email: "", telefono: "", precio: 0, longitud: 0, latitud: 0, descripcion: "", experiencia: 0, imagen: "", infancia_o_adulto: ""
   };
 
 
-  Length: any;
+
+
 
   ngOnInit() {
 
-    this.datosLogopeda = this.miLogopeda.logopeda;
+
 
   }
 

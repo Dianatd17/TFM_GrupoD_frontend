@@ -8,9 +8,9 @@ import { HttpClientModule } from '@angular/common/http';
 
 >>>>>>> Stashed changes
 import { AppComponent } from './app.component';
-import { HomeComponent } from './modules/home/components/home/home.component';
+
 import { ListaLogopedasComponent } from './modules/logopedas/components/lista-logopedas/lista-logopedas.component';
-import { LogopedasCardComponent } from './modules/logopedas/components/logopedas-card/logopedas-card.component';
+
 
 
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
@@ -22,9 +22,8 @@ import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     ListaLogopedasComponent,
-    LogopedasCardComponent
+
   ],
   imports: [
     BrowserModule,

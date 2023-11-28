@@ -2,33 +2,16 @@
     box-sizing: border-box;
 }
 
-.wrapper {
-    max-width: 1440px;
-    padding-top: 4rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    margin-left: auto;
-    margin-right: auto
-}
-
 .main {
     display: flex;
     flex-direction: column-reverse;
-
-}
-
-.main_w-list {
-    flex-grow: 5;
-}
-
-.main__w-map {
-    flex-grow: 1;
-    margin-top: 2cap;
 }
 
 .main_w-edad {
     margin-right: 5cap;
     text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 
 }
 
@@ -57,5 +40,6 @@
 @media only screen and (min-width: 1024px) and (max-width: 1920px) {
     .main {
         flex-direction: row;
+
     }
 }
