@@ -26,8 +26,8 @@ type tokenDecoded = { user_id: number, user_role:string, exp_at: Date };
 export class UsuariosService {
 
   //TODO: borrar esto y descomentar el baseUrl real cuando esté listo en el back
-  private baseUrl: string = "https://logopedas.free.beeceptor.com/api/usuarios";
-  //private baseUrl: string = 'http://localhost:3000/api/usuarios';
+  //private baseUrl: string = "https://logopedas.free.beeceptor.com/api/usuarios";
+  private baseUrl: string = 'http://localhost:3000/api/usuarios';
   private httpClient = inject(HttpClient);
 
   register(values: FormRegisterValue): Promise<FormRegisterResponse> {
@@ -48,14 +48,12 @@ export class UsuariosService {
   }
 
   getRole(): string {
-    //TODO: no borrar código! descomentar y quitar el return cuando esté la ruta hecha
-    /*const token = localStorage.getItem('auth_token');
+    const token = localStorage.getItem('auth_token');
     if(token) {
       const tokenDecode: tokenDecoded = jwtDecode(token!);
       return tokenDecode.user_role;
     }
-    return '';*/
-    return 'cliente'; // usar 'cliente', 'logopeda', 'admin', o '' si no está loggeado
+    return '';
   }
 
 }

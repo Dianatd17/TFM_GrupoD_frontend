@@ -65,8 +65,7 @@ export class FormRegisterComponent {
       //TODO: deberíamos consultar si el email ya existe en la bbdd antes de mandar nada
       const response = await this.usuariosService.register(this.formRegister.value);
       if (!response.id) {
-        this.errorMessage = "El usuario no pudo crearse";
-        console.log(response.fatal);
+        this.errorMessage = "El usuario no pudo crearse: " + response.fatal;
       } else {
         //TODO: usar un modal o notificación más bonita
         alert("Usuario creado correctamente");
