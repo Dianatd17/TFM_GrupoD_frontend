@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { LoginService } from '../../services/login.service';
 import { UsuariosService } from 'src/app/modules/auth/services/usuarios.service';
+import { isEmpty } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -21,13 +22,22 @@ export class HeaderComponent {
 
 
   ngOnInit(){
-    this.log = this.loginService.getLog();
+    //this.log = this.loginService.getLog();
+    localStorage.setItem('auth_token', 'esto es el localstorage ikjfhiuefhfwe8ry487332')
+    console.log(localStorage.getItem('auth_token'))
+    this.log = this.userService.isLogged();
   }
+
+
   
   cambiar(){
     this.loginService.loginLogOut()
     this.log = this.loginService.getLog();
+  }
 
+  cerrarSesion(){
+    localStorage.removeItem('auth_token');
+    this.log = this.userService.isLogged()
   }
 
 
@@ -40,5 +50,8 @@ export class HeaderComponent {
       }, 350)
     }
   }
+
+
+
 
 }

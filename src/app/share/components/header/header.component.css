@@ -4,8 +4,6 @@ nav{
     color: white;
 }
 
-
-
 li{
     margin-left: 7px;
     margin-right: 7px;
@@ -14,6 +12,7 @@ li{
 
 a.a_list{
     color: white;
+    cursor: pointer;
 }
 
 a.a_list::after {
@@ -49,7 +48,7 @@ a.activado::after{
 
 
 @media(max-width: 770px){
-    .iamge_brand{
+    .image_brand{
         order: 1;
         margin-right: 0;
         flex-grow: 1;
@@ -58,10 +57,25 @@ a.activado::after{
         justify-content: center;
     }
 
-    
+    nav{
+        min-height: 110px; 
+    }
+
     .image_user{
         order: 2;
         margin-right: 0;
+        flex-basis: 84px;
         
     }
+
+    .headder_button{
+        flex-basis: 84px;
+    }
+
+    .headder_button-span {
+        min-width: 35px ;
+
+    }
+
+    
 }
