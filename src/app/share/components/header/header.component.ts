@@ -27,29 +27,26 @@ export class HeaderComponent {
     this.log = this.userService.isLogged();
   }
 
-
-  
-  cambiar(){
-    this.loginService.loginLogOut()
-    this.log = this.loginService.getLog();
-  }
-
   cerrarSesion(){
     localStorage.removeItem('auth_token');
     this.log = this.userService.isLogged()
   }
-
-
+  
   esconderImagen(){
     if(!this.openMenu){
-        this.openMenu = !this.openMenu
+      this.openMenu = !this.openMenu
     }else{
       setTimeout(() =>{
         this.openMenu = !this.openMenu
       }, 350)
     }
   }
-
+  
+  
+  cambiar(){
+    this.loginService.loginLogOut()
+    this.log = this.loginService.getLog();
+  }
 
 
 
