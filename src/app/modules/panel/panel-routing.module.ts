@@ -3,8 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { PanelComponent } from './panel/panel.component';
 
 const routes: Routes = [
-  {path: '', component:PanelComponent}
-  //children
+  {path: ' ',  component:PanelComponent} //Completar aqui
+  
 ];
 
 @NgModule({

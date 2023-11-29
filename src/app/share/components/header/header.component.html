@@ -1,6 +1,10 @@
-<nav class="header navbar navbar-expand-md ">
+<nav class="header navbar navbar-expand-md">
   <div class="nav_wrapper container-fluid d-flex">
-    <div class="navbar-brand image_brand" [ngStyle]="{'display': openMenu ? 'none' : 'flex'}" href="#">
+    <div
+      class="navbar-brand image_brand"
+      [ngStyle]="{ display: openMenu ? 'none' : 'flex' }"
+      href="#"
+    >
       <img
         src="../../../../assets/images/logo1.png"
         alt="logo"
@@ -8,40 +12,65 @@
         height="84"
       />
     </div>
-    
+
     <button
-    class="navbar-toggler headder_button"
-    type="button"
-    (click)="esconderImagen()"
-    data-bs-toggle="collapse"
-    data-bs-target="#navbarNav"
-    aria-controls="navbarNav"
-    aria-expanded="false"
-    aria-label="Toggle navigation"
+      class="navbar-toggler headder_button"
+      type="button"
+      (click)="esconderImagen()"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
     >
-      <span class="navbar-toggler-icon headder_button-span" ></span>
+      <span class="navbar-toggler-icon headder_button-span"></span>
     </button>
-    
+
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav">
-        
         <li class="nav-item">
-          <a class="nav-link a_list" [routerLink]="['/home']" routerLinkActive="activado">Inicio</a>
+          <a
+            class="nav-link a_list"
+            [routerLink]="['/home']"
+            routerLinkActive="activado"
+            >Inicio</a
+          >
         </li>
         <li class="nav-item" *ngIf="log">
-          <a class="nav-link a_list" [routerLink]="['/panel']"  routerLinkActive="activado">Mi panel</a>   <!-- TODO FALTA HACER LINK A INICIO SESION -->
+          <a
+            class="nav-link a_list"
+            [routerLink]="['/panel']"
+            routerLinkActive="activado"
+            >Mi panel</a
+          >
+          <!-- TODO FALTA HACER LINK A INICIO SESION -->
         </li>
 
         <li class="nav-item" *ngIf="!log">
-          <a class="nav-link a_list" [routerLink]="['/auth', 'login']" routerLinkActive="activado">Inicio sesión</a>
-        
+          <a
+            class="nav-link a_list"
+            [routerLink]="['/auth', 'login']"
+            routerLinkActive="activado"
+            >Inicio sesión</a
+          >
+        </li>
+
         <li class="nav-item" *ngIf="log">
-          <a class="nav-link a_list" (click)="cerrarSesion()" routerLinkActive="activado">Cerrar sesión</a>
+          <a
+            class="nav-link a_list"
+            (click)="cerrarSesion()"
+            routerLinkActive="activado"
+            >Cerrar sesión</a
+          >
         </li>
       </ul>
     </div>
-    
-    <a class="navbar-brand image_user" href="#" [ngStyle]="{'display': openMenu ? 'none' : 'initial'}">
+
+    <a
+      class="navbar-brand image_user"
+      href="#"
+      [ngStyle]="{ display: openMenu ? 'none' : 'initial' }"
+    >
       <img
         src="../../../../assets/images/logo1.png"
         alt="iamgenLogin"
@@ -49,9 +78,5 @@
         height="84"
       />
     </a>
-
   </div>
 </nav>
-
-
-

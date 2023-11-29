@@ -64,12 +64,11 @@ a.activado::after{
     .image_user{
         order: 2;
         margin-right: 0;
-        flex-basis: 84px;
-        
+        flex-basis: 85px;
     }
 
     .headder_button{
-        flex-basis: 84px;
+        flex-basis: 85px;
     }
 
     .headder_button-span {
