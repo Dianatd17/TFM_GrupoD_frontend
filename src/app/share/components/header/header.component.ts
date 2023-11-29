@@ -24,7 +24,6 @@ export class HeaderComponent {
   ngOnInit(){
     //this.log = this.loginService.getLog();
     localStorage.setItem('auth_token', 'esto es el localstorage ikjfhiuefhfwe8ry487332')
-    console.log(localStorage.getItem('auth_token'))
     this.log = this.userService.isLogged();
   }
 

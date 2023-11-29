@@ -8,8 +8,7 @@ const routes: Routes = [
   { path: "home", component: HomeComponent },
   { path: 'auth', loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule) },
   { path: 'panel', loadChildren: () => import('./modules/panel/panel.module').then(m => m.PanelModule)}
-  /*,
-  { path: 'users', canActivateChild: [authGuard], loadChildren: () => import('./modules/users/user.module').then(m => m.UsuariosModule) }*/
+  
 
 ];
 
