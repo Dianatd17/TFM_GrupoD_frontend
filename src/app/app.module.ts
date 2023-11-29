@@ -9,6 +9,8 @@ import { HomeComponent } from './modules/home/components/home/home.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ShareModule } from './share/share.module';
 import { AuthInterceptor } from './core/interceptors/auth.interceptor';
+import { ListaLogopedasComponent } from './modules/logopedas/components/lista-logopedas/lista-logopedas.component';
+import { LogopedasCardComponent } from './modules/logopedas/components/logopedas-card/logopedas-card.component';
 
 
 
@@ -16,6 +18,8 @@ import { AuthInterceptor } from './core/interceptors/auth.interceptor';
   declarations: [
     AppComponent,
     HomeComponent,
+    ListaLogopedasComponent,
+    LogopedasCardComponent
   ],
   imports: [
     BrowserModule,

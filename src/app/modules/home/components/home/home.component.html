@@ -1,1 +1,31 @@
-<p>componente home</p>
+<div class="container">
+
+    <div class="main_w-edad">
+        <div class="btn-group text-center w-65" edad="group">
+            <div class="btn" (click)="cambiarSeleccion('infancia')"
+                [ngClass]="{'btn-active': botonEdad === 'infancia', 'btn-inactive': botonEdad !== 'infancia'}">
+                Infancia
+            </div>
+            <div class="btn btn-principal" (click)="cambiarSeleccion('adulto')"
+                [ngClass]="{'btn-active': botonEdad === 'adulto', 'btn-inactive': botonEdad !== 'adulto'}">
+                Adulto
+            </div>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="w-75 mx-5">
+            <app-lista-logopedas></app-lista-logopedas>
+        </div>
+        <div class="w-25 mx-5">
+            <img src="../../../../../assets/images/mapa.jpg" class="img-fluid" alt="..." />
+            <a target="_blank" jstcache="6"
+                href='http://maps.google.com/maps?saddr={{40.32744}},{{-3.76614}}&daddr={{40.32744}},{{-3.76614}}'
+                tabindex="0">
+                <span>Ver en Google Maps ☺</span>
+            </a>
+
+        </div>
+    </div>
+
+</div>

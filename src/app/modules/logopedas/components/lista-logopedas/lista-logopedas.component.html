@@ -1,12 +1,15 @@
-<section class="container my-3">
-    <div class="mt-3">
-        <div class="row row-cols-4 g-3">
-            <article class="col-xl-3 col-sm-12 col-lg-6 col-12" *ngFor="let user of arrUsers ">
+<div class="d-flex">
+
+    <div class="row">
+        <!--.col-lg-2 col-md-5 col-sm-6 col-xs-12-->
+        <!--.col-lg-12 col-md-12 col-sm-12 col-11-->
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <article *ngFor="let user of arrUsers">
+
+                <app-logopedas-card [miLogopeda]="user"></app-logopedas-card>
+
 
             </article>
         </div>
-
     </div>
-
-
-</section>
+</div>

@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+  botonEdad: string = "ambos";
 
+
+  cambiarSeleccion(edad: string) {
+    this.botonEdad = "ambos";
+    if (edad == "infancia" || edad == "adulto") {
+      this.botonEdad = edad;
+    }
+
+
+  }
 }

@@ -1,16 +1,18 @@
-<div class="card h-100 border-3 shadow p-3">
-
-    <div class="container text-center">
-        <div class="">
-            <!-- <img class="img-fluid rounded-circle" src="{{miUsuario.imagen}}"-->
-            <!-- alt="{{miUsuario.nombre}} {{miUsuario.apellidos}}" width="300" height="auto">-->
-            <img class="img-fluid rounded-circle" src="Pepe" alt="Lola" width="300" height="auto">
-
+<div class="card mb-3" style="max-width: 960px;">
+    <div class="row g-0">
+        <div class="col-md-2">
+            <img src="../../../../../assets/images/foto.png" class="img-fluid img-thumbnail" alt="...">
+            <p class="card-text text-center">{{miLogopeda.telefono}}</p>
         </div>
-        <!--card-title text-center my-3-->
-        <!-- <p class="card-text h5">{{miUsuario.provincia}} {{miUsuario.direccion}}</p>-->
-        <p class="card-text h5">logopeda : Pepe</p>
-
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">{{ miLogopeda.nombre }} {{ miLogopeda.apellidos }}</h5>
+                <p class="card-text">{{miLogopeda.descripcion}}</p>
+                <p class="card-text"><small class="text-muted">Experiencia {{miLogopeda.experiencia}} años</small></p>
+            </div>
+            <div class="card-footer border-0">
+                <button type="submit" class="btn btn-principal">Contactar</button>
+            </div>
+        </div>
     </div>
-
 </div>

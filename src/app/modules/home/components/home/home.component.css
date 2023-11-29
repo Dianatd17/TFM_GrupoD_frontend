@@ -2,64 +2,44 @@
     box-sizing: border-box;
 }
 
-.wrapper {
-    max-width: 1440px;
-    padding-top: 4rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    margin-left: auto;
-    margin-right: auto
-}
-
-.home {
+.main {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
+}
+
+.main_w-edad {
+    margin-right: 5cap;
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 
 }
 
-.home_w-list {
-    flex-grow: 4;
+.btn {
+    padding-right: 8cap;
 }
 
-.home__w-map {
-    flex-grow: 2;
-}
-
-.wcards {
-    display: flex;
-    flex-direction: column;
-}
-
-.wcards-logopeda {
-    height: 100px;
-    border-radius: 2rem;
-    box-shadow: rgb(6, 28, 29);
-    margin-bottom: 2rem;
-    border-color: beige;
-    border-style: inset;
-    background-color: #E5EFDF;
+.btn-principal,
+.btn-inactive {
+    background-color: #60bbdd;
+    color: white;
 
 }
 
-.wcards-logopeda_w {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+.btn-principal:hover,
+.btn-inactive:hover {
+    background-color: #216a92;
 }
 
-.wcards-logopeda_w-img {
-    flex-grow: 2;
-    border-radius: 1rem;
-    padding: 20px;
+.btn-active {
+    background-color: #216a92;
+    color: white;
 }
 
-.wcards-logopeda_w-text {
-    flex-grow: 5;
-    padding: 1rem;
-}
 
-@media (min-width: 1024px) {
-    .home {
+@media only screen and (min-width: 1024px) and (max-width: 1920px) {
+    .main {
         flex-direction: row;
+
     }
 }
