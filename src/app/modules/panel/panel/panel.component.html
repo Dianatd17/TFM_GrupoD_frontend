@@ -14,15 +14,17 @@
     <div class="informacion">
         <div class="inf_options">
             <ul class="">
-                <li *ngIf="userRol() === 'logopeda'" class=""><b><a href=""></a>Mis clientes</b></li> <!--! LINK  COMPONENT  -->
-                <li *ngIf="userRol() === 'logopeda' " class=""><b><a href=""></a>Notificaciones</b></li> <!--! LINK  COMPONENT  -->
-                <li *ngIf="userRol() === 'cliente' " class=""><b><a href=""></a>Mis Logopedas</b></li> <!--! LINK  COMPONENT  -->
+                <li [routerLink]="['clientes']" routerLinkActive="active" *ngIf="userRol() === 'logopeda'" class=""><b><a href=""></a>Mis clientes</b></li> <!--! LINK  COMPONENT  -->
+                <li [routerLink]="['notificaciones']" routerLinkActive="active" *ngIf="userRol() === 'logopeda' " class=""><b><a href=""></a>Notificaciones</b></li> <!--! LINK  COMPONENT  -->
+                <li [routerLink]="['logopedas']" routerLinkActive="active" *ngIf="userRol() === 'cliente' " class=""><b><a href=""></a>Mis Logopedas</b></li> <!--! LINK  COMPONENT  -->
                 <!-- TODO ME FALTA EL NG IF ROL -->
             </ul>
         </div>
 
         
-        <div class="inf_result">fffffdfd</div>
+        <div class="inf_result">
+            <router-outlet></router-outlet>
+        </div>
     </div>
 
 
