@@ -16,6 +16,9 @@ import { ListaLogopedasComponent } from './modules/logopedas/components/lista-lo
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ShareModule } from './share/share.module';
 import { AuthInterceptor } from './core/interceptors/auth.interceptor';
+import { MapaComponent } from './modules/mapas/components/mapa/mapa.component';
+import { GoogleMapsModule } from '@angular/google-maps';
+import { EuropeComponent } from './modules/mapas/components/europe/europe.component';
 
 
 
@@ -24,6 +27,10 @@ import { AuthInterceptor } from './core/interceptors/auth.interceptor';
     AppComponent,
     ListaLogopedasComponent,
 
+    HomeComponent,
+    MapaComponent,
+    EuropeComponent,
+  
   ],
   imports: [
     BrowserModule,
@@ -32,7 +39,8 @@ import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 
     ReactiveFormsModule,
     HttpClientModule,
-    ShareModule
+    ShareModule,
+    GoogleMapsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
