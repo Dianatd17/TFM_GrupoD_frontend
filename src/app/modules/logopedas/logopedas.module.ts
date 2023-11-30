@@ -4,13 +4,15 @@ import { CommonModule } from '@angular/common';
 import { LogopedasRoutingModule } from './logopedas-routing.module';
 
 
+
 @NgModule({
   declarations: [
 
   ],
   imports: [
     CommonModule,
-    LogopedasRoutingModule
+    LogopedasRoutingModule,
+    
   ]
 })
 export class LogopedasModule {
