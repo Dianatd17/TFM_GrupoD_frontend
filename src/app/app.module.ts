@@ -11,6 +11,9 @@ import { ShareModule } from './share/share.module';
 import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 import { ListaLogopedasComponent } from './modules/logopedas/components/lista-logopedas/lista-logopedas.component';
 import { LogopedasCardComponent } from './modules/logopedas/components/logopedas-card/logopedas-card.component';
+import { HomeFiltersComponent } from './modules/home/components/home-filters/home-filters.component';
+import { PorEdadComponent } from './modules/home/components/por-edad/por-edad.component';
+import { PorEspecialidadComponent } from './modules/home/components/por-especialidad/por-especialidad.component';
 
 
 
@@ -18,8 +21,11 @@ import { LogopedasCardComponent } from './modules/logopedas/components/logopedas
   declarations: [
     AppComponent,
     HomeComponent,
+    HomeFiltersComponent,
     ListaLogopedasComponent,
-    LogopedasCardComponent
+    LogopedasCardComponent,
+    PorEdadComponent,
+    PorEspecialidadComponent
   ],
   imports: [
     BrowserModule,

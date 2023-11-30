@@ -28,10 +28,10 @@ export class FormLoginComponent {
     }, []);
   }
 
-  //TODO: si hay token debería de reenviar a home si es cliente, área de usuario si es logopeda, descomentar cuando esté bien
-  /*ngOnInit(): void {
+  //TODO: si hay token debería de reenviar a home si es cliente, área de usuario si es logopeda
+  ngOnInit(): void {
     if (localStorage.getItem('auth_token')) this.router.navigate(['/home']);
-  }*/
+  }
 
   checkControl(formcontrolName: string, validator: string): boolean | undefined {
     return this.formLogin.get(formcontrolName)?.hasError(validator) && this.formLogin.get(formcontrolName)?.touched;

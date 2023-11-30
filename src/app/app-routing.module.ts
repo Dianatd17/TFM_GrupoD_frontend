@@ -5,11 +5,10 @@ import { authGuard } from './core/guards/auth.guard';
 
 const routes: Routes = [
   { path: "", pathMatch: "full", redirectTo: 'home' },
-  { path: "home", component: HomeComponent },
+  { path: "home", loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule) },
   { path: 'auth', loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule) },
-  { path: 'panel', loadChildren: () => import('./modules/panel/panel.module').then(m => m.PanelModule)}
-  
-
+  { path: 'panel', loadChildren: () => import('./modules/panel/panel.module').then(m => m.PanelModule) },
+  { path: '**', redirectTo: 'home' }
 ];
 
 @NgModule({

@@ -1,6 +1,6 @@
 <div class="container">
 
-    <div class="main_w-edad">
+    <!--<div class="main_w-edad" *ngIf="usuariosService.isLogged()">
         <div class="btn-group text-center w-65" edad="group">
             <div class="btn" (click)="cambiarSeleccion('infancia')"
                 [ngClass]="{'btn-active': botonEdad === 'infancia', 'btn-inactive': botonEdad !== 'infancia'}">
@@ -11,10 +11,11 @@
                 Adulto
             </div>
         </div>
-    </div>
+    </div>-->
 
-    <div class="main">
-        <div class="w-75 mx-5">
+    <div class="main mt-3">
+        <div class="w-75">
+            <app-home-filters *ngIf="usuariosService.isLogged()" activo="todos"></app-home-filters>
             <app-lista-logopedas></app-lista-logopedas>
         </div>
         <div class="w-25 mx-5">

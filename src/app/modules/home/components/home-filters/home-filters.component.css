@@ -1,0 +1,28 @@
+.main_w-edad {
+    margin-right: 5cap;
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.nav-pills {
+    border: 1px solid #60bbdd;
+    border-radius: 10px;
+}
+
+.btn-principal,
+.btn-active:hover,
+.btn-inactive,
+.dropdown-toggle {
+    background-color: #60bbdd;
+    color: white;
+    text-align: center;
+}
+
+.btn-principal:hover,
+.btn-active,
+.btn-inactive:hover,
+.dropdown-toggle:hover {
+    background-color: #216a92;
+    color: white;
+}

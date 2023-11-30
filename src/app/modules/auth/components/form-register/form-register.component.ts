@@ -53,9 +53,9 @@ export class FormRegisterComponent {
   }
 
   //TODO: si hay token debería de reenviar a home, descomentar cuando esté bien
-  /*ngOnInit(): void {
+  ngOnInit(): void {
     if (localStorage.getItem('auth_token')) this.router.navigate(['/home']);
-  }*/
+  }
 
   async onSubmit() {
     this.formRegister.value.rol = this.botonRol;

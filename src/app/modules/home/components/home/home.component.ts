@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { UsuariosService } from 'src/app/modules/auth/services/usuarios.service';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,7 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
   botonEdad: string = "ambos";
+  usuariosService = inject(UsuariosService);
 
 
   cambiarSeleccion(edad: string) {
