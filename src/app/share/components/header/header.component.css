@@ -47,7 +47,7 @@ a.activado::after{
 } 
 
 
-@media(max-width: 770px){
+@media(max-width: 767px){
     .image_brand{
         order: 1;
         margin-right: 0;
