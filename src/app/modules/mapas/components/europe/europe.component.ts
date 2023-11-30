@@ -17,15 +17,15 @@ export class EuropeComponent {
     width: '100%',
     height: '85vh',
     zoom: 5,
-    center: new google.maps.LatLng(40,-3)
-  
-}
+    center: new google.maps.LatLng(40, -3)
+
+  }
 
   countriesService = inject(CountriesService)
   arrCountries: Country[] = [];
   arrMarkers: any[] = []; //podría crear un interfaz de markers
-  ngOnInit(): void{
-    
+  ngOnInit(): void {
+
     this.countriesService.getAll().subscribe(data => {
       //console.log(data);
       data.forEach(country => {
@@ -40,13 +40,13 @@ export class EuropeComponent {
 
         })
       })
-      console.log(this.arrMarkers)
+      // console.log(this.arrMarkers)
     })
   }
-  
 
-  openInfoWindow(marker: MapMarker, indice:number) {
-    let contador=0;
+
+  openInfoWindow(marker: MapMarker, indice: number) {
+    let contador = 0;
     this.infoWindowsView.forEach((window: MapInfoWindow) => {
       if (indice === contador) {
         window.open(marker);
@@ -57,6 +57,6 @@ export class EuropeComponent {
 
       }
     })
-}
+  }
 
 }
