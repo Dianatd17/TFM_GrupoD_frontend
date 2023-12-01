@@ -20,12 +20,13 @@ export class ListaLogopedasComponent {
 
   async getPage() {
     try {
+      debugger;
       const response = await this.logopedasServices.getTop20();
-      // console.log(response);
+      // console.log(response)
       //  this.currentPage = response.page;
       //   this.totalPage = response.total_pages;
       //   this.arrPag = new Array(this.totalPage).fill(0);
-      this.arrUsers = response.logopedas;
+      this.arrUsers = response;
     } catch (err) {
       console.log(err);
     }

@@ -16,7 +16,7 @@ export interface IUser {
     precio?: number
     experiencia?: number
     descripcion?: string
-    infancia_o_adulto: string
+    infancia_o_adulto?: string
 }
 
 

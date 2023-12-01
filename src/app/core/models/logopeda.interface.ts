@@ -4,13 +4,14 @@ export interface ILogopeda {
     apellidos: string
     email: string
     telefono: string
+    localidad?: string
     longitud?: number
     latitud?: number
     precio?: number
     experiencia?: number
     descripcion?: string
     imagen?: string
-    infancia_o_adulto: string//['infancia', 'adulto', 'ambos']
+    infancia_o_adulto?: string//['infancia', 'adulto', 'ambos']
     puntuacion?: number
     comentarios?: string[]
     especialidades?: string[]

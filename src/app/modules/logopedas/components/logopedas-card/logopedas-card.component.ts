@@ -11,9 +11,8 @@ export class LogopedasCardComponent {
 
 
   @Input() miLogopeda: ILogopeda = {
-    id: 0, nombre: "", apellidos: "", email: "", telefono: "", precio: 0, longitud: 0, latitud: 0, descripcion: "", experiencia: 0, imagen: "", infancia_o_adulto: ""
+    id: 0, nombre: "", apellidos: "", email: "", telefono: "", localidad: "", precio: 0, descripcion: "", experiencia: 0, imagen: "", puntuacion: 0
   };
-
 
 
 }
