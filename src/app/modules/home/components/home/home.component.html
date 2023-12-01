@@ -1,24 +1,12 @@
 <div class="container">
 
-    <!--<div class="main_w-edad" *ngIf="usuariosService.isLogged()">
-        <div class="btn-group text-center w-65" edad="group">
-            <div class="btn" (click)="cambiarSeleccion('infancia')"
-                [ngClass]="{'btn-active': botonEdad === 'infancia', 'btn-inactive': botonEdad !== 'infancia'}">
-                Infancia
-            </div>
-            <div class="btn btn-principal" (click)="cambiarSeleccion('adulto')"
-                [ngClass]="{'btn-active': botonEdad === 'adulto', 'btn-inactive': botonEdad !== 'adulto'}">
-                Adulto
-            </div>
-        </div>
-    </div>-->
-
     <div class="main mt-5">
         <div class="w-100">
             <app-home-filters *ngIf="usuariosService.isLogged()" activo="todos"></app-home-filters>
             <app-lista-logopedas></app-lista-logopedas>
+
         </div>
-        <div class="w-50 mx-5">    
+        <div class="w-50 mx-5">
             <app-europe></app-europe>
         </div>
     </div>

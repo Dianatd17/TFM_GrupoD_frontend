@@ -10,8 +10,17 @@
                 <p class="card-text">{{miLogopeda.descripcion}}</p>
                 <p class="card-text"><small class="text-muted">Experiencia {{miLogopeda.experiencia}} años</small></p>
             </div>
-            <div class="card-footer border-0">
-                <button type="submit" class="btn btn-principal">Contactar</button>
+            <div class="card-footer bg-transparent m-auto border-opacity-10" *ngIf="usuariosService.isLogged()">
+                <div class="wfooter">
+                    <div class="">
+                        <p class=""><strong>Precio/hora: </strong> {{miLogopeda.precio | currency :'EUR'}}</p>
+                    </div>
+                    <div class="">
+                        <button type="submit" class="btn btn-principal"
+                            (click)="contactarLogopeda(miLogopeda.id)">Contactar</button>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

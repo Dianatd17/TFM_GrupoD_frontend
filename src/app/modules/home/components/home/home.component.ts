@@ -7,16 +7,7 @@ import { UsuariosService } from 'src/app/modules/auth/services/usuarios.service'
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  botonEdad: string = "ambos";
   usuariosService = inject(UsuariosService);
 
 
-  cambiarSeleccion(edad: string) {
-    this.botonEdad = "ambos";
-    if (edad == "infancia" || edad == "adulto") {
-      this.botonEdad = edad;
-    }
-
-
-  }
 }
