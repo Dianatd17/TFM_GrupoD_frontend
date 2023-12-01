@@ -24,7 +24,7 @@ export class ListaLogopedasComponent {
 
 
   ngOnInit(): void {
-
+    // prueba
     this.isLog = this.usuarioService.isLogged();
 
     if (this.isLog) {
