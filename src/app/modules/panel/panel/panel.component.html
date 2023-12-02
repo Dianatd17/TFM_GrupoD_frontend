@@ -1,1 +1,39 @@
-<p>panel works!</p>
+<div class="panel">
+    <!-- div para imagen, nombre y logopeda -->
+    <div class="usuario">
+        <div class="usuario_imagen">
+            <img src="../../../../assets/images/logo1.png" height="143" width="142" alt="">
+        </div>
+
+        <h2 class="usuario_nombre">Jose Maria Gonzalez</h2> 
+        <div class="usuario_rol">Logopeda</div> 
+        
+       <!--  <h2 class="usuario_nombre">{{user.nombre}} {{user.apellido}}</h2> 
+        <div class="usuario_rol">{{ userRol() }}</div>  -->
+
+
+    </div>
+
+    <div class="informacion">
+        <div class="inf_options">
+            <ul class="">
+                <li [routerLink]="['clientes']" routerLinkActive="active" *ngIf="userRol() === 'logopeda'" class=""><b><a href=""></a>Mis clientes</b></li> <!--! LINK  COMPONENT  -->
+                <li [routerLink]="['notificaciones']" routerLinkActive="active" *ngIf="userRol() === 'logopeda' " class=""><b><a href=""></a>Notificaciones</b></li> <!--! LINK  COMPONENT  -->
+                <li [routerLink]="['logopedas']" routerLinkActive="active" *ngIf="userRol() === 'cliente' " class=""><b><a href=""></a>Mis Logopedas</b></li> <!--! LINK  COMPONENT  -->
+                <!-- TODO ME FALTA EL NG IF ROL -->
+                <li [routerLink]="['perfil']" routerLinkActive="active"  class=""><b><a href=""></a>Editar Perfil</b></li> 
+                
+            </ul>
+        </div>
+
+        
+        <div class="inf_result">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+
+
+
+
+    
+</div>

@@ -1,0 +1,124 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.panel{
+    height: 100vh;
+}
+.usuario{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.usuario_imagen{
+    position: relative;
+    height: 80px;
+}
+
+.usuario_imagen img{
+    position: relative;
+    z-index: 1;
+    top: -60px;
+    
+}
+
+.usuario_rol{
+    font-size: 24px;
+}
+
+/* LA PARTE DE LA INFORAMCIÓN */
+
+.informacion{
+    display: flex;
+    max-width: 1500px;
+    margin: auto;
+    margin-top: 3vw;
+    padding-left: 3vw ; 
+    padding-right:3vw ;
+   
+}
+
+
+
+li{
+    position: relative;
+    cursor: pointer;
+    list-style: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 18px;
+}
+
+li::after{
+    content: '';
+    width: 0%;
+    height: 10%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-radius: 10px;
+    background-color: #60BBDD;
+    transition: width 0.3s;
+}
+
+li:hover::after{
+    width: 100%;
+}
+
+.active::after{
+    content: '';
+    width: 100%;
+    height: 10%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-radius: 10px;
+    background-color: #60BBDD;
+    transition: all 0.3s; 
+}
+
+
+ul{
+    padding-right: 2vw;
+    border-right: 2px solid grey;
+}
+
+
+
+
+@media (max-width: 970px){
+    .usuario{
+        background-color: yellowgreen;
+    }
+
+    .usuario_imagen{
+        position: relative;
+        height: auto;
+    }
+
+    .usuario_imagen img{
+        position: static;
+    }
+
+    /* INFORMACION */
+
+    .informacion{
+        flex-direction: column;
+    }
+
+    .inf_options ul{
+        display: flex;
+        justify-content: space-around;
+        
+    }
+}
+
+
+@media (max-width: 720px){
+    .usuario{
+        background-color: red;
+    }
+}
