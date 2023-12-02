@@ -13,14 +13,7 @@
         <a class="nav-link" [ngClass]="{'btn-active': activo === 'adulto','btn-inactive': activo !== 'adulto'}" href="/home/adulto">Adulto</a>
         </li>
         <li class="nav-item dropdown p-2">
-        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Especialidad</a>
-        <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Separated link</a></li>
-        </ul>
+        <app-lista-especialidades></app-lista-especialidades>
         </li>
     </ul>
 </div>

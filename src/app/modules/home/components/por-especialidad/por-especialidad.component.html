@@ -1,4 +1,10 @@
 <div class="container">
-    <app-home-filters activo=""></app-home-filters>
-    <p>por-especialidad works!</p>
+    <app-home-filters activo="Especialidad"></app-home-filters>
+    <div class="fs-1">{{ especialidad }}</div>
+    <div class="fs-6">{{ descripcion }} 
+        <span class="badge rounded-pill text-bg-info me-1" *ngIf="es_infancia !== 0">Infancia</span> 
+        <span class="badge rounded-pill text-bg-info" *ngIf="es_infancia !== 1">Adulto</span>
+    </div>
+    <hr />
+    <app-lista-logopedas></app-lista-logopedas>
 </div>

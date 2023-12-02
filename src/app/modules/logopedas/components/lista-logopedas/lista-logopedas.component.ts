@@ -16,7 +16,6 @@ export class ListaLogopedasComponent {
   activeRoute = inject(ActivatedRoute);
   router = inject(Router);
 
-
   logopedasServices = inject(LogopedasService)
   usuarioService = inject(UsuariosService)
   isLog: boolean = false;
@@ -24,17 +23,20 @@ export class ListaLogopedasComponent {
 
 
   ngOnInit(): void {
-    // prueba
     this.isLog = this.usuarioService.isLogged();
 
     if (this.isLog) {
       let edad: string = ""
+      let especialidad: number = 0
       this.activeRoute.params.subscribe((params: any) => {
         console.log(params.edad);
         edad = params.edad;
+        especialidad = Number(params.especialidadId);
 
         if (edad) {
           this.getLogopedasEdad(edad);
+        } else if (especialidad > 0) {
+          this.getLogopedasEspecialidad(especialidad);
         } else {
           this.router.navigate(['/home']);
           this.getLogopedasMejorValoradoTop20();
@@ -70,4 +72,15 @@ export class ListaLogopedasComponent {
       console.log(err);
     }
   }
+
+  async getLogopedasEspecialidad(id: number) {
+    try {
+      const response = await this.logopedasServices.getLogopedaByEspecialidad(id);
+      this.arrUsers = response;
+
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
 }

@@ -10,11 +10,7 @@ import { IlogopedaHasClientes } from 'src/app/core/models/logopedasHasClientes.i
 })
 export class LogopedasService {
 
-  //"https://jsonblob.com/api/jsonBlob/1177751215915524096"
-  // private baseUrl: string = "http://localhost:3000/api/public";
   private baseUrl: string = "http://localhost:3000/api/";
-
-  //http://localhost:3000/api/usuarios/logopedas/edad/
   httpClient = inject(HttpClient);
   constructor() { }
 
@@ -26,11 +22,15 @@ export class LogopedasService {
 
 
   getLogopedaByEdad(edad: string): Promise<ILogopeda[]> {
+    // TODO: cambiarlo y descomentar cuando esté la ruta
     const logopedasEdad: string = this.baseUrl + "usuarios/logopedas/"
-
     return lastValueFrom(this.httpClient.get<ILogopeda[]>(`${logopedasEdad}${edad}`))
+  }
 
-
+  getLogopedaByEspecialidad(id: number): Promise<ILogopeda[]> {
+    // TODO: cambiarlo y descomentar cuando esté la ruta
+    const logopedasEspecialidad: string = this.baseUrl + "usuarios/logopedas/especialidad";
+    return lastValueFrom(this.httpClient.get<ILogopeda[]>(`${logopedasEspecialidad}/${id}`));
   }
 
   createContactarLogopedaHasCliente(logHasCliente: IlogopedaHasClientes) {

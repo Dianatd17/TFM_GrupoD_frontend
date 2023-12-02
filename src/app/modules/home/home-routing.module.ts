@@ -6,7 +6,7 @@ import { PorEdadComponent } from './components/por-edad/por-edad.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
-  { path: 'especialidad/:id', component: PorEspecialidadComponent },
+  { path: 'especialidad/:especialidadId', component: PorEspecialidadComponent },
   { path: ':edad', component: PorEdadComponent },
 ];
 
