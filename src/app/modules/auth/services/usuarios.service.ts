@@ -1,8 +1,8 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
- import { jwtDecode } from 'jwt-decode';
- 
+import { jwtDecode } from 'jwt-decode';
+
 type FormRegisterValue = {
   nombre: string, apellidos: string, email: string,
   password: string, repitepassword: string, rol: string,
@@ -10,7 +10,7 @@ type FormRegisterValue = {
   telefono: string, infancia_o_adulto: string
 };
 type FormRegisterResponse = {
-  id: number, nombre: string, apellidos: string, 
+  id: number, nombre: string, apellidos: string,
   email: string, password: string, rol: string,
   direccion: string, localidad: string, provincia: string,
   telefono: string, infancia_o_adulto: string, fatal: string
@@ -18,7 +18,7 @@ type FormRegisterResponse = {
 type FormLoginValue = { email: string, password: string };
 type FormLoginResponse = { success: string, token: string, fatal: string };
 
-type tokenDecoded = { user_id: number, user_role:string, exp_at: Date };
+type tokenDecoded = { user_id: number, user_role: string, exp_at: Date };
 
 @Injectable({
   providedIn: 'root'
@@ -49,11 +49,20 @@ export class UsuariosService {
 
   getRole(): string {
     const token = localStorage.getItem('auth_token');
-    if(token) {
+    if (token) {
       const tokenDecode: tokenDecoded = jwtDecode(token!);
       return tokenDecode.user_role;
     }
     return '';
+  }
+
+  getIdUsuario(): number {
+    const token = localStorage.getItem('auth_token');
+    if (token) {
+      const tokenDecode: tokenDecoded = jwtDecode(token!);
+      return tokenDecode.user_id;
+    }
+    return 0;
   }
 
 }

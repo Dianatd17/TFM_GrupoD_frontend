@@ -10,8 +10,14 @@
 .btn-principal {
     background-color: #216a92;
     color: white;
+    align-self: flex-end;
 }
 
 .btn-principal:hover {
     background-color: #216a92;
+}
+
+.wfooter {
+    display: flex;
+    justify-content: space-between;
 }
