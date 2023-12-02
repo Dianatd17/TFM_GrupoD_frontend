@@ -4,6 +4,7 @@ import { PanelComponent } from './panel/panel.component';
 import { NotificacionesComponent } from './components/notificaciones/notificaciones.component';
 import { ClientesComponent } from './components/clientes/clientes.component';
 import { LogopedasComponent } from './components/logopedas/logopedas.component';
+import { PerfilComponent } from './components/perfil/perfil.component';
 
 const routes: Routes = [
   {
@@ -11,7 +12,8 @@ const routes: Routes = [
     children: [
       {path: 'notificaciones', component: NotificacionesComponent},
       {path: 'clientes', component: ClientesComponent},
-      {path: 'logopedas', component: LogopedasComponent}
+      {path: 'logopedas', component: LogopedasComponent},
+      {path: 'perfil', component: PerfilComponent},
     ]
 
   },

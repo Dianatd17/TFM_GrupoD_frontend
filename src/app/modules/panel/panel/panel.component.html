@@ -5,9 +5,12 @@
             <img src="../../../../assets/images/logo1.png" height="143" width="142" alt="">
         </div>
 
-        <h2 class="usuario_nombre">Jose Maria Gonzalez</h2> <!-- ESTO DEPENDERA TAMBIEN EL USUARIO -->
+        <h2 class="usuario_nombre">Jose Maria Gonzalez</h2> 
+        <div class="usuario_rol">Logopeda</div> 
+        
+       <!--  <h2 class="usuario_nombre">{{user.nombre}} {{user.apellido}}</h2> 
+        <div class="usuario_rol">{{ userRol() }}</div>  -->
 
-        <div class="usuario_rol">Logopeda</div> <!-- ESTO DEPENDERA DEL ROL  {{userrol()}}-->
 
     </div>
 
@@ -18,6 +21,8 @@
                 <li [routerLink]="['notificaciones']" routerLinkActive="active" *ngIf="userRol() === 'logopeda' " class=""><b><a href=""></a>Notificaciones</b></li> <!--! LINK  COMPONENT  -->
                 <li [routerLink]="['logopedas']" routerLinkActive="active" *ngIf="userRol() === 'cliente' " class=""><b><a href=""></a>Mis Logopedas</b></li> <!--! LINK  COMPONENT  -->
                 <!-- TODO ME FALTA EL NG IF ROL -->
+                <li [routerLink]="['perfil']" routerLinkActive="active"  class=""><b><a href=""></a>Editar Perfil</b></li> 
+                
             </ul>
         </div>
 

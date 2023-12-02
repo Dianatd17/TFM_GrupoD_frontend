@@ -6,6 +6,7 @@ import { PanelComponent } from './panel/panel.component';
 import { ClientesComponent } from './components/clientes/clientes.component';
 import { NotificacionesComponent } from './components/notificaciones/notificaciones.component';
 import { LogopedasComponent } from './components/logopedas/logopedas.component';
+import { PerfilComponent } from './components/perfil/perfil.component';
 
 
 @NgModule({
@@ -13,11 +14,13 @@ import { LogopedasComponent } from './components/logopedas/logopedas.component';
     PanelComponent,
     ClientesComponent,
     NotificacionesComponent,
-    LogopedasComponent
+    LogopedasComponent,
+    PerfilComponent
   ],
   imports: [
     CommonModule,
-    PanelRoutingModule
+    PanelRoutingModule,
+    
   ]
 })
 export class PanelModule { }
