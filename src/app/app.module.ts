@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './modules/home/components/home/home.component';
 
 
+
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ShareModule } from './share/share.module';
 import { AuthInterceptor } from './core/interceptors/auth.interceptor';
@@ -17,6 +18,10 @@ import { PorEdadComponent } from './modules/home/components/por-edad/por-edad.co
 import { PorEspecialidadComponent } from './modules/home/components/por-especialidad/por-especialidad.component';
 import { MapalogopedasComponent } from './modules/mapas/components/mapalogopedas/mapalogopedas.component';
 import { ListaEspecialidadesComponent } from './modules/especialidades/components/lista-especialidades/lista-especialidades.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
+
 
 
 
@@ -40,7 +45,15 @@ import { ListaEspecialidadesComponent } from './modules/especialidades/component
     ReactiveFormsModule,
     HttpClientModule,
     ShareModule,
-    GoogleMapsModule
+    GoogleMapsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 1500,
+      progressBar: true,
+      progressAnimation: 'increasing'
+    }
+    )
+
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }

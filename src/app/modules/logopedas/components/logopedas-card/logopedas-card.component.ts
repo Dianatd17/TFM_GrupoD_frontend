@@ -4,6 +4,10 @@ import { UsuariosService } from 'src/app/modules/auth/services/usuarios.service'
 import { LogopedasService } from '../../services/logopedas.service';
 import { IlogopedaHasClientes } from 'src/app/core/models/logopedasHasClientes.interface';
 import { DatePipe } from '@angular/common';
+import { ToastrService } from 'ngx-toastr';
+
+
+
 
 
 @Component({
@@ -13,8 +17,9 @@ import { DatePipe } from '@angular/common';
 })
 export class LogopedasCardComponent {
   clienteContactar: IlogopedaHasClientes = { id: 0, logopeda_id: 0, cliente_id: 0, comentarios: "", puntuacion: 0, fecha_inicio: "", status: "pendiente" };
-  pipe = new DatePipe('es-US');
+  pipe = new DatePipe('en-ES');
 
+  private toastrService = inject(ToastrService);
   logopedasServices = inject(LogopedasService)
   usuariosService = inject(UsuariosService);
 
@@ -22,25 +27,53 @@ export class LogopedasCardComponent {
     id: 0, nombre: "", apellidos: "",direccion:"", email: "", telefono: "", precio: 0, longitud: 0, latitud: 0, descripcion: "", experiencia: 0, imagen: "", infancia_o_adulto: ""
   };
 
+  ngOnInit() {
+    let imageTmp: string = '../../../../../assets/images/foto.png';
+    if (!this.miLogopeda.imagen) {
+      this.miLogopeda.imagen = imageTmp;
+    }
+
+  }
 
   async contactarLogopeda(idLogopeda: number) {
-    debugger;
+
     const idCliente: number = this.usuariosService.getIdUsuario()
     console.log(idCliente)
     if (idCliente !== 0) {
+      let currentDate = new Date();
+      this.clienteContactar.logopeda_id = idLogopeda
+      this.clienteContactar.cliente_id = idCliente
+      this.clienteContactar.comentarios = ""
+      this.clienteContactar.puntuacion = 0
+      this.clienteContactar.fecha_inicio = this.pipe.transform(currentDate, 'yyyy-MM-dd')!;
 
-      //   this.clienteContactar.logopeda_id = idLogopeda
-      //  this.clienteContactar.cliente_id = idCliente
-      //   this.clienteContactar.comentarios = ""
-      // this.clienteContactar.puntuacion = 0
-      //this.clienteContactar.fecha_inicio = this.pipe.transform(Date.now(), 'yyyy-MM-dd')!;
-
-      //console.log(this.clienteContactar)
-      // const response = await this.logopedasServices.createContactarLogopedaHasCliente(this.clienteContactar);
-      // console.log(response)
-      //if (response.id) {
-      // console.log('Se ha enviado la notificación a:' + this.miLogopeda.nombre + ' ' + this.miLogopeda.apellidos)
-      // }
+      const response = await this.logopedasServices.createContactarLogopedaHasCliente(this.clienteContactar);
+      console.log(response)
+      if (response) {
+        this.toastrService.success('Notificación enviada', 'Contactar logopeda')
+      } else {
+        this.toastrService.error('No se ha podido enviar la notificación de contacto')
+      }
     }
   }
+
+  urlImgValidator(image: string): any {
+
+    const rutaImagen = image
+    const expUrl = /(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/
+    const expImg = /.*(png|jpg|jpeg|gif)$/
+
+
+    //primero validamos si es una URL
+    if (expUrl.test(rutaImagen)) {
+
+      //validamos que sea una imagen
+      return (!expImg.test(rutaImagen)) ? { 'urlimgvalidator': true } : false
+
+    } else {
+      return { 'urlimgvalidator': false }
+    }
+
+  }
+
 }
