@@ -2,10 +2,11 @@ export interface ILogopeda {
     id: number
     nombre: string
     apellidos: string
+    direccion: string
     email: string
     telefono: string
-    longitud?: number
-    latitud?: number
+    longitud: number
+    latitud: number
     precio?: number
     experiencia?: number
     descripcion?: string

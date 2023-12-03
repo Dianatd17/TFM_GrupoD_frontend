@@ -17,6 +17,7 @@ import { LogopedasCardComponent } from './modules/logopedas/components/logopedas
 import { HomeFiltersComponent } from './modules/home/components/home-filters/home-filters.component';
 import { PorEdadComponent } from './modules/home/components/por-edad/por-edad.component';
 import { PorEspecialidadComponent } from './modules/home/components/por-especialidad/por-especialidad.component';
+import { MapalogopedasComponent } from './modules/mapas/components/mapalogopedas/mapalogopedas.component';
 
 
 
@@ -31,7 +32,8 @@ import { PorEspecialidadComponent } from './modules/home/components/por-especial
     ListaLogopedasComponent,
     LogopedasCardComponent,
     PorEdadComponent,
-    PorEspecialidadComponent
+    PorEspecialidadComponent,
+    MapalogopedasComponent
   ],
   imports: [
     BrowserModule,

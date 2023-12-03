@@ -1,0 +1,11 @@
+<google-map [width]="options.width" [height]="options.height" [center]="options.center" [zoom]="options.zoom">
+<map-marker #miMarker="mapMarker" *ngFor="let marker of arrMarkers, let i=index" [position]="marker.position" [options]="{icon:marker.icon}" (mapClick)="openInfoWindow(miMarker,i)" >
+
+    <map-info-window>
+        <h2>{{marker.nombre}}</h2>
+        <h4>{{marker.descripcion}}</h4>
+        <h4>{{marker.precio+"€"}}</h4>
+    </map-info-window>
+</map-marker>
+
+</google-map>

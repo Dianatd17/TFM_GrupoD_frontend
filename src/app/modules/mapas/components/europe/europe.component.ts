@@ -1,4 +1,4 @@
-import { Component, QueryList, ViewChild, ViewChildren, inject } from '@angular/core';
+import { Component, QueryList, ViewChildren, inject } from '@angular/core';
 import { CountriesService } from '../../services/countries.service';
 import { Country } from '../../interfaces/country.interface';
 import { MapInfoWindow, MapMarker } from '@angular/google-maps';
@@ -19,7 +19,7 @@ export class EuropeComponent {
     zoom: 5,
     center: new google.maps.LatLng(40,-3)
   
-}
+  }
 
   countriesService = inject(CountriesService)
   arrCountries: Country[] = [];
@@ -57,6 +57,6 @@ export class EuropeComponent {
 
       }
     })
-}
+  }
 
 }
