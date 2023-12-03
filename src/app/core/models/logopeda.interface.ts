@@ -4,7 +4,6 @@ export interface ILogopeda {
     apellidos: string
     direccion: string
     email: string
-    localidad?: string
     telefono: string
     longitud: number
     latitud: number
