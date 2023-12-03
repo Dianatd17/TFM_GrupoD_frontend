@@ -7,6 +7,7 @@ export interface ILogopeda {
     telefono: string
     longitud: number
     latitud: number
+    localidad?: string
     precio?: number
     experiencia?: number
     descripcion?: string
