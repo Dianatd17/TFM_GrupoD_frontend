@@ -9,4 +9,8 @@ export class HomeFiltersComponent {
 
   @Input() activo: string = '';
 
+  ngOnInit() {
+    console.log(`activo: ${this.activo}`);
+  }
+
 }

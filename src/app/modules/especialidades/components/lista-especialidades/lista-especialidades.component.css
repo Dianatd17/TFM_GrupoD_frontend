@@ -1,0 +1,10 @@
+.dropdown-toggle {
+    background-color: #60bbdd;
+    color: white;
+    text-align: center;
+}
+
+.dropdown-toggle:hover {
+    background-color: #216a92;
+    color: white;
+}

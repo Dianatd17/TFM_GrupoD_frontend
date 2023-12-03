@@ -18,6 +18,7 @@ import { HomeFiltersComponent } from './modules/home/components/home-filters/hom
 import { PorEdadComponent } from './modules/home/components/por-edad/por-edad.component';
 import { PorEspecialidadComponent } from './modules/home/components/por-especialidad/por-especialidad.component';
 import { MapalogopedasComponent } from './modules/mapas/components/mapalogopedas/mapalogopedas.component';
+import { ListaEspecialidadesComponent } from './modules/especialidades/components/lista-especialidades/lista-especialidades.component';
 
 
 
@@ -34,6 +35,8 @@ import { MapalogopedasComponent } from './modules/mapas/components/mapalogopedas
     PorEdadComponent,
     PorEspecialidadComponent,
     MapalogopedasComponent
+    PorEspecialidadComponent,
+    ListaEspecialidadesComponent
   ],
   imports: [
     BrowserModule,

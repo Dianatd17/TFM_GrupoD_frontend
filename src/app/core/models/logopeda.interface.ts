@@ -11,7 +11,7 @@ export interface ILogopeda {
     experiencia?: number
     descripcion?: string
     imagen?: string
-    infancia_o_adulto: string//['infancia', 'adulto', 'ambos']
+    infancia_o_adulto?: string//['infancia', 'adulto', 'ambos']
     puntuacion?: number
     comentarios?: string[]
     especialidades?: string[]

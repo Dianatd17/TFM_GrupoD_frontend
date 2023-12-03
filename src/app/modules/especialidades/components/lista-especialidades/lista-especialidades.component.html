@@ -1,0 +1,4 @@
+<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Especialidad</a>
+<ul class="dropdown-menu">
+    <li *ngFor="let e of listado"><a class="dropdown-item" [routerLink]="['/home/especialidad', e.id]">{{ e.especialidad }}</a></li>
+</ul>
