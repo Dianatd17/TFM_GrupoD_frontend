@@ -6,14 +6,29 @@ import { lastValueFrom } from 'rxjs';
 
 
 type tokenDecoded = { user_id: any, user_role:string, exp_at: Date };
-/* TODO EL ID ES UN STRING?? */
-type user = { usedr_id: string, nombre : string, apellidos:string, email:string, password: string, longitud: number, latitud:number, direccion: string, localidad: string, provincia: string, status: any, rol: string, iamgen: string  }
+
+type user = {
+  id: number,
+  nombre: string,
+  apellidos: string,
+  email: string,
+  password: string,
+  longitud: string,
+  latitud:string,
+  direccion: string,
+  localidad: string,
+  provincia: string,
+  status: number,
+  rol: string,
+  imagen: any
+}
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class PanelService {
-  private baseUrl:string = 'http://localhost:3000/api/usuarios'
+  private baseUrl:string = 'http://localhost:3000/api/usuarios' //! cuidado con el /usuarios 
   private userId: string = ''
   HttpClient = inject(HttpClient)
 
@@ -37,7 +52,26 @@ export class PanelService {
     return 'Id desconocido'
   }
 
+  /* Recupera los datos del user segun el id para poner su nombre e imagen */
+  getUser(): Promise<any>{
+    const token = localStorage.getItem('auth_token');
+    const decode: tokenDecoded = jwtDecode(token!);
+    return lastValueFrom(
+      this.HttpClient.get<any>(`${this.baseUrl}/${decode.user_id}`)
+      )
+  }
+    
+  getClientesByLogopeda():Promise<any>{
+    const token = localStorage.getItem('auth_token');
+    const decode: tokenDecoded = jwtDecode(token!);
+    return lastValueFrom(
+      this.HttpClient.get<any>(`${this.baseUrl}`)
+    )
+  }
+  
+
   getlogopedaById(): Promise<any>{
+    console.log(`El id es: ${this.userId}`)
     return lastValueFrom(
       this.HttpClient.get<user>(`${this.baseUrl}/logopedas/${this.userId}`)
     )

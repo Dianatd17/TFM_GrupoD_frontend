@@ -10,10 +10,14 @@ const routes: Routes = [
   {
     path: '',  component:PanelComponent,
     children: [
-      {path: 'notificaciones', component: NotificacionesComponent},
+      /* Logopedas */
       {path: 'clientes', component: ClientesComponent},
+      {path: 'notificaciones', component: NotificacionesComponent},
+      /* Clientes */
       {path: 'logopedas', component: LogopedasComponent},
+      /* Todas los usuarios */
       {path: 'perfil', component: PerfilComponent},
+      /* ADMINISTRADOR */
     ]
 
   },

@@ -17,20 +17,16 @@ export class PanelComponent {
 
   async ngOnInit(){
     try{
-      this.user = await this.panelService.getlogopedaById()
+      this.user = await this.panelService.getUser()
+      console.log(this.user)
     }catch(error){
       console.log('Ha ocurrido un error')
     }
   }
 
   userRol(){
-    /* const rol = this.panelService.idUser()
-    return rol  */
-    // return this.userService.getRole()
-
-    
-    //TODO Hasta que vaya el back
-    return 'logopeda'
+    const rol = this.panelService.rolUser()
+    return rol 
   }
 
 
