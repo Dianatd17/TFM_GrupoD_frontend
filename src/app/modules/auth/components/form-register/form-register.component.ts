@@ -67,13 +67,18 @@ export class FormRegisterComponent {
       if (!response.id) {
         this.errorMessage = "El usuario no pudo crearse: " + response.fatal;
       } else {
-        //TODO: usar un modal o notificación más bonita
-        alert("Usuario creado correctamente");
-        //TODO: cambiar para que reenvie al área de usuario si es logopeda en vez de home
-        this.router.navigate(['/home']); 
+        const modal = document.querySelector<HTMLElement>(".modal");
+        if (modal !== null) { 
+          modal.classList.add("show");
+          modal.style.display = "block";
+        }
       }
     } else
       this.errorMessage = "Los campos teléfono y clientela son requeridos para logopedas";
+  }
+
+  redirect(): void {
+      this.router.navigate(['/auth/login']);
   }
 
   cambiarRol(role: string) {

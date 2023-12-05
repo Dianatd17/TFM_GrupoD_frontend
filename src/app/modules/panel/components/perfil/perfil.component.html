@@ -1,1 +1,78 @@
-<p>perfil works!</p>
+<div class="align-self-stretch">
+    <div class="container flex-fill px-3">
+        <p class="fs-3">Editar datos de usuario</p>
+        <form [formGroup]="formEdit" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+                <label class="form-label" for="nombre">Nombre<span class="required">*</span></label>
+                <input id="nombre" name="nombre" type="text" class="form-control" formControlName="nombre">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="nombre">Apellidos<span class="required">*</span></label>
+                <input id="apellidos" name="apellidos" type="text" class="form-control" formControlName="apellidos">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="email">Email<span class="required">*</span></label>
+                <input id="email" name="email" type="email" class="form-control" formControlName="email">
+                <p class="error" *ngIf="checkControl('email', 'required')">El campo es requerido</p>
+                <p class="error" *ngIf="checkControl('email', 'pattern')">El email tiene formato incorrecto</p>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="password">Cambiar contraseña</label>
+                <div class="input-group">
+                    <input id="password" name="password" type="password" class="form-control" formControlName="password">
+                    <span class="input-group-text">Repite contraseña:</span>
+                    <input id="repitepassword" name="repitepassword" type="password" class="form-control" formControlName="repitepassword">
+                </div>
+                <p class="error" *ngIf="checkControl('password', 'minlength')">La longitud mínima es de 8 caracteres</p>
+                <p class="error" *ngIf="formEdit.hasError('checkpassword')">Los campos password y repite password deben ser iguales</p>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="direccion">Dirección</label>
+                <input id="direccion" name="direccion" type="text" class="form-control" formControlName="direccion">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="localidad">Localidad</label>
+                <input id="localidad" name="localidad" type="text" class="form-control" formControlName="localidad">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="provincia">Provincia</label>
+                <select class="form-select" id="provincia" name="provincia" formControlName="provincia">
+                    <option *ngFor="let prov of provincias" [value]="prov">{{ prov }}</option>
+                </select>
+            </div>
+            <!-- Campos para logopedas -->
+            <div *ngIf="formEdit.value.rol === 'logopeda' then logopedas"></div>
+            <ng-template #logopedas>
+                <div class="mb-3">
+                    <label class="form-label" for="telefono">Teléfono<span class="required">*</span></label>
+                    <input id="telefono" name="telefono" type="tel" class="form-control" formControlName="telefono">
+                    <p class="error" *ngIf="checkControl('telefono', 'pattern')">El teléfono tiene formato incorrecto</p>
+                    <p class="error" *ngIf="checkControl('telefono', 'required')">El campo es obligatorio para logopedas</p>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="precio">Precio/hora</label>
+                    <input id="precio" name="precio" type="number" class="form-control" formControlName="precio">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="experiencia">Años de experiencia</label>
+                    <input id="experiencia" name="experiencia" type="number" class="form-control" formControlName="experiencia">
+                </div>
+                <div class="mb-3">
+                    <label class="form label" for="descripcion">Describete a ti mismo como logopeda en breves palabras</label>
+                    <textarea id="descripcion" name="descripcion" class="form-control" rows="3" formControlName="descripcion"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="infancia_o_adulto">Clientela<span class="required">*</span></label>
+                    <select class="form-select" id="infancia_o_adulto" name="infancia_o_adulto" formControlName="infancia_o_adulto">
+                        <option *ngFor="let edad of edades" [value]="edad">{{ edad | titlecase }}</option>
+                    </select>
+                </div>
+            </ng-template>
+            <!---->
+            <div class="mb-3 text-center">
+                <button type="submit" class="btn btn-principal" [disabled]="!formEdit.valid">Enviar</button>
+            </div>
+            <p class="error">{{ errorMessage }}</p>
+        </form>
+    </div>
+</div>

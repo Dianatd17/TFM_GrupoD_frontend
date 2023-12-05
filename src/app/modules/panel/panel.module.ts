@@ -7,6 +7,7 @@ import { ClientesComponent } from './components/clientes/clientes.component';
 import { NotificacionesComponent } from './components/notificaciones/notificaciones.component';
 import { LogopedasComponent } from './components/logopedas/logopedas.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -20,7 +21,7 @@ import { PerfilComponent } from './components/perfil/perfil.component';
   imports: [
     CommonModule,
     PanelRoutingModule,
-    
+    ReactiveFormsModule
   ]
 })
 export class PanelModule { }

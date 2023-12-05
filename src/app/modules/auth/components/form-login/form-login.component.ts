@@ -28,7 +28,6 @@ export class FormLoginComponent {
     }, []);
   }
 
-  //TODO: si hay token debería de reenviar a home si es cliente, área de usuario si es logopeda
   ngOnInit(): void {
     if (localStorage.getItem('auth_token')) this.router.navigate(['/home']);
   }
@@ -46,8 +45,19 @@ export class FormLoginComponent {
     } else {
       // Login correcto
       localStorage.setItem('auth_token', response.token);
-      //TODO: cambiar para que reenvie al área de usuario si es logopeda en vez de home
-      this.router.navigate(['/home']);
+      const modal = document.querySelector<HTMLElement>(".modal");
+      if (modal !== null) { 
+        modal.classList.add("show");
+        modal.style.display = "block";
+      }
+    }
+  }
+
+  redirect(): void {
+    if (this.usuariosService.getRole() === "cliente") {
+      window.location.href = "/home";
+    } else {
+      window.location.href = "/panel";
     }
   }
 

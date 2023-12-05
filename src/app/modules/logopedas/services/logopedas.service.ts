@@ -34,7 +34,7 @@ export class LogopedasService {
   }
 
   createContactarLogopedaHasCliente(logHasCliente: IlogopedaHasClientes) {
-    const logopedasEdad: string = this.baseUrl + "usuarios/conectar/"
+    const logopedasEdad: string = this.baseUrl + "usuarios/logopedas/conectar/"
     return firstValueFrom(this.httpClient.post<IlogopedaHasClientes>(logopedasEdad, logHasCliente))
 
   }
