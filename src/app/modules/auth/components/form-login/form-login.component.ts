@@ -55,9 +55,9 @@ export class FormLoginComponent {
 
   redirect(): void {
     if (this.usuariosService.getRole() === "cliente") {
-      this.router.navigate(['/home']);
+      window.location.href = "/home";
     } else {
-    this.router.navigate(['/panel']);
+      window.location.href = "/panel";
     }
   }
 
