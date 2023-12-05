@@ -22,13 +22,27 @@ type user = {
   rol: string,
   imagen: any
 }
+type cliente = {
+    logopeda_id: number,
+    cliente_id: number,
+    nombre: string,
+    apellidos: string,
+    imagen: any,
+    fecha_inicio: Date,
+    rol: string,
+    estado_u: number,
+    status: string,
+    email: string,
+    localidad:string
+}
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class PanelService {
-  private baseUrl:string = 'http://localhost:3000/api/usuarios' //! cuidado con el /usuarios 
+  private baseUrl:string = 'http://localhost:3000/api' //! cuidado con el /usuarios 
+ 
   private userId: string = ''
   HttpClient = inject(HttpClient)
 
@@ -57,24 +71,27 @@ export class PanelService {
     const token = localStorage.getItem('auth_token');
     const decode: tokenDecoded = jwtDecode(token!);
     return lastValueFrom(
-      this.HttpClient.get<any>(`${this.baseUrl}/${decode.user_id}`)
+      this.HttpClient.get<any>(`${this.baseUrl}/usuarios/${decode.user_id}`)
       )
   }
-    
-  getClientesByLogopeda():Promise<any>{
+
+  /* Recupera todos lo clientes de este logopeda por su id  */  
+  getClientesByLogopeda():Promise<cliente[]>{
     const token = localStorage.getItem('auth_token');
     const decode: tokenDecoded = jwtDecode(token!);
     return lastValueFrom(
-      this.HttpClient.get<any>(`${this.baseUrl}`)
+      this.HttpClient.get<cliente[]>(`${this.baseUrl}/usuarios/logopedas/clientes/${decode.user_id}`)
     )
   }
   
 
-  getlogopedaById(): Promise<any>{
+
+  /* CREO QUE NO ESTA EN USO */
+   /* getlogopedaById(): Promise<any>{
     console.log(`El id es: ${this.userId}`)
     return lastValueFrom(
       this.HttpClient.get<user>(`${this.baseUrl}/logopedas/${this.userId}`)
     )
-  }
+  }  */
   
 }

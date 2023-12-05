@@ -1,0 +1,27 @@
+*{
+    box-sizing: border-box; 
+}
+
+.notificaciones{
+    margin-left: 5vw; 
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 20px;
+    column-gap: 50px;
+    margin-top: 25px;
+}
+
+
+@media (max-width: 1216px){
+    .notificaciones{
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 970px){
+    .notificaciones{
+        margin-left: 0;
+    }
+}
+
+ 

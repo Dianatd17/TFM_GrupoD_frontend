@@ -1,0 +1,58 @@
+*{
+   box-sizing: border-box; 
+}
+
+.clientCard{
+    background-color: #F2F8EE;
+    border-radius: 10px;
+    border: 1px solid grey;
+    
+    
+}
+
+.card_wrapped{
+    
+    display: flex;
+    gap: 2vw;
+
+    
+}
+
+
+.card_imagen{
+    border-right: 2px solid grey;
+    padding-right: 10px;
+    
+    position: relative;
+    padding: 20px;
+}
+
+.card_information{
+    padding: 20px;
+}
+
+.card_solicitud{
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 10%;
+    border-top: 1px solid grey;
+}
+
+button{
+    width: 20%;
+    min-width: 82px;
+}
+
+
+@media (max-width: 540px){
+    .card_imagen{
+        
+        padding: 5px;
+    }
+    .card_information{
+        padding: 5px;
+    }
+    
+
+}

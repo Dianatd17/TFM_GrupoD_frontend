@@ -7,6 +7,7 @@ import { ClientesComponent } from './components/clientes/clientes.component';
 import { NotificacionesComponent } from './components/notificaciones/notificaciones.component';
 import { LogopedasComponent } from './components/logopedas/logopedas.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
+import { ClientesCardComponent } from './components/clientes-card/clientes-card.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { PerfilComponent } from './components/perfil/perfil.component';
     ClientesComponent,
     NotificacionesComponent,
     LogopedasComponent,
-    PerfilComponent
+    PerfilComponent,
+    ClientesCardComponent
   ],
   imports: [
     CommonModule,

@@ -4,9 +4,7 @@
     box-sizing: border-box;
 }
 
-.panel{
-    height: 100vh;
-}
+
 .usuario{
     display: flex;
     align-items: center;
@@ -86,6 +84,10 @@ ul{
     border-right: 2px solid grey;
 }
 
+.inf_result{
+     flex-grow: 1;
+     
+}
 
 
 
@@ -113,6 +115,10 @@ ul{
         display: flex;
         justify-content: space-around;
         
+    }
+    
+    ul{
+        border-right: none;
     }
 }
 
