@@ -36,7 +36,6 @@ import { ListaEspecialidadesComponent } from './modules/especialidades/component
   imports: [
     BrowserModule,
     AppRoutingModule,
-
     ReactiveFormsModule,
     HttpClientModule,
     ShareModule,
