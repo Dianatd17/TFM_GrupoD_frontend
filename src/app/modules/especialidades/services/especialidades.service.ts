@@ -19,18 +19,22 @@ export class EspecialidadesService {
     return lastValueFrom(this.httpClient.get<IEspecialidad>(`${this.baseUrl}/${id}`));
   }
 
+  getByLogopedaId(id: number): Promise<IEspecialidad[]> {
+    return lastValueFrom(this.httpClient.get<IEspecialidad[]>(`${this.baseUrl}/logopeda/${id}`));
+  }
+
   relateToEspecialidad(logopedaid: number, especialidadid: number): Promise<any> {
     let body = {
       logopeda_id: logopedaid
     }
-    return lastValueFrom(this.httpClient.post(`${this.baseUrl}/${especialidadid}`, body));
+    return lastValueFrom(this.httpClient.post(`${this.baseUrl}/logopeda/${especialidadid}`, body));
   }
 
   deleteEspecialidad(logopedaid: number, especialidadid: number): Promise<any> {
     let body = {
       logopeda_id: logopedaid
     }
-    return lastValueFrom(this.httpClient.delete(`${this.baseUrl}/${especialidadid}`));
+    return lastValueFrom(this.httpClient.delete(`${this.baseUrl}/logopeda/${especialidadid}`));
   }
 
 }

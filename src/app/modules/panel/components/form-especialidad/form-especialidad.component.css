@@ -1,12 +1,3 @@
-body {
-    padding: 0;
-    margin: 0;
-}
-
-.btn-group {
-    max-width: 100%;
-}
-
 .btn-principal, .btn-inactive {
     background-color: #60bbdd;
     color: white;
@@ -32,6 +23,11 @@ input.ng-invalid.ng-touched {
 
 input.ng-valid.ng-touched {
     border-bottom: 1px solid #B8DFA2;
+}
+
+.form-check-input:checked {
+    background-color: #216a92;
+    border-color: #216a92;
 }
 
 .error {

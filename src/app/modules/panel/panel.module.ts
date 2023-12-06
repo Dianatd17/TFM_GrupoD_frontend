@@ -8,6 +8,8 @@ import { NotificacionesComponent } from './components/notificaciones/notificacio
 import { LogopedasComponent } from './components/logopedas/logopedas.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormEditPerfilComponent } from './components/form-edit-perfil/form-edit-perfil.component';
+import { FormEspecialidadComponent } from './components/form-especialidad/form-especialidad.component';
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     ClientesComponent,
     NotificacionesComponent,
     LogopedasComponent,
-    PerfilComponent
+    PerfilComponent,
+    FormEditPerfilComponent,
+    FormEspecialidadComponent
   ],
   imports: [
     CommonModule,
