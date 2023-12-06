@@ -6,8 +6,6 @@
     background-color: #F2F8EE;
     border-radius: 10px;
     border: 1px solid grey;
-    
-    
 }
 
 .card_wrapped{
@@ -45,6 +43,14 @@ button{
 }
 
 
+@media (max-width: 970px){
+    .clientCard{
+        margin-left: auto;
+        margin-right: auto;
+        max-width:700px ;
+    }
+
+}
 @media (max-width: 540px){
     .card_imagen{
         
@@ -53,6 +59,8 @@ button{
     .card_information{
         padding: 5px;
     }
-    
+    img{
+        width: 90px;
+    }
 
 }

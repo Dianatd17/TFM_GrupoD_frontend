@@ -83,6 +83,14 @@ export class PanelService {
       this.HttpClient.get<cliente[]>(`${this.baseUrl}/usuarios/logopedas/clientes/${decode.user_id}`)
     )
   }
+
+  getLgopedasByClientes():Promise<any[]>{
+    const token = localStorage.getItem('auth_token');
+    const decode: tokenDecoded = jwtDecode(token!);
+    return lastValueFrom(
+      this.HttpClient.get<any[]>(`${this.baseUrl}/usuarios/clientes/bylogopeda/${decode.user_id}`)
+    )
+  }
   
 
 

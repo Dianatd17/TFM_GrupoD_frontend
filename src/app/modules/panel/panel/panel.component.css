@@ -36,9 +36,7 @@
     margin-top: 3vw;
     padding-left: 3vw ; 
     padding-right:3vw ;
-   
 }
-
 
 
 li{
@@ -86,16 +84,11 @@ ul{
 
 .inf_result{
      flex-grow: 1;
-     
 }
 
 
 
 @media (max-width: 970px){
-    .usuario{
-        background-color: yellowgreen;
-    }
-
     .usuario_imagen{
         position: relative;
         height: auto;
@@ -123,8 +116,35 @@ ul{
 }
 
 
-@media (max-width: 720px){
+
+
+@media (max-width: 400px){
     .usuario{
         background-color: red;
     }
+    .informacion{
+    padding-left: 1.5vw ; 
+    padding-right:1.5vw ;
+    } 
+
+    ul{
+        padding-right: 0;
+        display: flex;
+        align-items: end;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    li{
+        display: flex;
+    }
+    b{
+        text-align: center;
+    }
+    
+
+    
+    
+    
+
 }

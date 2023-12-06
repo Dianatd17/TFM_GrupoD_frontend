@@ -1,1 +1,14 @@
-<p>logopedas works!</p>
+<section class="logopedas">
+    <div class="logopedas_wrapped">
+        <article *ngFor="let logopedas of arrLogopedas" class="logopedas_card">
+            <div class="card_iamgen">
+                <img src="../../../../../assets/images/foto.png" width="110px" alt="ImagenLogopeda">
+            </div>
+            <div class="card_info">
+                <h5> {{logopedas?.nombre}} {{logopedas.apellidos}} </h5>
+                <p> {{logopedas?.descripcion}} </p>
+            </div>
+        </article>
+    </div>
+
+</section>
