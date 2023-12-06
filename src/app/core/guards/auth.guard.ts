@@ -8,13 +8,10 @@ export const authGuard: CanActivateChildFn = (childRoute, state) => {
 
   if (localStorage.getItem('auth_token')) {
     // TODO: falta comprobar si el token es correcto en el server
-    console.log("Tiene token");
     const token = localStorage.getItem('auth_token');
     const tokenDecode = jwtDecode(token!);
-    console.log(tokenDecode);
     return true;
   }
-  console.log("No tiene token");
   router.navigate(['/auth', 'login']);
   return false;
 };

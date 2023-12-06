@@ -1,0 +1,11 @@
+<div class="align-self-stretch w-100" *ngIf="usuariosService.getRole() === 'logopeda'">
+    <div class="container flex-fill px-3">
+        <p class="fs-3">Seleccionar especialidades</p>
+        <form class="m-3">
+            <div class="form-check form-switch" *ngFor="let e of listado">
+                <input class="form-check-input" type="checkbox" role="switch" [value]="e.id" [id]="e.id" [checked]="marcadas.includes(e.id)" (change)="onClick($event)">
+                <label class="form-check-label" [for]="e.id">{{ e.especialidad }}</label>
+            </div>
+        </form>
+    </div>
+</div>

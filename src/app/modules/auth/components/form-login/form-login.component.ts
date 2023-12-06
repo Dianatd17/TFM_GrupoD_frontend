@@ -54,12 +54,11 @@ export class FormLoginComponent {
   }
 
   redirect(): void {
-    if (this.usuariosService.getRole() === "cliente") { 
-      location.href ="http://localhost:4200/home";
-      //this.router.navigate(['/home']);
+
+    if (this.usuariosService.getRole() === "cliente") {
+      window.location.href = "/home";
     } else {
-    location.href ="http://localhost:4200/home/panel/clientes";
-    this.router.navigate(['/panel']);
+      window.location.href = "/panel";
     }
   }
 
