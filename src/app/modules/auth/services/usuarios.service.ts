@@ -2,6 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
 import { jwtDecode } from 'jwt-decode';
+import { IUser } from 'src/app/core/models/user.interface';
 
 type FormRegisterValue = {
   nombre: string, apellidos: string, email: string,
@@ -37,6 +38,19 @@ export class UsuariosService {
   login(values: FormLoginValue): Promise<FormLoginResponse> {
     return firstValueFrom(
       this.httpClient.post<FormLoginResponse>(`${this.baseUrl}/login`, values)
+    );
+  }
+
+  updateUser(values: IUser): Promise<IUser> {
+    values.id = this.getIdUsuario();
+    return firstValueFrom(
+      this.httpClient.put<IUser>(`${this.baseUrl}`, values)
+    );
+  }
+
+  getUser(): Promise<IUser> {
+    return firstValueFrom(
+      this.httpClient.get<IUser>(`${this.baseUrl}/${this.getIdUsuario()}`)
     );
   }
 

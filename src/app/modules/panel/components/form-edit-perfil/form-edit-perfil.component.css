@@ -1,12 +1,3 @@
-body {
-    padding: 0;
-    margin: 0;
-}
-
-.btn-group {
-    max-width: 100%;
-}
-
 .btn-principal, .btn-inactive {
     background-color: #60bbdd;
     color: white;

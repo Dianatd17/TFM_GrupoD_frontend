@@ -1,1 +1,16 @@
-<p>perfil works!</p>
+<div class="container">
+    <div *ngIf="usuariosService.getRole() === 'logopeda'">
+        <div class="container btn-group mt-3 mb-3 text-center" role="group">
+            <div class="btn" (click)="switchContent('edit')" 
+            [ngClass]="{'btn-active': boton === 'edit', 'btn-inactive': boton !== 'edit'}">
+                Editar datos de perfil
+            </div>
+            <div class="btn btn-principal mr-3" (click)="switchContent('especialidad')"
+            [ngClass]="{'btn-active': boton === 'especialidad', 'btn-inactive': boton !== 'especialidad'}">
+                Mis especialidades
+            </div>
+        </div>
+        <app-form-especialidad *ngIf="boton === 'especialidad'"></app-form-especialidad>
+    </div>
+    <app-form-edit-perfil *ngIf="usuariosService.getRole() !== 'logopeda' || boton === 'edit'"></app-form-edit-perfil>
+</div>
