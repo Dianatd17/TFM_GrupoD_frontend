@@ -6,7 +6,9 @@ import { ClientesComponent } from './components/clientes/clientes.component';
 import { LogopedasComponent } from './components/logopedas/logopedas.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 
+
 const routes: Routes = [
+  
   {
     path: '',  component:PanelComponent,
     children: [
@@ -21,6 +23,10 @@ const routes: Routes = [
     ]
 
   },
+
+  
+    
+  
    
   
 ];

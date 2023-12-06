@@ -11,7 +11,6 @@ export class ClientesCardComponent {
   solicitud: boolean = false
   
   ngOnInit(){
-    console.log(this.clientes)
     if(this.clientes.status === 'pendiente'){
       this.solicitud = true
     }
