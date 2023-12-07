@@ -68,11 +68,17 @@
 
     <a
       class="navbar-brand image_user"
-      href="#"
+      [routerLink]="['/panel']"
       [ngStyle]="{ display: openMenu ? 'none' : 'initial' }"
     >
-      <img
+      <!--<img
         src="../../../../assets/images/logo1.png"
+        alt="iamgenLogin"
+        width="84"
+        height="84"
+      />-->
+      <img class="avatar"
+        src="{{ imagen }}"
         alt="iamgenLogin"
         width="84"
         height="84"

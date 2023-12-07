@@ -18,6 +18,7 @@ type FormRegisterResponse = {
 };
 type FormLoginValue = { email: string, password: string };
 type FormLoginResponse = { success: string, token: string, fatal: string };
+type ImageResponse = { imagen: string, error: string };
 
 type tokenDecoded = { user_id: number, user_role: string, exp_at: Date };
 
@@ -48,6 +49,12 @@ export class UsuariosService {
     );
   }
 
+  updateUserImage(values: any): Promise<any> {
+    return firstValueFrom(
+      this.httpClient.post(`${this.baseUrl}/imagen`, values)
+    );
+  }
+
   getUser(): Promise<IUser> {
     return firstValueFrom(
       this.httpClient.get<IUser>(`${this.baseUrl}/${this.getIdUsuario()}`)
@@ -75,6 +82,12 @@ export class UsuariosService {
       return tokenDecode.user_id;
     }
     return 0;
+  }
+
+  getRutaImagen(): Promise<ImageResponse> {
+    return firstValueFrom(
+      this.httpClient.get<ImageResponse>(`${this.baseUrl}/imagen/${this.getIdUsuario()}`)
+    );
   }
 
 }
