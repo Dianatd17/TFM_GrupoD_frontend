@@ -6,17 +6,27 @@ import { ClientesComponent } from './components/clientes/clientes.component';
 import { LogopedasComponent } from './components/logopedas/logopedas.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 
+
 const routes: Routes = [
+  
   {
     path: '',  component:PanelComponent,
     children: [
-      {path: 'notificaciones', component: NotificacionesComponent},
+      /* Logopedas */
       {path: 'clientes', component: ClientesComponent},
+      {path: 'notificaciones', component: NotificacionesComponent},
+      /* Clientes */
       {path: 'logopedas', component: LogopedasComponent},
+      /* Todas los usuarios */
       {path: 'perfil', component: PerfilComponent},
+      /* ADMINISTRADOR */
     ]
 
   },
+
+  
+    
+  
    
   
 ];

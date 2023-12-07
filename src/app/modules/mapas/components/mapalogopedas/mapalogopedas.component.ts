@@ -45,7 +45,7 @@ export class MapalogopedasComponent {
           // me daba error latitud, quite ? en Ilogopeda
         })
       })
-      console.log(this.arrMarkers)
+     //console.log(this.arrMarkers)
     })
 
   }

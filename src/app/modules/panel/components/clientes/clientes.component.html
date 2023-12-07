@@ -1,1 +1,8 @@
-<p>clientes works!</p>
+<div class="misclientes">
+    <article *ngFor="let clients of arrayClients " class="misclientes_grid">
+        <div class="misclientes_card">
+            <app-clientes-card [clientes]="clients"></app-clientes-card>
+        </div>
+    </article>
+
+</div>

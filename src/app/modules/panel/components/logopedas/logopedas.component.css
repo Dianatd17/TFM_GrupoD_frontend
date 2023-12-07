@@ -1,0 +1,141 @@
+/* *{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.logopedas_wrapped{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 20px;
+    column-gap: 10px;
+    margin-left: 4%;
+}
+
+.logopedas_card{
+    background-color: #F2F8EE;
+    border-radius: 10px;
+    border: 1px solid grey;
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    max-width: 700px;
+}
+
+.card_iamgen{
+    padding: 10px;
+    border-right: 1px solid grey;
+}
+
+.card_info{
+    padding: 10px;
+}
+
+.info_des{
+    margin-top: 10px;
+}
+
+.info_exp{
+    margin-top: 10px;
+}
+
+
+@media (max-width: 970px){
+    .logopedas_wrapped{
+        grid-template-columns:  1fr;
+        margin-left: 0;
+        margin-top: 20px;
+    }
+
+    .logopedas_card{
+        margin-left: auto;
+        margin-right: auto;
+        
+    }
+} */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.logopedas_wrapped{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 20px;
+    column-gap: 10px;
+    margin-left: 4%;
+}
+
+.logopedas_card{
+    background-color: #F2F8EE;
+    border-radius: 10px;
+    border: 1px solid grey;
+    display: flex;
+    
+    width: 100%;
+    max-width: 700px;
+
+    flex-direction: column;
+}
+
+.card_above{
+    display: flex;
+    border-bottom: 1px solid grey;
+    gap: 20px;
+    
+}
+
+.card_iamgen{
+    padding: 10px;
+    border-right: 1px solid grey; 
+    padding-top: 15px;
+}
+
+.card_info{
+    padding: 10px;
+    padding-top: 15px;
+}
+
+.info_des{
+    margin-top: 10px;
+}
+
+.info_exp{
+    margin-top: 10px;
+    font-size: 14px;
+    color: rgba(33, 37, 41, 0.75);
+}
+
+.card_bellow{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    flex-wrap: wrap;
+}
+
+.card_bellow p{
+    padding: 5px;
+}
+
+.bellow_status{
+    padding: 6px 12px;
+    border-radius: 10px;
+    border: 0.1px solid grey;
+}
+
+
+@media (max-width: 970px){
+    .logopedas_wrapped{
+        grid-template-columns:  1fr;
+        margin-left: 0;
+        margin-top: 20px;
+    }
+
+    .logopedas_card{
+        margin-left: auto;
+        margin-right: auto;
+        
+    }
+}

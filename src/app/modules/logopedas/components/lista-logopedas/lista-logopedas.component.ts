@@ -29,7 +29,6 @@ export class ListaLogopedasComponent {
       let edad: string = ""
       let especialidad: number = 0
       this.activeRoute.params.subscribe((params: any) => {
-        console.log(params.edad);
         edad = params.edad;
         especialidad = Number(params.especialidadId);
 

@@ -1,0 +1,22 @@
+
+<div class="clientCard" >
+  <div class="card_wrapped">
+    <div class="card_imagen">
+      <img src="../../../../../assets/images/foto.png"  width="110px" alt="iamgenCliente">
+    </div>
+
+    <div class="card_information">
+      <h5 class=""> {{clientes?.nombre}} {{clientes?.apellidos }} </h5>
+      <p><b>Email: </b> {{clientes?.email}} </p>
+      <p><b>Localidad: </b> {{clientes?.localidad}} </p>
+      <p><b>Fecha de inicio:</b> {{clientes?.fecha_inicio | date: 'shortDate'}} </p>
+    </div>
+  </div>
+
+  <div *ngIf="solicitud" class="card_solicitud">
+    <button type="button" class="btn btn-success">Aceptar</button>
+    <button type="button" class="btn btn-danger">Rechazar</button>
+  </div>
+</div>
+  
+

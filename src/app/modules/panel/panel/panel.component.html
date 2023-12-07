@@ -5,11 +5,9 @@
             <img src="../../../../assets/images/logo1.png" height="143" width="142" alt="">
         </div>
 
-        <h2 class="usuario_nombre">Jose Maria Gonzalez</h2> 
-        <div class="usuario_rol">Logopeda</div> 
+        <h2 class="usuario_nombre"> {{user?.nombre}} {{user?.apellidos}}</h2>  
+        <h3 class="usuario_rol">{{ userRol() | uppercase }}</h3>  
         
-       <!--  <h2 class="usuario_nombre">{{user.nombre}} {{user.apellido}}</h2> 
-        <div class="usuario_rol">{{ userRol() }}</div>  -->
 
 
     </div>
@@ -19,15 +17,19 @@
             <ul class="">
                 <li [routerLink]="['clientes']" routerLinkActive="active" *ngIf="userRol() === 'logopeda'" class=""><b><a href=""></a>Mis clientes</b></li> <!--! LINK  COMPONENT  -->
                 <li [routerLink]="['notificaciones']" routerLinkActive="active" *ngIf="userRol() === 'logopeda' " class=""><b><a href=""></a>Notificaciones</b></li> <!--! LINK  COMPONENT  -->
+
                 <li [routerLink]="['logopedas']" routerLinkActive="active" *ngIf="userRol() === 'cliente' " class=""><b><a href=""></a>Mis Logopedas</b></li> <!--! LINK  COMPONENT  -->
                 <!-- TODO ME FALTA EL NG IF ROL -->
-                <li [routerLink]="['perfil']" routerLinkActive="active"  class=""><b><a href=""></a>Editar Perfil</b></li> 
+                <li [routerLink]="['perfil']" routerLinkActive="active"  class=""><b><a href=""></a>Editar Perfil</b></li>
+
+                <!-- ADMINISTRADOR ACEPTA A LOS PROFESORES -->
+                <!-- ADMINSITRADOR CAMBIA A LOS CLIENTES -->
                 
             </ul>
         </div>
 
         
-        <div class="inf_result w-50">
+        <div class="inf_result">
             <router-outlet></router-outlet>
         </div>
     </div>

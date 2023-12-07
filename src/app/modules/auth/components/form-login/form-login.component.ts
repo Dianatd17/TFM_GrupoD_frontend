@@ -54,6 +54,7 @@ export class FormLoginComponent {
   }
 
   redirect(): void {
+
     if (this.usuariosService.getRole() === "cliente") {
       window.location.href = "/home";
     } else {

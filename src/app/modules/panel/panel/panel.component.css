@@ -4,9 +4,7 @@
     box-sizing: border-box;
 }
 
-.panel{
-    height: 100vh;
-}
+
 .usuario{
     display: flex;
     align-items: center;
@@ -38,9 +36,7 @@
     margin-top: 3vw;
     padding-left: 3vw ; 
     padding-right:3vw ;
-   
 }
-
 
 
 li{
@@ -86,14 +82,13 @@ ul{
     border-right: 2px solid grey;
 }
 
+.inf_result{
+     flex-grow: 1;
+}
 
 
 
 @media (max-width: 970px){
-    .usuario{
-        background-color: yellowgreen;
-    }
-
     .usuario_imagen{
         position: relative;
         height: auto;
@@ -114,11 +109,39 @@ ul{
         justify-content: space-around;
         
     }
+    
+    ul{
+        border-right: none;
+    }
 }
 
 
-@media (max-width: 720px){
-    .usuario{
-        background-color: red;
+
+
+@media (max-width: 400px){
+    .informacion{
+    padding-left: 1.5vw ; 
+    padding-right:1.5vw ;
+    } 
+
+    ul{
+        padding-right: 0;
+        display: flex;
+        align-items: end;
+        justify-content: center;
+        gap: 10px;
     }
+
+    li{
+        display: flex;
+    }
+    b{
+        text-align: center;
+    }
+    
+
+    
+    
+    
+
 }

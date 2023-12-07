@@ -1,0 +1,48 @@
+<div class="row">
+    <div class="row">
+
+        <div class="card mb-3 w-100">
+            <div class="row g-0">
+                <div class="col-md-10">
+                    <div class="card-body">
+                        <p class="card-text">{{miLogopeda.descripcion}}</p>
+                        <p class="card-text" *ngIf="miLogopeda.experiencia">Experiencia:
+                            {{miLogopeda.experiencia}} años</p>
+                        <p class="card-text" *ngIf="rol === 'cliente'">Teléfono: {{miLogopeda.telefono}}</p>
+                        <p class=" card-text" *ngIf="rol === 'cliente'"> Email: {{miLogopeda.email}}</p>
+                    </div>
+
+
+
+
+                </div>
+                <div class=" col-md-2">
+                    <div class=""></div>
+                    <div class="card-text ">
+                        <p class="card-text">✮ {{ miLogopeda.puntuacion | number:'1.0-1' }}</p>
+
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="card-footer bg-transparent m-auto border-opacity-10">
+                    <div class="wfooter">
+                        <div class="wfooter-localidad">
+                            <p class="">{{miLogopeda.localidad}}</p>
+                        </div>
+                        <div class="wfooter-precio">
+                            <p class=""><strong>Precio/hora: </strong>{{miLogopeda.precio
+                                |currency:'EUR'}}</p>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

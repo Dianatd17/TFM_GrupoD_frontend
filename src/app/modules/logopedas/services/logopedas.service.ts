@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { firstValueFrom, lastValueFrom } from 'rxjs';
 import { ILogopeda } from 'src/app/core/models/logopeda.interface';
 import { IlogopedaHasClientes } from 'src/app/core/models/logopedasHasClientes.interface';
+import { Icomentarios } from '../interfaces/icomentarios';
 
 
 @Injectable({
@@ -31,6 +32,16 @@ export class LogopedasService {
     // TODO: cambiarlo y descomentar cuando esté la ruta
     const logopedasEspecialidad: string = this.baseUrl + "usuarios/logopedas/especialidad";
     return lastValueFrom(this.httpClient.get<ILogopeda[]>(`${logopedasEspecialidad}/${id}`));
+  }
+
+  getLogopedaById(id: number): Promise<ILogopeda> {
+    const logopedaById: string = this.baseUrl + "usuarios/logopedas/";
+    return lastValueFrom(this.httpClient.get<ILogopeda>(`${logopedaById}${id}`));
+  }
+
+  getComentariosById(id: number): Promise<Icomentarios[]> {
+    const comentariosById: string = this.baseUrl + "usuarios/logopedas/comentarios/";
+    return lastValueFrom(this.httpClient.get<Icomentarios[]>(`${comentariosById}${id}`));
   }
 
   createContactarLogopedaHasCliente(logHasCliente: IlogopedaHasClientes) {
