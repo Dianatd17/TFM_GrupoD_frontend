@@ -1,4 +1,4 @@
-import { Component, QueryList, ViewChildren, inject } from '@angular/core';
+import { Component, Input, QueryList, ViewChildren, inject } from '@angular/core';
 import { mapalogopedasService } from '../../services/mapalogopedas.service';
 import { ILogopeda } from 'src/app/core/models/logopeda.interface';
 import { MapInfoWindow, MapMarker } from '@angular/google-maps';
@@ -9,6 +9,8 @@ import { MapInfoWindow, MapMarker } from '@angular/google-maps';
   styleUrls: ['./mapalogopedas.component.css']
 })
 export class MapalogopedasComponent {
+
+  @Input() ruta: string = "";
 
   @ViewChildren(MapInfoWindow) infoWindowsView: QueryList<MapInfoWindow> | any;
 
@@ -26,7 +28,7 @@ export class MapalogopedasComponent {
 
 
   ngOnInit() :void {
-    this.mapalogopedasService.getAll().subscribe(data => {
+    this.mapalogopedasService.getAll(this.ruta).subscribe(data => {
       //console.log(data)
       data.forEach(logopeda => {
         this.arrMarkers.push({
@@ -39,7 +41,7 @@ export class MapalogopedasComponent {
           },
           nombre: logopeda.nombre,
           position: new google.maps.LatLng(logopeda.latitud,logopeda.longitud),
-          precio: logopeda.precio
+          precio: logopeda.precio,
           // me daba error latitud, quite ? en Ilogopeda
         })
       })

@@ -1,11 +1,29 @@
 <google-map [width]="options.width" [height]="options.height" [center]="options.center" [zoom]="options.zoom">
-<map-marker #miMarker="mapMarker" *ngFor="let marker of arrMarkers, let i=index" [position]="marker.position" [options]="{icon:marker.icon}" (mapClick)="openInfoWindow(miMarker,i)" >
+<map-marker #miMarker="mapMarker" *ngFor="let marker of arrMarkers, let i=index" [position]="marker.position"  (mapClick)="openInfoWindow(miMarker,i)" >
 
-    <map-info-window>
-        <h2>{{marker.nombre}}</h2>
-        <h4>{{marker.descripcion}}</h4>
-        <h4>{{marker.precio+"€"}}</h4>
+    <div style="padding: 0;">
+    <map-info-window  style=" padding: 0;">
+
+            <div>
+              <div class="row no-gutters">
+                <div class="col-md-4" style="padding: 0;" >
+                  <img src={{marker.icon.url}} class="card-img" alt="Imagen" style="width: 100%; height: auto;">
+                </div>
+                <div class="col-md-8" >
+                  <div class="card-body" style="padding: 0;">
+                    <h5 class="card-title mt-2 " style="text-align: center; margin: 0;">{{marker.nombre}} {{marker.apellidos}}</h5>
+                    <hr style="color: rgb(220, 115, 213);margin: 0;"> <!-- Línea de separación -->
+                    <p class="card-text mt-2">{{marker.descripcion}}</p>
+                    <p class="card-text">{{marker.precio+"€"}}</p>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+        
     </map-info-window>
+    </div>
 </map-marker>
 
 </google-map>

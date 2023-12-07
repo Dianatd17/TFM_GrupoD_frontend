@@ -1,0 +1,34 @@
+<div class="panel">
+    <div class="usuario">
+        <div class="usuario_imagen">
+            <img src="../../../../assets/images/logo1.png" height="143" width="142" alt="">
+        </div>
+
+        <h2 class="usuario_nombre">{{miLogopeda.nombre}} {{miLogopeda.apellidos}}</h2>
+        <div class="usuario_rol">Logopeda</div>
+
+        <!--  <h2 class="usuario_nombre">{{user.nombre}} {{user.apellido}}</h2> 
+            <div class="usuario_rol">{{ userRol() }}</div>  -->
+
+
+    </div>
+
+    <div class="informacion">
+        <div class="inf_options">
+            <ul class="">
+                <li [routerLink]="['informacion',idLogopeda]" routerLinkActive="active" class="">
+                    <b><a href=""></a>Informaci&oacute;n</b>
+                </li>
+                <li [routerLink]="['comentarios',idLogopeda]" routerLinkActive="active" *ngIf="rol === 'cliente' "
+                    class="">
+                    <b><a href=""></a>Comentarios</b>
+                </li>
+            </ul>
+        </div>
+
+        <div class="inf_result">
+            <router-outlet></router-outlet>
+        </div>
+
+    </div>
+</div>

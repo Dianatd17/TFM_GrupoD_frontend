@@ -15,15 +15,20 @@ export class PorEspecialidadComponent {
   especialidad: string="";
   descripcion: string="";
   es_infancia: number = 1;
+  esp_id: string = "";
   httpClient = inject(HttpClient);
   activatedRoute = inject(ActivatedRoute);
   router = inject(Router)
 
   async ngOnInit() {
     this.activatedRoute.params.subscribe(async (params: any) => {
-      let id = Number(params.especialidadId);
+      
       try {
+        let id = Number(params.especialidadId);
         let result = await this.especialidadesService.getById(id);
+        this.esp_id = `especialidad/${id}`;
+        console.log("estoy en por-especialidad")
+        console.log(this.esp_id);
         this.especialidad = result.especialidad;
         this.descripcion = result.descripcion;
         this.es_infancia = result.es_infancia;

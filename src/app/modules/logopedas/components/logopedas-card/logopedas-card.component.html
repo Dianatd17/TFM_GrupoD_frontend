@@ -33,11 +33,17 @@
                     <p class="card-text text-center">{{miLogopeda.localidad}}</p>
                 </div>
                 <div class="">
-                    <p class="align-content-center"><strong>Precio/hora: </strong> {{miLogopeda.precio |
+                    <p class="align-content-center" *ngIf="rol=== 'cliente'"><strong>Precio/hora: </strong>
+                        {{miLogopeda.precio |
                         currency:'EUR'}}</p>
                 </div>
                 <div class="">
                     <button type="submit" class="btn btn-principal"
+                        [routerLink]="['/perfil/'+ miLogopeda.id+'/informacion/'+ miLogopeda.id]">Ver
+                        Perfil</button>
+                </div>
+                <div class="">
+                    <button type="submit" class="btn btn-principal" *ngIf="rol=== 'cliente'"
                         (click)="contactarLogopeda(miLogopeda.id)">Contactar</button>
                 </div>
             </div>

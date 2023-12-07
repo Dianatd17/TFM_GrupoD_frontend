@@ -18,6 +18,7 @@ import { ToastrService } from 'ngx-toastr';
 export class LogopedasCardComponent {
   clienteContactar: IlogopedaHasClientes = { id: 0, logopeda_id: 0, cliente_id: 0, comentarios: "", puntuacion: 0, fecha_inicio: "", status: "pendiente" };
   pipe = new DatePipe('en-ES');
+  rol: string = "";
 
   private toastrService = inject(ToastrService);
   logopedasServices = inject(LogopedasService)
@@ -37,13 +38,14 @@ export class LogopedasCardComponent {
     } else {
       this.miLogopeda.imagen = '../../../../../assets/images/foto.png'
     }
+    this.rol = this.usuariosService.getRole()
 
   }
 
   async contactarLogopeda(idLogopeda: number) {
 
     const idCliente: number = this.usuariosService.getIdUsuario()
-    console.log(idCliente)
+
     if (idCliente !== 0) {
       let currentDate = new Date();
       this.clienteContactar.logopeda_id = idLogopeda

@@ -1,6 +1,16 @@
-<div class="container">
-    <app-home-filters [activo]="edad"></app-home-filters>
-    <div class="fs-1">{{ edad | titlecase }}</div>
-    <hr />
-    <app-lista-logopedas></app-lista-logopedas>
-</div>
+
+    <div>
+        <app-home-filters [activo]="edad"></app-home-filters>
+        <div class="fs-1 edad">{{ edad | titlecase }}</div>
+        <hr />
+    </div>
+
+    <div class="custom-container">
+        <div class="custom-cards">
+            <app-lista-logopedas ></app-lista-logopedas>
+        </div>
+        <div class="custom-map">
+            <app-mapalogopedas [ruta]="edad"></app-mapalogopedas>
+        </div>
+        
+    </div>

@@ -41,7 +41,6 @@ import { ToastrModule } from 'ngx-toastr';
   imports: [
     BrowserModule,
     AppRoutingModule,
-
     ReactiveFormsModule,
     HttpClientModule,
     ShareModule,
