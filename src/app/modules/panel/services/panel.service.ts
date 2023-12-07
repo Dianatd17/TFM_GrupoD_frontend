@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { jwtDecode } from 'jwt-decode';
 import { lastValueFrom } from 'rxjs';
+import { clase } from '../interfaces/panel.interfaces';
 
 
 
@@ -91,15 +92,20 @@ export class PanelService {
       this.HttpClient.get<any[]>(`${this.baseUrl}/usuarios/clientes/bylogopeda/${decode.user_id}`)
     )
   }
+
+  getClaseById(id:string):Promise<clase>{
+    
+    return lastValueFrom(
+      this.HttpClient.get<clase>(`${this.baseUrl}/usuarios/logopedas/clase/${id}`)
+    )
+  }
+
+  updateStatus(id:string, body:any){
+    return lastValueFrom(
+      this.HttpClient.put<any>(`${this.baseUrl}/usuarios/logopedas/clase/${id}`, body)
+    )
+  }
   
 
-
-  /* CREO QUE NO ESTA EN USO */
-   /* getlogopedaById(): Promise<any>{
-    console.log(`El id es: ${this.userId}`)
-    return lastValueFrom(
-      this.HttpClient.get<user>(`${this.baseUrl}/logopedas/${this.userId}`)
-    )
-  }  */
   
 }

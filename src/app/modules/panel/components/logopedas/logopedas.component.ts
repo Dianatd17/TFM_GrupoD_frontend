@@ -14,8 +14,8 @@ export class LogopedasComponent {
 
   async ngOnInit(){
     try{
-      this.arrLogopedas = (await this.panelService.getLgopedasByClientes()).filter(log => log.estado_u === 1);
-
+      this.arrLogopedas = (await this.panelService.getLgopedasByClientes()).filter(log => log.estado_u === 1 && log.status !== 'denegado');
+      console.log(this.arrLogopedas)
       this.localidad = this.arrLogopedas.map(log => log.localidad)
     
     } catch(err){

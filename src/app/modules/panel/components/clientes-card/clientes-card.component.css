@@ -27,6 +27,7 @@
 
 .card_information{
     padding: 20px;
+    position: relative;
 }
 
 .card_solicitud{
@@ -37,10 +38,11 @@
     border-top: 1px solid grey;
 }
 
-button{
+.card_button{
     width: 20%;
     min-width: 82px;
 }
+
 
 
 @media (max-width: 970px){
