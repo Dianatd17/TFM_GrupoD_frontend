@@ -7,8 +7,9 @@ const routes: Routes = [
   { path: "home", loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule) },
   { path: 'auth', loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule) },
   { path: 'panel', canActivateChild: [authGuard], loadChildren: () => import('./modules/panel/panel.module').then(m => m.PanelModule) },
+  { path: 'perfil', canActivateChild: [authGuard], loadChildren: () => import('./modules/logopedas/logopedas.module').then(m => m.LogopedasModule) },
   { path: '**', redirectTo: 'home' }
-  
+
 ];
 
 @NgModule({
