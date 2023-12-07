@@ -1,15 +1,15 @@
-<div class="container">
+    
+    <div>
+    <app-home-filters *ngIf="usuariosService.isLogged()" activo="todos"></app-home-filters>
+    </div>
 
-    <div class="main mt-5">
-        <div class="w-100">
-            <app-home-filters *ngIf="usuariosService.isLogged()" activo="todos"></app-home-filters>
+    <div class="main ">
+        <div class="custom-cards">  
             <app-lista-logopedas></app-lista-logopedas>
-
         </div>
-        <div class="w-50 mx-5">    
+        <div class=" custom-map">    
             <!-- <app-europe></app-europe> -->
             <app-mapalogopedas ruta=""></app-mapalogopedas>
         </div>
     </div>
 
-</div>

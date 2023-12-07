@@ -1,10 +1,12 @@
 * {
     box-sizing: border-box;
+    
 }
 
 .main {
+    margin: 4%;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
 }
 
 .main_w-edad {
@@ -36,11 +38,18 @@
     background-color: #216a92;
     color: white;
 }
-
-
+.custom-cards{
+    flex: 50%;
+    margin-right: 2%;
+}
+.custom-map{
+    flex: 50%;
+}
 @media only screen and (min-width: 1024px) and (max-width: 1920px) {
     .main {
         flex-direction: row;
-
+    }
+    .custom-cards,.custom-map{
+        flex: 100%;
     }
 }

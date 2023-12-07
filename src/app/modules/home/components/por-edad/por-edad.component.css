@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+}
+.edad{
+    margin-left: 10%;
+}
+
+.custom-container{
+    margin: 4%;
+    display: flex;
+    flex-direction: column;
+}
+
+.custom-cards{
+    flex: 50%;
+    margin-right: 2%;
+}
+.custom-map{
+    flex: 50%;
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1920px) {
+    .custom-container {
+        flex-direction: row;
+    }
+    .custom-cards,.custom-map{
+        flex: 100%;
+    }
+}
