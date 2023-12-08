@@ -22,7 +22,7 @@ export class HeaderComponent {
   imagenLogin: any;
 
   userService = inject(UsuariosService);
-  imagen: string = '../../../../assets/images/logo1.png';
+  imagen: string = '../../../../assets/images/user.png';
 
 
   async ngOnInit(){
