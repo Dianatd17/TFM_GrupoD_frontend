@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { firstValueFrom } from 'rxjs';
+import { Observable, firstValueFrom } from 'rxjs';
 import { jwtDecode } from 'jwt-decode';
 import { IUser } from 'src/app/core/models/user.interface';
 
@@ -49,10 +49,12 @@ export class UsuariosService {
     );
   }
 
-  updateUserImage(values: any): Promise<any> {
-    return firstValueFrom(
-      this.httpClient.post(`${this.baseUrl}/imagen`, values)
-    );
+  /*updateUserImage(values: any) {
+    return this.httpClient.post(`${this.baseUrl}/imagen`, values);
+  }*/
+
+  updateUserImage(fd: FormData): Observable<any> {
+    return this.httpClient.post<FormData>(`${this.baseUrl}/imagen`, fd);
   }
 
   getUser(): Promise<IUser> {

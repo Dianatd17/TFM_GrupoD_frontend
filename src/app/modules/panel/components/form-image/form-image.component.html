@@ -1,0 +1,14 @@
+<div class="align-self-stretch">
+    <div class="container flex-fill px-3">
+        <p class="fs-3">Editar imagen de perfil</p>
+        <form>
+            <div class="form-group mb-3">
+                <label class="form-label" for="imagen">Fichero<span class="required">*</span></label>
+                <input type="file" class="form-control" name="imagen" (change)="onChange($event)">
+            </div>
+            <div class="mb-3">
+                <input type="submit" value="Enviar" class="btn btn-principal" (click)="onSubmit()">
+            </div>
+        </form>
+    </div>
+</div>

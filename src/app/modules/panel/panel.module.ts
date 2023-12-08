@@ -12,6 +12,7 @@ import { ClientesCardComponent } from './components/clientes-card/clientes-card.
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormEditPerfilComponent } from './components/form-edit-perfil/form-edit-perfil.component';
 import { FormEspecialidadComponent } from './components/form-especialidad/form-especialidad.component';
+import { FormImageComponent } from './components/form-image/form-image.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { FormEspecialidadComponent } from './components/form-especialidad/form-e
     PerfilComponent,
     ClientesCardComponent,
     FormEditPerfilComponent,
-    FormEspecialidadComponent
+    FormEspecialidadComponent,
+    FormImageComponent
 
   ],
   imports: [
