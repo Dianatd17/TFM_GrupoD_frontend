@@ -1,6 +1,8 @@
 import { Component, Input, inject } from '@angular/core';
 import { cliente } from '../../interfaces/panel.interfaces';
 import { PanelService } from '../../services/panel.service';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -12,15 +14,19 @@ import { PanelService } from '../../services/panel.service';
 export class ClientesCardComponent {
   @Input() clientes: cliente | any;
   solicitud: boolean = false
-  panelService = inject(PanelService)
+  panelService = inject(PanelService);
+  router = inject(Router);
+  toastr = inject(ToastrService)
+  
   
   ngOnInit(){
     if(this.clientes.status === 'pendiente'){
       this.solicitud = true
     }
   }
-
-   async aceptar(){
+  
+  //TODO PODRIA HACER UN METODO Y LLAMARLO EN LOS 3 BOTONES O UNA VARIABLE
+  async aceptar(){
     try{
       /* recupero la clase para actualizarla */
       const clase = await this.panelService.getClaseById(this.clientes.id.toString());
@@ -32,15 +38,18 @@ export class ClientesCardComponent {
       //Llamo al servicio para actualizarlo
       const result = await this.panelService.updateStatus(this.clientes.id.toString(), clase);
       console.log(result)
-      
-      /* const result = await this.panelService.updateStatus(this.clientes.id.toString(), clase)
-      console.log(result) */
-      
+      if(result.Succes){
+        this.toastr.success('la pagina se recargará', 'El Alumno ha sido aceptado', {timeOut: 1000});
+        setTimeout( () =>{
+        location.href = 'http://localhost:4200/panel/notificaciones' //! OJO CON ESTO SI HACEMOS DEPLAY
+        },1000)
+      }
     }catch(error){
       console.log(error)
     }
-  }  
-   async rechazar(){
+  } 
+  
+  async rechazar(){
     try{
       /* recupero la clase para actualizarla */
       const clase = await this.panelService.getClaseById(this.clientes.id.toString());
@@ -51,10 +60,12 @@ export class ClientesCardComponent {
       clase.status = 'denegado'
       //Llamo al servicio para actualizarlo
       const result = await this.panelService.updateStatus(this.clientes.id.toString(), clase);
-      
-      
-      /* const result = await this.panelService.updateStatus(this.clientes.id.toString(), clase)
-      console.log(result) */
+      if(result.Succes){
+        this.toastr.success('la pagina se recargará', 'El Alumno ha sido rechazado', {timeOut: 1000});
+        setTimeout( () =>{
+        location.href = 'http://localhost:4200/panel/notificaciones' //! OJO CON ESTO SI HACEMOS DEPLAY
+        },1000)
+      }
       
     }catch(error){
       console.log(error)
@@ -71,7 +82,12 @@ export class ClientesCardComponent {
       clase.status = 'finalizado'
       const result = await this.panelService.updateStatus(this.clientes.id.toString(), clase);
      
-      //const [result] = this.panelService.getClaseById
+      if(result.Succes){
+        this.toastr.success('la pagina se recargará', 'El Alumno ha sido rechazado', {timeOut: 1000});
+        setTimeout( () =>{
+        location.href = 'http://localhost:4200/panel/clientes' //! OJO CON ESTO SI HACEMOS DEPLAY
+        },1000)
+      } 
     }catch(error){
       console.log(error)
     }

@@ -12,6 +12,7 @@ import { ClientesCardComponent } from './components/clientes-card/clientes-card.
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormEditPerfilComponent } from './components/form-edit-perfil/form-edit-perfil.component';
 import { FormEspecialidadComponent } from './components/form-especialidad/form-especialidad.component';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { FormEspecialidadComponent } from './components/form-especialidad/form-e
   imports: [
     CommonModule,
     PanelRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastrModule.forRoot()
   ]
 })
 export class PanelModule { }

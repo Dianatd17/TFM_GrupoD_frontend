@@ -21,6 +21,8 @@ export class PanelComponent {
     /* Asi siempre se queda activo Mi panel en el header */
     //Redirige de /panel a /panel/...
     //El segundo requisito es para que cuando recargues la pagina no te lleve siempre al panel/clientes o panel/logopedas
+
+
    const ruta = this.router.url
     if(this.userRol() === 'logopeda' && ruta === '/panel'){
       this.router.navigate(['/panel/clientes'])
