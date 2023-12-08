@@ -55,6 +55,15 @@
           >
         </li>
 
+        <li class="nav-item" *ngIf="!log">
+          <a
+            class="nav-link a_list"
+            [routerLink]="['/auth', 'register']"
+            routerLinkActive="activado"
+            >Registrarse</a
+          >
+        </li>
+
         <li class="nav-item" *ngIf="log">
           <a
             class="nav-link a_list"
@@ -68,14 +77,14 @@
 
     <a
       class="navbar-brand image_user"
-      href="#"
+      [routerLink]="['/panel']"
       [ngStyle]="{ display: openMenu ? 'none' : 'initial' }"
     >
-      <img
-        src="../../../../assets/images/logo1.png"
+      <img *ngIf="log" class="avatar"
+        src="{{ imagen }}"
         alt="iamgenLogin"
-        width="84"
-        height="84"
+        width="74"
+        height="74"
       />
     </a>
   </div>

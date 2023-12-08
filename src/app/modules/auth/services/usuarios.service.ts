@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { firstValueFrom } from 'rxjs';
+import { Observable, firstValueFrom } from 'rxjs';
 import { jwtDecode } from 'jwt-decode';
 import { IUser } from 'src/app/core/models/user.interface';
 
@@ -18,6 +18,7 @@ type FormRegisterResponse = {
 };
 type FormLoginValue = { email: string, password: string };
 type FormLoginResponse = { success: string, token: string, fatal: string };
+type ImageResponse = { imagen: string, error: string };
 
 type tokenDecoded = { user_id: number, user_role: string, exp_at: Date };
 
@@ -48,6 +49,14 @@ export class UsuariosService {
     );
   }
 
+  /*updateUserImage(values: any) {
+    return this.httpClient.post(`${this.baseUrl}/imagen`, values);
+  }*/
+
+  updateUserImage(fd: FormData): Observable<any> {
+    return this.httpClient.post<FormData>(`${this.baseUrl}/imagen`, fd);
+  }
+
   getUser(): Promise<IUser> {
     return firstValueFrom(
       this.httpClient.get<IUser>(`${this.baseUrl}/${this.getIdUsuario()}`)
@@ -75,6 +84,12 @@ export class UsuariosService {
       return tokenDecode.user_id;
     }
     return 0;
+  }
+
+  getRutaImagen(): Promise<ImageResponse> {
+    return firstValueFrom(
+      this.httpClient.get<ImageResponse>(`${this.baseUrl}/imagen/${this.getIdUsuario()}`)
+    );
   }
 
 }

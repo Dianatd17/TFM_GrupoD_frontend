@@ -1,0 +1,28 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: white;
+    border-color: transparent;
+    overflow: hidden;
+    width: fit-content;
+}
+
+.wfooter {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    margin-top: 10px;
+}
+
+@media only screen and (min-width: 720px) and (max-width: 1920px) {
+    .card {
+        flex-direction: column;
+
+    }
+
+    .wfooter {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}

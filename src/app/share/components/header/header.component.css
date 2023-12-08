@@ -46,6 +46,10 @@ a.activado::after{
     background-color: white; 
 } 
 
+.avatar {
+    border-radius: 42px;
+}
+
 
 @media(max-width: 767px){
     .image_brand{

@@ -1,0 +1,29 @@
+<div class="row m-2">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <article *ngFor=" let coment of arrComentarios">
+
+            <div class="container border-danger">
+                <div class="user-informacion">
+                    <div class="user-name">
+
+                        <p><strong>{{coment.nombre}}</strong></p>
+                    </div>
+                    <ul class="user-rating">
+                        <li class="rating">
+                            <span class="">&#11088;</span>
+                            <span class="p-1">{{coment.puntuacion}}</span>
+
+                        </li>
+                    </ul>
+                </div>
+
+                <p class="opinion">
+                    {{coment.comentarios}}
+                </p>
+            </div>
+
+
+        </article>
+    </div>
+
+</div>
