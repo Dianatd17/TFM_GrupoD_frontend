@@ -32,12 +32,13 @@ export class LogopedasCardComponent {
 
 
     //Verificamos que hay una imagen, si no mostramos el archivo que tenemos en imagenes
-    let imageTmp: string = this.miLogopeda.imagen!;
+    /*let imageTmp: string = this.miLogopeda.imagen!;
     if (this.urlImgValidator(imageTmp) === true) {
       this.miLogopeda.imagen = imageTmp;
     } else {
       this.miLogopeda.imagen = '../../../../../assets/images/foto.png'
-    }
+    }*/
+    this.miLogopeda.imagen = this.usuariosService.getAvatarCard(this.miLogopeda.imagen);
     this.rol = this.usuariosService.getRole()
 
   }
@@ -55,7 +56,7 @@ export class LogopedasCardComponent {
       this.clienteContactar.fecha_inicio = this.pipe.transform(currentDate, 'yyyy-MM-dd')!;
 
       const response = await this.logopedasServices.createContactarLogopedaHasCliente(this.clienteContactar);
-      console.log(response)
+
       if (response) {
         this.toastrService.success('Notificación enviada', 'Contactar logopeda')
       } else {

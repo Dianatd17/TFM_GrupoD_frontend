@@ -1,6 +1,5 @@
 import { Component, inject } from '@angular/core';
 import { PanelService } from '../../services/panel.service';
-import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-clientes',

@@ -1,0 +1,30 @@
+.btn-principal, .btn-inactive {
+    background-color: #60bbdd;
+    color: white;
+}
+
+.btn-principal:hover, .btn-inactive:hover {
+    background-color: #216a92;
+}
+
+.btn-active {
+    background-color: #216a92;
+    color: white;
+}
+
+input, select, textarea {
+    background-color: #ececec;
+    color: #216a92;
+}
+
+input.ng-invalid.ng-touched {
+    border: 1px solid tomato;
+}
+
+input.ng-valid.ng-touched {
+    border-bottom: 1px solid #B8DFA2;
+}
+
+.required {
+    color: tomato;
+}

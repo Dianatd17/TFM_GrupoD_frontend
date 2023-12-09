@@ -1,14 +1,13 @@
     
     <div>
-    <app-home-filters *ngIf="usuariosService.isLogged()" activo="todos"></app-home-filters>
+        <app-home-filters *ngIf="usuariosService.isLogged()" activo="todos"></app-home-filters>
     </div>
 
     <div class="main ">
         <div class="custom-cards">  
             <app-lista-logopedas></app-lista-logopedas>
         </div>
-        <div class=" custom-map">    
-            <!-- <app-europe></app-europe> -->
+        <div class=" custom-map">
             <app-mapalogopedas ruta=""></app-mapalogopedas>
         </div>
     </div>

@@ -15,7 +15,6 @@ export class NotificacionesComponent {
     try{
       const pendientes = await this.panelServie.getClientesByLogopeda();
       this.arrPendientes = pendientes.filter(cliente => cliente.status === 'pendiente' && cliente.estado_u === 1);
-      console.log(this.arrPendientes)
     }catch(err){
       console.log(err)
     }

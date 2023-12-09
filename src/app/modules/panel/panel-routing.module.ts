@@ -14,20 +14,14 @@ const routes: Routes = [
     children: [
       /* Logopedas */
       {path: 'clientes', component: ClientesComponent},
-      {path: 'notificaciones', component: NotificacionesComponent},
+      {path: 'notificaciones', component: NotificacionesComponent },
       /* Clientes */
       {path: 'logopedas', component: LogopedasComponent},
       /* Todas los usuarios */
       {path: 'perfil', component: PerfilComponent},
       /* ADMINISTRADOR */
     ]
-
-  },
-
-  
-    
-  
-   
+  }
   
 ];
 

@@ -10,6 +10,8 @@ import { LogopedasService } from '../services/logopedas.service';
   styleUrls: ['./perfil.component.css']
 })
 export class PerfilComponent {
+  opcion: string = 'informacion';
+  typeOption: boolean = true
   rol: string = "";
   isLog: boolean = false;
   idLogopeda: number = 0;
@@ -32,10 +34,7 @@ export class PerfilComponent {
     }
 
     this.activeRoute.params.subscribe((dato) => {
-      console.log('probando:--- ' + dato['id'])
-      console.log('probando: *****' + this.activeRoute.snapshot.data)
       this.idLogopeda = dato['id'];
-      // console.log(this.idLogopeda)
       this.getLogopedasId(this.idLogopeda);
     })
 
@@ -55,4 +54,17 @@ export class PerfilComponent {
       console.log(err);
     }
   }
+
+  cambiaEstado(opcion: string) {
+
+    if (opcion == 'informacion') { this.typeOption = true }
+    else {
+      this.typeOption = false
+    }
+  }
+
+  getProfileImage(): string {
+    return this.usuariosService.getAvatarProfile(this.miLogopeda.imagen);
+  }
+
 }

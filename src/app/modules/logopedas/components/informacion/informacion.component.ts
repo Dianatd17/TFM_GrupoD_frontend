@@ -24,6 +24,7 @@ export class InformacionComponent {
 
 
   ngOnInit() {
+
     this.isLog = this.usuarioService.isLogged();
 
     if (!this.isLog) {

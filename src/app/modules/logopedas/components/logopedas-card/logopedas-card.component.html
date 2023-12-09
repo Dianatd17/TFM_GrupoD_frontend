@@ -18,7 +18,7 @@
         </div>
         <div class="col-md-2">
             <div class=""></div>
-            <div class="card-text text-center my-3">
+            <div class="card-text my-3 p-3">
                 <a href="#">✮ {{ miLogopeda.puntuacion | number:'1.0-1' }}</a>
 
             </div>
@@ -27,10 +27,10 @@
         </div>
 
 
-        <div class="card-footer bg-transparent m-auto border-opacity-10" *ngIf="usuariosService.isLogged()">
+        <div class="card-footer bg-transparent m-auto border-opacity-10">
             <div class="wfooter">
                 <div class="">
-                    <p class="card-text text-center">{{miLogopeda.localidad}}</p>
+                    <p class="card-text">{{miLogopeda.localidad}}</p>
                 </div>
                 <div class="">
                     <p class="align-content-center" *ngIf="rol=== 'cliente'"><strong>Precio/hora: </strong>
@@ -38,8 +38,8 @@
                         currency:'EUR'}}</p>
                 </div>
                 <div class="">
-                    <button type="submit" class="btn btn-principal"
-                        [routerLink]="['/perfil/'+ miLogopeda.id+'/informacion/'+ miLogopeda.id]">Ver
+
+                    <button type="submit" class="btn btn-principal" [routerLink]="['/perfil',miLogopeda.id]">Ver
                         Perfil</button>
                 </div>
                 <div class="">
