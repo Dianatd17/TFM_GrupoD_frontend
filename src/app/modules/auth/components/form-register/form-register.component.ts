@@ -1,15 +1,16 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { provincias } from 'src/app/share/provincias';
 import { UsuariosService } from '../../services/usuarios.service';
+import { MapGeocoder } from '@angular/google-maps';
 
 @Component({
   selector: 'app-form-register',
   templateUrl: './form-register.component.html',
   styleUrls: ['./form-register.component.css']
 })
-export class FormRegisterComponent {
+export class FormRegisterComponent implements OnInit{
 
   formRegister: FormGroup;
   errorMessage: string = "";
@@ -19,7 +20,7 @@ export class FormRegisterComponent {
   provincias = provincias;
   edades = ["infancia", "adulto", "ambos"];
 
-  constructor() {
+  constructor(private geocoder: MapGeocoder) {
     this.formRegister = new FormGroup({
       nombre: new FormControl('', [
         Validators.required
@@ -53,10 +54,28 @@ export class FormRegisterComponent {
   }
 
   //TODO: si hay token debería de reenviar a home, descomentar cuando esté bien
-  ngOnInit(): void {
+  ngOnInit() {
     if (localStorage.getItem('auth_token')) this.router.navigate(['/home']);
+    this.geocodeAddress('Calle de general Ricardos 15, Madrid, España');
   }
 
+  geocodeAddress(address: string) {
+    // Llamada al servicio de geocodificación con la dirección proporcionada
+    this.geocoder.geocode({ address }).subscribe(({ results }) => {
+      // Dentro del objeto results tenemos la información que queremos
+      console.log(results);
+      if (results.length > 0) {
+        // Obtener las coordenadas geográficas (latitud y longitud) desde los resultados
+        const location = results[0].geometry.location;
+        
+        // Imprimir la latitud y la longitud
+        console.log('Latitud:', location.lat());
+        console.log('Longitud:', location.lng());
+      }
+    }, error => {
+      console.error('Error de geocodificación:', error);
+    });
+  }
   async onSubmit() {
     this.formRegister.value.rol = this.botonRol;
     this.errorMessage = '';
