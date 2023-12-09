@@ -31,7 +31,6 @@ export class ListaLogopedasComponent {
       this.activeRoute.params.subscribe((params: any) => {
         edad = params.edad;
         especialidad = Number(params.especialidadId);
-
         if (edad) {
           this.getLogopedasEdad(edad);
         } else if (especialidad > 0) {
@@ -39,7 +38,10 @@ export class ListaLogopedasComponent {
         } else {
           this.router.navigate(['/home']);
           this.getLogopedasMejorValoradoTop20();
+
         }
+
+
 
       })
     } else {

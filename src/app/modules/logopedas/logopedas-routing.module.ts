@@ -8,8 +8,8 @@ const routes: Routes = [
   {
     path: ':id', component: PerfilComponent,
     children: [
-      { path: 'comentarios/:id', component: ComentariosComponent },
-      { path: 'informacion/:id', component: InformacionComponent }
+      { path: 'comentarios', component: ComentariosComponent },
+      { path: 'informacion', component: InformacionComponent }
     ]
   }
 

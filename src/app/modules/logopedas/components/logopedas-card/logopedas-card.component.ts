@@ -55,7 +55,7 @@ export class LogopedasCardComponent {
       this.clienteContactar.fecha_inicio = this.pipe.transform(currentDate, 'yyyy-MM-dd')!;
 
       const response = await this.logopedasServices.createContactarLogopedaHasCliente(this.clienteContactar);
-      console.log(response)
+
       if (response) {
         this.toastrService.success('Notificación enviada', 'Contactar logopeda')
       } else {

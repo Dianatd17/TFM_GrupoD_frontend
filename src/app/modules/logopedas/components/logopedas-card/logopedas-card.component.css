@@ -11,6 +11,10 @@
     background-color: #216a92;
     color: white;
     align-self: flex-end;
+    text-align: center;
+    width: 100px;
+    height: 40px;
+    margin: 10px;
 }
 
 .btn-principal:hover {
@@ -19,7 +23,9 @@
 
 .wfooter {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: flex-start;
+
 }
 
 a {
@@ -33,4 +39,13 @@ a:hover {
 
 a:active {
     color: #216a92;
+}
+
+@media only screen and (min-width: 720px) and (max-width: 1920px) {
+    .wfooter {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 0px;
+    }
 }

@@ -15,18 +15,34 @@
 
     <div class="informacion">
         <div class="inf_options">
-            <ul class="">
-                <li [routerLink]="['informacion',idLogopeda]" routerLinkActive="active" class="">
+            <ul>
+                <!-- [routerLink]="['informacion',idLogopeda]"    -->
+                <!--  <li [routerLink]="['/perfil',idLogopeda,'informacion']">   -->
+                <!--   [routerLink]="['informacion']"    -->
+                <li (click)="cambiaEstado('informacion')">
                     <b><a href=""></a>Informaci&oacute;n</b>
+
+
                 </li>
-                <li [routerLink]="['comentarios',idLogopeda]" routerLinkActive="active" *ngIf="rol === 'cliente' "
-                    class="">
+                <li (click)="cambiaEstado('comentarios')">
                     <b><a href=""></a>Comentarios</b>
+
                 </li>
             </ul>
         </div>
 
         <div class="inf_result">
+
+            <div *ngIf="typeOption; then typeInformacion else typeComentarios"></div>
+            <ng-template #typeInformacion>
+                <app-informacion></app-informacion>
+            </ng-template>
+
+            <ng-template #typeComentarios>
+                <app-comentarios></app-comentarios>
+            </ng-template>
+
+
             <router-outlet></router-outlet>
         </div>
 
