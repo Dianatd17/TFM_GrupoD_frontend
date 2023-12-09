@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { PanelService } from '../services/panel.service';
 import { ActivatedRoute, RouteConfigLoadStart, Router } from '@angular/router';
+import { UsuariosService } from '../../auth/services/usuarios.service';
 
 
 type user = { usedr_id: string, nombre : string, apellidos:string, email:string, password: string, longitud: number, latitud:number, direccion: string, localidad: string, provincia: string, status: any, rol: string, iamgen: string  }
@@ -15,7 +16,8 @@ export class PanelComponent {
   panelService = inject(PanelService);
   user: user | any
   router = inject(Router);
-  activateRoute = inject(ActivatedRoute)
+  activateRoute = inject(ActivatedRoute);
+  usuariosService = inject(UsuariosService)
 
   async ngOnInit(){
     /* Asi siempre se queda activo Mi panel en el header */
@@ -32,6 +34,7 @@ export class PanelComponent {
     
     try{
       this.user = await this.panelService.getUser()
+      this.user.imagen = this.usuariosService.getAvatarProfile(this.user.imagen);
     }catch(error){
       console.log('Ha ocurrido un error')
     }
@@ -41,7 +44,5 @@ export class PanelComponent {
     const rol = this.panelService.rolUser()
     return rol 
   }
-
-
 
 }

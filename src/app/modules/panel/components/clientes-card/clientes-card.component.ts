@@ -3,6 +3,7 @@ import { cliente } from '../../interfaces/panel.interfaces';
 import { PanelService } from '../../services/panel.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { UsuariosService } from 'src/app/modules/auth/services/usuarios.service';
 
 
 @Component({
@@ -16,7 +17,8 @@ export class ClientesCardComponent {
   solicitud: boolean = false
   panelService = inject(PanelService);
   router = inject(Router);
-  toastr = inject(ToastrService)
+  toastr = inject(ToastrService);
+  usuariosService = inject(UsuariosService);
   
   
   ngOnInit(){
@@ -93,7 +95,9 @@ export class ClientesCardComponent {
     }
   }
 
- 
+  getProfileImage(): string {
+    return this.usuariosService.getAvatarCard(this.clientes.imagen);
+  }
 
   
   

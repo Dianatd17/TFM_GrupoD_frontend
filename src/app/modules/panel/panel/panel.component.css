@@ -20,7 +20,8 @@
     position: relative;
     z-index: 1;
     top: -60px;
-    
+    border-radius: 50%;
+    border: 5px solid #fdf7e0;
 }
 
 .usuario_rol{

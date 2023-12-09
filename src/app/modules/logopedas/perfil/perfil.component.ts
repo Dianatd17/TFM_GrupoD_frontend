@@ -62,4 +62,9 @@ export class PerfilComponent {
       this.typeOption = false
     }
   }
+
+  getProfileImage(): string {
+    return this.usuariosService.getAvatarProfile(this.miLogopeda.imagen);
+  }
+
 }

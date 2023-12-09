@@ -48,6 +48,7 @@ a.activado::after{
 
 .avatar {
     border-radius: 42px;
+    border: 2px solid white;
 }
 
 

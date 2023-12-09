@@ -2,6 +2,7 @@ import { Component, Input, QueryList, ViewChildren, inject } from '@angular/core
 import { mapalogopedasService } from '../../services/mapalogopedas.service';
 import { ILogopeda } from 'src/app/core/models/logopeda.interface';
 import { MapInfoWindow, MapMarker } from '@angular/google-maps';
+import { UsuariosService } from 'src/app/modules/auth/services/usuarios.service';
 
 @Component({
   selector: 'app-mapalogopedas',
@@ -23,8 +24,10 @@ export class MapalogopedasComponent {
   }
 
   mapalogopedasService = inject(mapalogopedasService);
+  usuariosService = inject(UsuariosService);
   arrLogopedas: ILogopeda[] = [];
   arrMarkers: any[] = [];
+  servidorUrl: string = "http://localhost:3000/img/";
 
 
   ngOnInit() :void {
@@ -36,7 +39,7 @@ export class MapalogopedasComponent {
           descripcion: logopeda.descripcion,
           direccion: logopeda.direccion,          
           icon: {
-            url: logopeda.imagen,
+            url: this.usuariosService.getAvatarCard(logopeda.imagen),
             scaledSize: new google.maps.Size(70, 40)
           },
           nombre: logopeda.nombre,

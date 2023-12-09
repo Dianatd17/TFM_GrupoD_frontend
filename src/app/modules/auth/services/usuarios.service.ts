@@ -92,4 +92,16 @@ export class UsuariosService {
     );
   }
 
+  getAvatarCard(ruta: string | any): string {
+    let defecto: string = '../../../../../assets/images/foto.png';
+    if (ruta && ruta !== '') return `http://localhost:3000/img/${ruta}`;
+    return defecto;
+  }
+
+  getAvatarProfile(ruta: string | any): string {
+    let defecto: string = '../../../../assets/images/logo1.png';
+    if (ruta && ruta !== '') return `http://localhost:3000/img/${ruta}`;
+    return defecto;
+  }
+
 }
