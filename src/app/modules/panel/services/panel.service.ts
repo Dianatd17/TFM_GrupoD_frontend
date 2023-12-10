@@ -3,7 +3,7 @@ import { Injectable, inject } from '@angular/core';
 import { jwtDecode } from 'jwt-decode';
 import { lastValueFrom } from 'rxjs';
 import { clase } from '../interfaces/panel.interfaces';
-
+import { ILogopeda } from 'src/app/core/models/logopeda.interface';
 
 
 type tokenDecoded = { user_id: any, user_role:string, exp_at: Date };
@@ -106,6 +106,20 @@ export class PanelService {
     )
   }
   
+  getLogopedasPendientes(): Promise<ILogopeda[]> {
+    return lastValueFrom(this.HttpClient.get<ILogopeda[]>(`${this.baseUrl}/usuarios/logopedas/pendientes`));
+  }
 
+  verificarLogopeda(id: number, body: any): Promise<any> {
+    return lastValueFrom(this.HttpClient.put<any>(`${this.baseUrl}/usuarios/admins/verificar/${id}`, body));
+  }
+
+  rechazarLogopeda(id: number, body: any): Promise<any> {
+    return lastValueFrom(this.HttpClient.put<any>(`${this.baseUrl}/usuarios/admins/rechazar/${id}`, body));
+  }
+
+  desactivarCliente(id: number, body: any): Promise<any> {
+    return lastValueFrom(this.HttpClient.put<any>(`${this.baseUrl}/usuarios/admins/desactivar/${id}`, body));
+  }
   
 }

@@ -99,7 +99,7 @@ export class UsuariosService {
   }
 
   getAvatarProfile(ruta: string | any): string {
-    let defecto: string = '../../../../assets/images/logo1.png';
+    let defecto: string = '../../../../assets/images/user.png';
     if (ruta && ruta !== '') return `http://localhost:3000/img/${ruta}`;
     return defecto;
   }

@@ -3,7 +3,7 @@
     <div class="usuario">
         <div class="usuario_imagen">
             <!--<img src="../../../../assets/images/logo1.png" height="143" width="142" alt="">-->
-            <img src="{{user.imagen}}" height="143" width="142" alt="">
+            <img src="{{user?.imagen}}" height="143" width="142" alt="">
         </div>
 
         <h2 class="usuario_nombre"> {{user?.nombre}} {{user?.apellidos}}</h2>  
@@ -16,16 +16,19 @@
     <div class="informacion">
         <div class="inf_options">
             <ul class="">
-                <li [routerLink]="['clientes']" routerLinkActive="active" *ngIf="userRol() === 'logopeda'" class=""><b><a href=""></a>Mis clientes</b></li> <!--! LINK  COMPONENT  -->
-                <li [routerLink]="['notificaciones']" routerLinkActive="active" *ngIf="userRol() === 'logopeda' " class=""><b><a href=""></a>Notificaciones</b></li> <!--! LINK  COMPONENT  -->
-
-                <li [routerLink]="['logopedas']" routerLinkActive="active" *ngIf="userRol() === 'cliente' " class=""><b><a href=""></a>Mis Logopedas</b></li> <!--! LINK  COMPONENT  -->
-                <!-- TODO ME FALTA EL NG IF ROL -->
-                <li [routerLink]="['perfil']" routerLinkActive="active"  class=""><b><a href=""></a>Editar Perfil</b></li>
-
+                <!-- Links de logopedas -->
+                <li [routerLink]="['clientes']" routerLinkActive="active" *ngIf="userRol() === 'logopeda'" class=""><b><a href=""></a>Mis clientes</b></li>
+                <li [routerLink]="['notificaciones']" routerLinkActive="active" *ngIf="userRol() === 'logopeda' " class=""><b><a href=""></a>Notificaciones</b></li>
+                <!-- Links de clientes-->
+                <li [routerLink]="['logopedas']" routerLinkActive="active" *ngIf="userRol() === 'cliente' " class=""><b><a href=""></a>Mis Logopedas</b></li>
+                <!-- Links de administradores-->
                 <!-- ADMINISTRADOR ACEPTA A LOS PROFESORES -->
+                <li [routerLink]="['admin', 'logopedas']" routerLinkActive="active" *ngIf="userRol() === 'admin'"><b>Notificaciones</b></li>
                 <!-- ADMINSITRADOR CAMBIA A LOS CLIENTES -->
-                
+                <li [routerLink]="['admin', 'clientes']" routerLinkActive="active" *ngIf="userRol() === 'admin'"><b>Desactivar clientes</b></li>
+                <!-- Links relativos a perfil-->
+                <li [routerLink]="['perfil']" routerLinkActive="active" class=""><b><a href=""></a>Editar perfil</b></li>
+                <li [routerLink]="['/perfil', user.id]" routerLinkActive="active" *ngIf="userRol() === 'logopeda'" class=""><b><a href=""></a>Mi perfil</b></li>
             </ul>
         </div>
 
