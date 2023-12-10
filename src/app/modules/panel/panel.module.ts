@@ -18,6 +18,7 @@ import { FormImageComponent } from './components/form-image/form-image.component
 import { AdminLogopedasComponent } from './components/admin-logopedas/admin-logopedas.component';
 import { AdminClientesComponent } from './components/admin-clientes/admin-clientes.component';
 import { ListaPendientesComponent } from './components/lista-pendientes/lista-pendientes.component';
+import { ListaDeleteClientesComponent } from './components/lista-delete-clientes/lista-delete-clientes.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { ListaPendientesComponent } from './components/lista-pendientes/lista-pe
     FormImageComponent,
     AdminLogopedasComponent,
     AdminClientesComponent,
-    ListaPendientesComponent
+    ListaPendientesComponent,
+    ListaDeleteClientesComponent
 
   ],
   imports: [

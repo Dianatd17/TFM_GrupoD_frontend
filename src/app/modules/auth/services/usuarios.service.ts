@@ -49,10 +49,6 @@ export class UsuariosService {
     );
   }
 
-  /*updateUserImage(values: any) {
-    return this.httpClient.post(`${this.baseUrl}/imagen`, values);
-  }*/
-
   updateUserImage(fd: FormData): Observable<any> {
     return this.httpClient.post<FormData>(`${this.baseUrl}/imagen`, fd);
   }

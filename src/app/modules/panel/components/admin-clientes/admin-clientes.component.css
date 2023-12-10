@@ -1,0 +1,40 @@
+.title {
+    margin-left: 5vw;
+}
+
+.search {
+    margin-left: 5vw; 
+}
+
+input {
+    background-color: #ececec;
+    color: #216a92;
+}
+
+.listado{
+    margin-left: 5vw; 
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 10px;
+    column-gap: 25px;
+    margin-top: 10px;
+}
+
+@media (max-width: 1126px){
+    .listado {
+        display: block;
+    }
+    .listado_card{
+        grid-template-columns: 1fr;
+        margin-bottom: 1rem;
+    }
+}
+@media (max-width: 970px){
+    .listado_card{
+        margin-left: 0;
+    }
+    
+    article{
+        align-self: center;
+    }
+}

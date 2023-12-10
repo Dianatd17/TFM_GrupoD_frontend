@@ -1,0 +1,20 @@
+<div class="card">
+    <div class="card_wrapped">
+      <div class="card_imagen">
+        <img src="{{usuariosService.getAvatarCard(usuario.imagen)}}"  width="110px" alt="imagenCliente">
+      </div>
+  
+      <div class="card_information">
+        <h5>{{usuario?.nombre}} {{usuario?.apellidos}} </h5>
+        <ul class="card_list">
+            <li><b>Email:</b> {{usuario?.email}} </li>
+            <li><b>Ubicación:</b> {{usuario?.localidad}} - {{usuario?.provincia}} </li>
+            <li><span class="badge text-bg-primary ps-2">{{status[usuario?.status]}}</span></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="card_solicitud">
+      <button (click)="desactivar()" [disabled]="usuario?.status<=0" type="button" class="btn btn-danger card-button">Desactivar</button>
+    </div>
+  </div>
