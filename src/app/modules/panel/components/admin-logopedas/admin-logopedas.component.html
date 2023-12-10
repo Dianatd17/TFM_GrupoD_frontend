@@ -1,0 +1,10 @@
+<div class="container mb-3">
+    <div class="fs-2 title">Logopedas pendientes de aprobación</div>
+    <div class="listado col-xs-12">
+        <article *ngFor="let logopeda of listado">
+            <div class="listado_card">
+                <app-lista-pendientes [logopeda]="logopeda"></app-lista-pendientes>
+            </div>
+        </article>
+    </div>
+</div>

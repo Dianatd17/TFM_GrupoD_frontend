@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsuariosService } from '../../services/usuarios.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-form-login',
@@ -14,6 +15,7 @@ export class FormLoginComponent {
   errorMessage: string = "";
   router = inject(Router);
   usuariosService = inject(UsuariosService);
+  toastrService = inject(ToastrService);
 
   constructor() {
     this.formLogin = new FormGroup({
@@ -41,24 +43,16 @@ export class FormLoginComponent {
     const response = await this.usuariosService.login(this.formLogin.value);
     if (response.fatal) {
       // Error en el login
-      this.errorMessage = response.fatal;
+      //this.errorMessage = response.fatal;
+      this.toastrService.error(response.fatal);
     } else {
       // Login correcto
       localStorage.setItem('auth_token', response.token);
-      const modal = document.querySelector<HTMLElement>(".modal");
-      if (modal !== null) { 
-        modal.classList.add("show");
-        modal.style.display = "block";
+      if (this.usuariosService.getRole() === "cliente") {
+        window.location.href = "/home";
+      } else {
+        window.location.href = "/panel";
       }
-    }
-  }
-
-  redirect(): void {
-
-    if (this.usuariosService.getRole() === "cliente") {
-      window.location.href = "/home";
-    } else {
-      window.location.href = "/panel";
     }
   }
 

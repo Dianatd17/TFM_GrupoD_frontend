@@ -36,13 +36,13 @@
             </div>
             <div class="mb-3">
                 <label class="form-label" for="password">Contraseña<span class="required">*</span></label>
-                <div class="input-group">
-                    <input id="password" name="password" type="password" class="form-control" formControlName="password">
-                    <span class="input-group-text">Repite contraseña:</span>
-                    <input id="repitepassword" name="repitepassword" type="password" class="form-control" formControlName="repitepassword">
-                </div>
+                <input id="password" name="password" type="password" class="form-control" formControlName="password">
                 <p class="error" *ngIf="checkControl('password', 'required')">El campo es requerido</p>
                 <p class="error" *ngIf="checkControl('password', 'minlength')">La longitud mínima es de 8 caracteres</p>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="repitepassword">Repite contraseña<span class="required">*</span></label>
+                <input id="repitepassword" name="repitepassword" type="password" class="form-control" formControlName="repitepassword">
                 <p class="error" *ngIf="formRegister.hasError('checkpassword')">Los campos password y repite password deben ser iguales</p>
             </div>
             <div class="mb-3">

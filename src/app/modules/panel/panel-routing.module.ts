@@ -5,6 +5,8 @@ import { NotificacionesComponent } from './components/notificaciones/notificacio
 import { ClientesComponent } from './components/clientes/clientes.component';
 import { LogopedasComponent } from './components/logopedas/logopedas.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
+import { AdminLogopedasComponent } from './components/admin-logopedas/admin-logopedas.component';
+import { AdminClientesComponent } from './components/admin-clientes/admin-clientes.component';
 
 
 const routes: Routes = [
@@ -20,6 +22,8 @@ const routes: Routes = [
       /* Todas los usuarios */
       {path: 'perfil', component: PerfilComponent},
       /* ADMINISTRADOR */
+      {path: 'admin/logopedas', component: AdminLogopedasComponent},
+      {path: 'admin/clientes', component: AdminClientesComponent}
     ]
   }
   

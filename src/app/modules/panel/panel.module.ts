@@ -15,6 +15,9 @@ import { FormEspecialidadComponent } from './components/form-especialidad/form-e
 import { ToastrModule } from 'ngx-toastr';
 
 import { FormImageComponent } from './components/form-image/form-image.component';
+import { AdminLogopedasComponent } from './components/admin-logopedas/admin-logopedas.component';
+import { AdminClientesComponent } from './components/admin-clientes/admin-clientes.component';
+import { ListaPendientesComponent } from './components/lista-pendientes/lista-pendientes.component';
 
 
 @NgModule({
@@ -27,7 +30,10 @@ import { FormImageComponent } from './components/form-image/form-image.component
     ClientesCardComponent,
     FormEditPerfilComponent,
     FormEspecialidadComponent,
-    FormImageComponent
+    FormImageComponent,
+    AdminLogopedasComponent,
+    AdminClientesComponent,
+    ListaPendientesComponent
 
   ],
   imports: [

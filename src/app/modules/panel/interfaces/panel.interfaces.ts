@@ -17,6 +17,7 @@ export type logopedas = {
     email: string,
     localidad: string,
     precio: string,
+    puntuacion: string,
     experiencia: number,
     infancia_o_adulto: string,
     descripcion: string,

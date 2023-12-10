@@ -30,6 +30,8 @@ export class PanelComponent {
       this.router.navigate(['/panel/clientes'])
     }else if(this.userRol() === 'cliente'){
       this.router.navigate(['/panel/logopedas'])
+    } else if(this.userRol() === 'admin') {
+      this.router.navigate(['/panel/admin/logopedas'])
     }
     
     try{
