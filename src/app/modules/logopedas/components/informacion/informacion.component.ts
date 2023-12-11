@@ -57,7 +57,6 @@ export class InformacionComponent {
         this.miLogopeda = response;
         try {
           this.conexion = await this.logopedasServices.getConexion(this.miLogopeda.id, this.usuarioService.getIdUsuario());
-          console.log(this.conexion);
         } catch (error) {
           console.log(error);
         }

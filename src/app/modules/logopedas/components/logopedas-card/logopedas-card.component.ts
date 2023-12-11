@@ -29,22 +29,11 @@ export class LogopedasCardComponent {
   };
 
   ngOnInit() {
-
-
-    //Verificamos que hay una imagen, si no mostramos el archivo que tenemos en imagenes
-    /*let imageTmp: string = this.miLogopeda.imagen!;
-    if (this.urlImgValidator(imageTmp) === true) {
-      this.miLogopeda.imagen = imageTmp;
-    } else {
-      this.miLogopeda.imagen = '../../../../../assets/images/foto.png'
-    }*/
     this.miLogopeda.imagen = this.usuariosService.getAvatarCard(this.miLogopeda.imagen);
     this.rol = this.usuariosService.getRole()
-
   }
 
   async contactarLogopeda(idLogopeda: number) {
-
     const idCliente: number = this.usuariosService.getIdUsuario()
 
     if (idCliente !== 0) {

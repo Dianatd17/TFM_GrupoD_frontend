@@ -9,13 +9,9 @@
 }
 
 .card_wrapped{
-    
     display: flex;
-    gap: 2vw;
-
-    
+    gap: 2vw;  
 }
-
 
 .card_imagen{
     border-right: 2px solid grey;
@@ -41,6 +37,10 @@
 .card_button{
     width: 20%;
     min-width: 82px;
+}
+
+img{
+    border-radius: 5px;
 }
 
 

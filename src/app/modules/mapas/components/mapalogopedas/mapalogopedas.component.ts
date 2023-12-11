@@ -60,7 +60,6 @@ export class MapalogopedasComponent {
   actualizarRuta(nuevaRuta: string) {
     this.ruta = nuevaRuta;
     this.inicializarMapa();
-   
   }
 
   private inicializarMapa() {
@@ -68,7 +67,6 @@ export class MapalogopedasComponent {
     this.arrMarkers = [];
       
       this.mapalogopedasService.getAll(this.ruta).subscribe(data => {
-        //console.log(data)
         data.forEach(logopeda => {
           this.arrMarkers.push({
             id:logopeda.id,
@@ -82,16 +80,10 @@ export class MapalogopedasComponent {
             nombre: logopeda.nombre,
             position: new google.maps.LatLng(logopeda.latitud,logopeda.longitud),
             precio: logopeda.precio,
-            // me daba error latitud, quite ? en Ilogopeda
           })
         })
-       //console.log(this.arrMarkers)
       })
-   
   }
-
-  
-
 
   openInfoWindow(marker: MapMarker, indice:number) {
     let contador=0;
@@ -106,7 +98,4 @@ export class MapalogopedasComponent {
       }
     })
   }
-
-
-
 }

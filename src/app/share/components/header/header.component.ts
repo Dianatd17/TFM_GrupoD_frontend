@@ -1,9 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { LoginService } from '../../services/login.service';
 import { UsuariosService } from 'src/app/modules/auth/services/usuarios.service';
-import { isEmpty } from 'rxjs';
 import { Router } from '@angular/router';
-import { IUser } from '../../../core/models/user.interface';
 
 @Component({
   selector: 'app-header',
@@ -26,8 +24,6 @@ export class HeaderComponent {
 
 
   async ngOnInit(){
-    //this.log = this.loginService.getLog();
-    //localStorage.setItem('auth_token', 'esto es el localstorage ikjfhiuefhfwe8ry487332')
     this.log = this.userService.isLogged();
     // Buscamos la imagen de usuario en el servicio con getRutaImagen, y si tiene imagen sobreescribimos la imagen por defecto
     try {

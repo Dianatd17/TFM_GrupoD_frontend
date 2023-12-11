@@ -1,13 +1,9 @@
 <div class="mainWrapped">
+  <app-header></app-header>
 
-    <app-header></app-header>
-    
-    
-    <main>
-        <router-outlet></router-outlet>
-    </main>
-    
-    
-    <!-- cuadno la pagina se llene el footer se ira abajo solo, sino lelga a llenarse se puede haacer un div flex que envuelva toda la aplicacion con grow 1 a main y ya. -->
-    <app-footer></app-footer>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+
+  <app-footer></app-footer>
 </div>

@@ -1,69 +1,47 @@
-
-
-<!--<section class="logopedas">
-    
-        <article class="logopedas_card">
-            <div class="card_above">
-                <div class="card_iamgen">
-                    <img src="{{miLogopeda.imagen}}" class="img-fluid" alt="...">
-                </div>
-                <div class="card_info">
-                
-                    <h5>{{ miLogopeda.nombre }} {{ miLogopeda.apellidos }}</h5>
-                    <p class="info_des">{{miLogopeda.descripcion}}</p>
-                    <p class="info_exp" *ngIf="miLogopeda.experiencia"><small class="text-muted ">Experiencia
-                            {{miLogopeda.experiencia}} años</small></p>           
-                 </div>
-            </div>
-            
-           <div class="card_bellow">
-                <p>{{miLogopeda.localidad}}</p>
-
-                <p *ngIf="rol=== 'cliente'"><strong>Precio/hora: </strong>
-                    {{miLogopeda.precio |
-                    currency:'EUR'}}</p>
-                
-                <a href="#">✮ {{ miLogopeda.puntuacion | number:'1.0-1' }}</a>
-                
-                <button type="submit" class="btn btn-principal" [routerLink]="['/perfil',miLogopeda.id]">Ver
-                    Perfil</button>
-
-                <button type="submit" class="btn btn-principal" *ngIf="rol=== 'cliente'"
-                    (click)="contactarLogopeda(miLogopeda.id)">Contactar</button>
-           </div>
-            
-        </article>
-     
-    
-</section>-->
-
 <div class="card mb-3 logopedas_card">
-    <div class="row g-0">
-      <div class="col-md-4 p-2">
-        <img src="{{miLogopeda.imagen}}" class="img-fluid w-100" alt="...">
+  <div class="row g-0">
+    <div class="imagen_wrapper col-md-4 p-2">
+      <img src="{{ miLogopeda.imagen }}" class="img-fluid w-100" alt="..." />
+    </div>
+    <div class="col-md-8">
+      <div class="card-body p-3">
+        <h5 class="card-title mb-3">
+          {{ miLogopeda.nombre }} {{ miLogopeda.apellidos }}
+        </h5>
+        <p class="card-text">{{ miLogopeda.descripcion }}</p>
+        <p class="card-text" *ngIf="miLogopeda.experiencia">
+          <small class="text-body-secondary"
+            >Experiencia {{ miLogopeda.experiencia }} años</small
+          >
+        </p>
       </div>
-      <div class="col-md-8">
-        <div class="card-body p-3">
-          <h5 class="card-title mb-3">{{ miLogopeda.nombre }} {{ miLogopeda.apellidos }}</h5>
-          <p class="card-text">{{miLogopeda.descripcion}}</p>
-          <p class="card-text" *ngIf="miLogopeda.experiencia"><small class="text-body-secondary">Experiencia
-                            {{miLogopeda.experiencia}} años</small></p>
-        </div>
-      </div>
-      <div class="card_bellow">
-        <p>{{miLogopeda.localidad}}</p>
+    </div>
+    <div class="card_bellow">
+      <p>{{ miLogopeda.localidad }}</p>
 
-        <p *ngIf="rol=== 'cliente'"><strong>Precio/hora: </strong>
-            {{miLogopeda.precio |
-            currency:'EUR'}}</p>
-        
-        <a href="#">✮ {{ miLogopeda.puntuacion | number:'1.0-1' }}</a>
-        
-        <button type="submit" class="btn btn-principal" [routerLink]="['/perfil',miLogopeda.id]">Ver
-            Perfil</button>
+      <p *ngIf="rol === 'cliente'">
+        <strong>Precio/hora: </strong>
+        {{ miLogopeda.precio | currency : "EUR" }}
+      </p>
 
-        <button type="submit" class="btn btn-principal" *ngIf="rol=== 'cliente'"
-            (click)="contactarLogopeda(miLogopeda.id)">Contactar</button>
-   </div>
+      <a href="#">✮ {{ miLogopeda.puntuacion | number : "1.0-1" }}</a>
+
+      <button
+        type="submit"
+        class="btn btn-principal"
+        [routerLink]="['/perfil', miLogopeda.id]"
+      >
+        Ver Perfil
+      </button>
+
+      <button
+        type="submit"
+        class="btn btn-principal"
+        *ngIf="rol === 'cliente'"
+        (click)="contactarLogopeda(miLogopeda.id)"
+      >
+        Contactar
+      </button>
     </div>
   </div>
+</div>

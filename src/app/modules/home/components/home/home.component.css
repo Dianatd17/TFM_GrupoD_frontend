@@ -53,3 +53,9 @@
         flex: 100%;
     }
 }
+
+@media(max-width: 970px){
+    .custom-cards{
+        margin-right: 0;
+    }
+}

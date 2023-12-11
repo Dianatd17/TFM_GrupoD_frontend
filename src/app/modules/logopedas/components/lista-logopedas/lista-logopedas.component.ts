@@ -38,19 +38,11 @@ export class ListaLogopedasComponent {
         } else {
           this.router.navigate(['/home']);
           this.getLogopedasMejorValoradoTop20();
-
         }
-
-
-
       })
     } else {
       this.getLogopedasMejorValoradoTop20();
-
     }
-
-
-
   }
 
 

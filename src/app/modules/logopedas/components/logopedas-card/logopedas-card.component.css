@@ -107,6 +107,15 @@ a:active {
     color: #216a92;
 }
 
+img{
+    max-width: 140px;
+    border-radius: 5px;
+}
+
+.imagen_wrapper{
+    display: flex;
+    justify-content: center;
+}
 
 @media (max-width: 970px){
     .logopedas_wrapped{

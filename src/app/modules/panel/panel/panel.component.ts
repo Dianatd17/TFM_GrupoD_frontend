@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { PanelService } from '../services/panel.service';
-import { ActivatedRoute, RouteConfigLoadStart, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UsuariosService } from '../../auth/services/usuarios.service';
 
 
@@ -20,11 +20,8 @@ export class PanelComponent {
   usuariosService = inject(UsuariosService)
 
   async ngOnInit(){
-    /* Asi siempre se queda activo Mi panel en el header */
-    //Redirige de /panel a /panel/...
+
     //El segundo requisito es para que cuando recargues la pagina no te lleve siempre al panel/clientes o panel/logopedas
-
-
    const ruta = this.router.url
     if(this.userRol() === 'logopeda' && ruta === '/panel'){
       this.router.navigate(['/panel/clientes'])
@@ -41,6 +38,7 @@ export class PanelComponent {
       console.log('Ha ocurrido un error')
     }
   }
+
 
   userRol(){
     const rol = this.panelService.rolUser()
