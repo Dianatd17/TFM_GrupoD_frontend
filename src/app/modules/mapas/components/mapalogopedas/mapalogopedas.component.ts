@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, QueryList, ViewChildren, inject } from '@angular/core';
+import {  Component, Input, QueryList, ViewChildren, inject } from '@angular/core';
 import { mapalogopedasService } from '../../services/mapalogopedas.service';
 import { ILogopeda } from 'src/app/core/models/logopeda.interface';
 import { MapInfoWindow, MapMarker } from '@angular/google-maps';
