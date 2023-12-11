@@ -9,5 +9,4 @@ import { UsuariosService } from 'src/app/modules/auth/services/usuarios.service'
 export class HomeComponent {
   usuariosService = inject(UsuariosService);
 
-
 }

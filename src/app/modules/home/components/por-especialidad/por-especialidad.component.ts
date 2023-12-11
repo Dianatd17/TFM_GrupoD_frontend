@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, inject } from '@angular/core';
+import { Component, ViewChild, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IEspecialidad } from 'src/app/core/models/especialidad.interface';
 import { EspecialidadesService } from 'src/app/modules/especialidades/services/especialidades.service';
+import { MapalogopedasComponent } from 'src/app/modules/mapas/components/mapalogopedas/mapalogopedas.component';
 
 @Component({
   selector: 'app-por-especialidad',
@@ -20,7 +21,9 @@ export class PorEspecialidadComponent {
   activatedRoute = inject(ActivatedRoute);
   router = inject(Router)
 
-  async ngOnInit() {
+  @ViewChild(MapalogopedasComponent) mapaComponent: MapalogopedasComponent | undefined;
+
+  async ngAfterViewInit() {
     this.activatedRoute.params.subscribe(async (params: any) => {
       
       try {
@@ -32,6 +35,8 @@ export class PorEspecialidadComponent {
         this.especialidad = result.especialidad;
         this.descripcion = result.descripcion;
         this.es_infancia = result.es_infancia;
+
+        this.inicializarMapa();
       } catch(error) {
         console.log(error);
         this.especialidad = "No existe esta especialidad"
@@ -39,5 +44,11 @@ export class PorEspecialidadComponent {
     })
   }
 
+  private inicializarMapa() {
+    // Aseguramos que esp_id tenga un valor antes de llamar al componente hijo
+    if (this.mapaComponent && this.esp_id) {
+      this.mapaComponent.actualizarRuta(this.esp_id);
+    }
+  }
   
 }

@@ -30,28 +30,46 @@ export class MapalogopedasComponent {
   servidorUrl: string = "http://localhost:3000/img/";
 
 
-  ngOnInit() :void {
-    this.mapalogopedasService.getAll(this.ruta).subscribe(data => {
-      //console.log(data)
-      data.forEach(logopeda => {
-        this.arrMarkers.push({
-          apellidos: logopeda.apellidos,
-          descripcion: logopeda.descripcion,
-          direccion: logopeda.direccion,          
-          icon: {
-            url: this.usuariosService.getAvatarCard(logopeda.imagen),
-            scaledSize: new google.maps.Size(70, 40)
-          },
-          nombre: logopeda.nombre,
-          position: new google.maps.LatLng(logopeda.latitud,logopeda.longitud),
-          precio: logopeda.precio,
-          // me daba error latitud, quite ? en Ilogopeda
-        })
-      })
-     //console.log(this.arrMarkers)
-    })
-
+  ngAfterViewInit(): void {
+    
+    this.inicializarMapa();
+    
   }
+  actualizarRuta(nuevaRuta: string) {
+    this.ruta = nuevaRuta;
+    this.inicializarMapa();
+   
+  }
+
+  private inicializarMapa() {
+    
+   
+      
+      this.mapalogopedasService.getAll(this.ruta).subscribe(data => {
+        //console.log(data)
+        data.forEach(logopeda => {
+          this.arrMarkers.push({
+            id:logopeda.id,
+            apellidos: logopeda.apellidos,
+            descripcion: logopeda.descripcion,
+            direccion: logopeda.direccion,          
+            icon: {
+              url: this.usuariosService.getAvatarCard(logopeda.imagen),
+              scaledSize: new google.maps.Size(70, 40)
+            },
+            nombre: logopeda.nombre,
+            position: new google.maps.LatLng(logopeda.latitud,logopeda.longitud),
+            precio: logopeda.precio,
+            // me daba error latitud, quite ? en Ilogopeda
+          })
+        })
+       //console.log(this.arrMarkers)
+      })
+   
+  }
+
+
+
 
   openInfoWindow(marker: MapMarker, indice:number) {
     let contador=0;

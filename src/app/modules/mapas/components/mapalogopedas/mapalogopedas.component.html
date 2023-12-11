@@ -16,6 +16,9 @@
                     <p class="card-text mt-2">{{marker.descripcion}}</p>
                     <p class="card-text">{{marker.precio+"€"}}</p>
                     
+                    <button type="submit" class="btn btn-principal" [routerLink]="['/perfil',marker.id]">Ver
+                      Perfil</button>
+
                   </div>
                 </div>
               </div>

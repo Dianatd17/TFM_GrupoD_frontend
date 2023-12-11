@@ -10,11 +10,13 @@
 
 
 <div class="custom-container">
+
     <div class="custom-cards">
         <app-lista-logopedas></app-lista-logopedas>
     </div>
-    <div class="custom-map">
-        <app-mapalogopedas [ruta]="esp_id"></app-mapalogopedas>
+    
+    <div class="custom-map" *ngIf="esp_id">
+        <app-mapalogopedas  [ruta]="esp_id"></app-mapalogopedas>
     </div>
     
 </div>

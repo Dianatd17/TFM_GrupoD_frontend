@@ -36,6 +36,7 @@
     padding: 10px;
     border-right: 1px solid grey; 
     padding-top: 15px;
+    max-width: 500px;
 }
 
 .card_info{

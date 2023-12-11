@@ -1,0 +1,14 @@
+.btn-principal {
+    /* background-color: #216a92; */
+     background-color: rgb(220, 115, 213); 
+    color: white;
+    align-self: flex-end;
+    text-align: center;
+    width: 100px;
+    height: 40px;
+    margin: 10px;
+}
+
+.btn-principal:hover {
+    background-color: #216a92;
+}
