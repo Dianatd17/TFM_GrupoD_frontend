@@ -52,7 +52,6 @@ export class FormRegisterComponent {
     }, [this.checkPassword]);
   }
 
-  //TODO: si hay token debería de reenviar a home, descomentar cuando esté bien
   ngOnInit(): void {
     if (localStorage.getItem('auth_token')) this.router.navigate(['/home']);
   }
@@ -62,11 +61,11 @@ export class FormRegisterComponent {
     this.errorMessage = '';
     this.formRegister.value.status = this.botonRol === 'cliente' ? 1 : 0;
     if (this.botonRol === 'cliente' || this.formRegister.value.telefono !== '') {
-      //TODO: deberíamos consultar si el email ya existe en la bbdd antes de mandar nada
       const response = await this.usuariosService.register(this.formRegister.value);
       if (!response.id) {
         this.errorMessage = "El usuario no pudo crearse: " + response.fatal;
       } else {
+        const resnotif = await this.usuariosService.sendEmailNotif(this.formRegister.value.email);
         const modal = document.querySelector<HTMLElement>(".modal");
         if (modal !== null) { 
           modal.classList.add("show");

@@ -1,0 +1,72 @@
+*{
+    box-sizing: border-box; 
+ }
+ 
+ .card{
+     background-color: #F2F8EE;
+     border-radius: 10px;
+     border: 1px solid grey;
+ }
+ 
+ .card_wrapped{
+     display: flex;
+     gap: 2vw;
+ }
+ 
+ .card_imagen{
+     border-right: 2px solid grey;
+     padding-right: 10px;    
+     position: relative;
+     padding: 20px;
+ }
+ 
+ul {
+    padding: 0;
+}
+
+.card_list li {
+    list-style-type: none;
+    margin: 0;
+}
+
+ .card_information{
+     padding: 20px 10px;
+     position: relative;
+ }
+ 
+ .card_solicitud{
+     padding: 10px;
+     display: flex;
+     justify-content: center;
+     gap: 10%;
+     border-top: 1px solid grey;
+ }
+ 
+ .card_button{
+     width: 20%;
+     min-width: 82px;
+ }
+ 
+ @media (max-width: 970px){
+     .card{
+         margin-left: auto;
+         margin-right: auto;
+         max-width:700px ;
+     }
+     .card_button{
+        min-width: 30%;
+    }
+ }
+ @media (max-width: 540px){
+     .card_imagen{    
+         padding: 5px;
+     }
+     .card_information{
+         padding: 5px;
+     }
+     img{
+         width: 90px;
+     }
+ 
+ }
+ 

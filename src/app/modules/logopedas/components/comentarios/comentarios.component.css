@@ -34,6 +34,7 @@
 .rating {
     background-color: #e1e8eb;
     border-radius: 1cap;
+    list-style: none;
 }
 
 .p {

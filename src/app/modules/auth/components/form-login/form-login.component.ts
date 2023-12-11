@@ -43,7 +43,6 @@ export class FormLoginComponent {
     const response = await this.usuariosService.login(this.formLogin.value);
     if (response.fatal) {
       // Error en el login
-      //this.errorMessage = response.fatal;
       this.toastrService.error(response.fatal);
     } else {
       // Login correcto

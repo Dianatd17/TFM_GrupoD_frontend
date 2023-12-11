@@ -1,11 +1,11 @@
 <div class="card" *ngIf="!logopeda?.status">
     <div class="card_wrapped">
       <div class="card_imagen">
-        <img src="{{usuariosService.getAvatarCard(logopeda.imagen)}}"  width="110px" alt="iamgenCliente">
+        <img src="{{usuariosService.getAvatarCard(logopeda.imagen)}}"  width="110px" alt="imagenCliente">
       </div>
   
       <div class="card_information">
-        <h5 class="" [routerLink]="['/perfil', logopeda?.id]">{{logopeda?.nombre}} {{logopeda?.apellidos}} </h5>
+        <h5>{{logopeda?.nombre}} {{logopeda?.apellidos}}</h5>
         <ul class="card_list">
             <li><b>Email:</b> {{logopeda?.email}} </li>
             <li><b>Ubicación: </b> {{logopeda?.localidad}} - {{logopeda?.provincia}} </li>

@@ -3,6 +3,7 @@ import { LogopedasService } from '../../services/logopedas.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ILogopeda } from 'src/app/core/models/logopeda.interface';
 import { UsuariosService } from 'src/app/modules/auth/services/usuarios.service';
+import { IlogopedaHasClientes } from '../../../../core/models/logopedasHasClientes.interface';
 
 @Component({
   selector: 'app-informacion',
@@ -19,11 +20,12 @@ export class InformacionComponent {
 
   router = inject(Router);
   activeRoute = inject(ActivatedRoute);
-  logopedasServices = inject(LogopedasService)
-  usuarioService = inject(UsuariosService)
+  logopedasServices = inject(LogopedasService);
+  usuarioService = inject(UsuariosService);
+  conexion: IlogopedaHasClientes[] = [];
 
 
-  ngOnInit() {
+  async ngOnInit() {
 
     this.isLog = this.usuarioService.isLogged();
 
@@ -37,6 +39,7 @@ export class InformacionComponent {
       this.getLogopedasId(params['id']);
 
     })
+
   }
 
 
@@ -47,6 +50,12 @@ export class InformacionComponent {
 
       if (response) {
         this.miLogopeda = response;
+        try {
+          this.conexion = await this.logopedasServices.getConexion(this.miLogopeda.id, this.usuarioService.getIdUsuario());
+          console.log(this.conexion);
+        } catch (error) {
+          console.log(error);
+        }
       }
 
 
@@ -54,4 +63,9 @@ export class InformacionComponent {
       console.log(err);
     }
   }
+
+  async getConexion() {
+    
+  }
+
 }

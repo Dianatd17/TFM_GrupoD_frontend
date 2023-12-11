@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, firstValueFrom } from 'rxjs';
+import { Observable, firstValueFrom, lastValueFrom } from 'rxjs';
 import { jwtDecode } from 'jwt-decode';
 import { IUser } from 'src/app/core/models/user.interface';
 
@@ -19,7 +19,7 @@ type FormRegisterResponse = {
 type FormLoginValue = { email: string, password: string };
 type FormLoginResponse = { success: string, token: string, fatal: string };
 type ImageResponse = { imagen: string, error: string };
-
+type EmailResponse = { msg: string, success: string, fatal: string };
 type tokenDecoded = { user_id: number, user_role: string, exp_at: Date };
 
 @Injectable({
@@ -48,10 +48,6 @@ export class UsuariosService {
       this.httpClient.put<IUser>(`${this.baseUrl}`, values)
     );
   }
-
-  /*updateUserImage(values: any) {
-    return this.httpClient.post(`${this.baseUrl}/imagen`, values);
-  }*/
 
   updateUserImage(fd: FormData): Observable<any> {
     return this.httpClient.post<FormData>(`${this.baseUrl}/imagen`, fd);
@@ -102,6 +98,10 @@ export class UsuariosService {
     let defecto: string = '../../../../assets/images/user.png';
     if (ruta && ruta !== '') return `http://localhost:3000/img/${ruta}`;
     return defecto;
+  }
+
+  sendEmailNotif(email: string | any): Promise<EmailResponse> {
+    return lastValueFrom(this.httpClient.post<EmailResponse>('http://localhost:3000/api/enviarEmail', { email: email }));
   }
 
 }
