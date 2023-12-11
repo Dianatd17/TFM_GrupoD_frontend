@@ -39,6 +39,10 @@
     min-width: 82px;
 }
 
+img{
+    border-radius: 5px;
+}
+
 
 
 @media (max-width: 970px){
