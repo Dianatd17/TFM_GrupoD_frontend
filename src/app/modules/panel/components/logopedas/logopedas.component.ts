@@ -48,6 +48,8 @@ export class LogopedasComponent {
         return '#198754'
       case 'pendiente':
         return '#FFC107'
+      case 'finalizado':
+        return 'red'
       default:
          '#60BBDD'
     }

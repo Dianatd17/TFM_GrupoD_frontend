@@ -63,6 +63,7 @@ h5:hover{
 .card_bellow{
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
     align-items: center;
     padding: 10px;
     flex-wrap: wrap;
@@ -135,5 +136,23 @@ textarea{
         margin-left: auto;
         margin-right: auto;
         
+    }
+}
+
+
+@media (max-width: 550px){
+    
+    .card_above{
+        gap: 0;
+        flex-direction: column;
+        align-items: center;
+    }
+    .card_iamgen{
+        padding: 10px 5px;
+        border-right: 0px;
+    }
+
+    .card_info{
+        padding: 10px 5px;
     }
 }
