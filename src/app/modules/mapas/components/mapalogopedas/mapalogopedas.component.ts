@@ -30,11 +30,11 @@ export class MapalogopedasComponent {
   servidorUrl: string = "http://localhost:3000/img/";
 
 
-  ngAfterViewInit(): void {
-    
-    this.inicializarMapa();
-    
-  }
+    ngAfterViewInit(): void {
+     this.inicializarMapa(); 
+    }
+
+
   actualizarRuta(nuevaRuta: string) {
     this.ruta = nuevaRuta;
     this.inicializarMapa();
@@ -43,7 +43,7 @@ export class MapalogopedasComponent {
 
   private inicializarMapa() {
     
-   
+    this.arrMarkers = [];
       
       this.mapalogopedasService.getAll(this.ruta).subscribe(data => {
         //console.log(data)
@@ -68,7 +68,7 @@ export class MapalogopedasComponent {
    
   }
 
-
+  
 
 
   openInfoWindow(marker: MapMarker, indice:number) {
