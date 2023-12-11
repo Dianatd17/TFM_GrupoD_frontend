@@ -28,52 +28,12 @@ export class ClientesCardComponent {
     }
   }
 
-   async getAndUpdate(status:string){
-    try{
-      const clase = await this.panelService.getClaseById(this.clientes.id.toString());
-      //Recorto la fecha en un fomrato aceptado
-      const indiceCorte = clase.fecha_inicio.indexOf(':');
-      
-      clase.fecha_inicio = clase.fecha_inicio.substring(0,indiceCorte);
-      //Cambio a aceptado el status
-      clase.status = status
-      //Llamo al servicio para actualizarlo
-      const result = await this.panelService.updateStatus(this.clientes.id.toString(), clase);
-      return result
-    }catch(error){
-      console.log(error)
-    }
-  } 
-
-   async aceptar2(){
-    const result = await this.getAndUpdate('aceptado');
-    if(result.Succes){
-      this.toastr.success('la pagina se recargará', 'El Alumno ha sido aceptado', {timeOut: 1000});
-      setTimeout( () =>{
-      location.href = 'http://localhost:4200/panel/notificaciones' 
-      },1000)
-    }else{
-      console.log(result)
-    }
-  } 
-   async rechazar2(){
-    const result = await this.getAndUpdate('rechazado');
-    if(result.Succes){
-      this.toastr.success('la pagina se recargará', 'El Alumno ha sido rechazado', {timeOut: 1000});
-      setTimeout( () =>{
-      location.href = 'http://localhost:4200/panel/notificaciones' 
-      },1000)
-    }else{
-      console.log(result)
-    }
-  } 
-
 
   
   //TODO PODRIA HACER UN METODO Y LLAMARLO EN LOS 3 BOTONES O UNA VARIABLE
   async aceptar(){
     try{
-      /* recupero la clase para actualizarla */
+      /* Recupero la clase para actualizarla */
       const clase = await this.panelService.getClaseById(this.clientes.id.toString());
       //Recorto la fecha en un fomrato aceptado
       const indiceCorte = clase.fecha_inicio.indexOf(':');

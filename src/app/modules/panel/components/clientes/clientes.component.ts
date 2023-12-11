@@ -18,8 +18,4 @@ export class ClientesComponent {
       console.log(error)
     }
    }
-
-
-   /* TENDRE QUE AÑADIR UNA FUNCION QUE LLAME AL SERVICIO PAN FUNCION GETCLIENTS BYID */
-
 }

@@ -1,14 +1,15 @@
-    
-    <div>
-        <app-home-filters *ngIf="usuariosService.isLogged()" activo="todos"></app-home-filters>
-    </div>
-    
-    <div class="main ">
-        <div class="custom-cards">  
-            <app-lista-logopedas></app-lista-logopedas>
-        </div>
-        <div class=" custom-map" >
-            <app-mapalogopedas ></app-mapalogopedas>
-        </div>
-    </div>
+<div>
+  <app-home-filters
+    *ngIf="usuariosService.isLogged()"
+    activo="todos"
+  ></app-home-filters>
+</div>
 
+<div class="main">
+  <div class="custom-cards">
+    <app-lista-logopedas></app-lista-logopedas>
+  </div>
+  <div class="custom-map">
+    <app-mapalogopedas></app-mapalogopedas>
+  </div>
+</div>

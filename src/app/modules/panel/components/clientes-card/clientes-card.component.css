@@ -9,13 +9,9 @@
 }
 
 .card_wrapped{
-    
     display: flex;
-    gap: 2vw;
-
-    
+    gap: 2vw;  
 }
-
 
 .card_imagen{
     border-right: 2px solid grey;

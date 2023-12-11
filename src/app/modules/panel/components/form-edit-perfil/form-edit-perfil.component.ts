@@ -102,7 +102,6 @@ export class FormEditPerfilComponent {
     this.errorMessage = '';
     if (this.formEdit.value.rol === 'cliente' || this.formEdit.value.telefono !== '') {
       const response = await this.usuariosService.updateUser(this.formEdit.value);
-      console.log(response);
       if (!response) {
         this.toastrService.error("El usuario no pudo ser actualizado");
       } else {

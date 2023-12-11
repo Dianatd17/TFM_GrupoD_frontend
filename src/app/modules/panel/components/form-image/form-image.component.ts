@@ -21,9 +21,6 @@ export class FormImageComponent {
     let fd = new FormData();
     fd.append('imagen', this.files[0]);
     // Delegamos el envío del formulario en el servicio
-    /*this.usuariosService.updateUserImage(fd).then(result => {
-      this.router.navigate(['/panel', 'perfil']);
-    })*/
     this.usuariosService.updateUserImage(fd).subscribe({
       next: (result) => {
         this.toastrService.success("Imagen de perfil actualizada");
@@ -36,17 +33,11 @@ export class FormImageComponent {
         console.log("Se completó la tarea");
       }
     })
-    /*const result = this.usuariosService.updateUserImage(fd);
-    if (result) {
-      console.log(result);
-    } else {
-      console.log("error");
-    }*/
+
   }
 
   onChange(event: any) {
     this.files = event.target.files;
-    console.log(this.files[0]);
   }
 
 }

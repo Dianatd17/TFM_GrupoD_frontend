@@ -14,15 +14,10 @@ export class PorEdadComponent {
   ngOnInit(): void {
 
     this.activeRoute.params.subscribe((params: any) => {
-    //  console.log(params);
-    // this.setValues(params.edad);
       this.edad = params.edad;
     })
   }
 
-  // setValues(value: string): void {
-  // console.log(value);
-  //  this.edad = value;
-  //}
+
 
 }

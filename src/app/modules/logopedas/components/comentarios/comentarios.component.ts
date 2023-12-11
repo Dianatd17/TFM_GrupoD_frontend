@@ -29,11 +29,7 @@ export class ComentariosComponent {
 
     this.activeRoute.params.subscribe((params) => {
       this.getComentariosClientes(params['id']);
-
     })
-
-
-
   }
 
   async getComentariosClientes(id: number) {
@@ -43,7 +39,6 @@ export class ComentariosComponent {
       if (response) {
         this.arrComentarios = response;
       }
-
     } catch (err) {
       console.log(err);
     }

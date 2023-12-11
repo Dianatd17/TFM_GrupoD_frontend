@@ -7,7 +7,6 @@ import { UsuariosService } from 'src/app/modules/auth/services/usuarios.service'
   styleUrls: ['./perfil.component.css']
 })
 export class PerfilComponent {
-
   boton: string = "edit";
   usuariosService = inject(UsuariosService);
 

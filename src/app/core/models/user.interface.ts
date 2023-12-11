@@ -11,7 +11,7 @@ export interface IUser {
     localidad?: string
     provincia?: string
     status: boolean
-    rol: string//['admin', 'logopeda','cliente']
+    rol: string
     imagen?: string
     precio?: number
     experiencia?: number

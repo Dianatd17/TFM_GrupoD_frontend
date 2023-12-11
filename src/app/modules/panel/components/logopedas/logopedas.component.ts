@@ -42,7 +42,6 @@ export class LogopedasComponent {
   }
 
 
-
   colorStatus(status:string){
     switch(status){
       case 'aceptado':
