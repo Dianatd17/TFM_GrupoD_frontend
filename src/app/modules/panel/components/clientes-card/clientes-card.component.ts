@@ -82,7 +82,6 @@ export class ClientesCardComponent {
       clase.status = 'aceptado'
       //Llamo al servicio para actualizarlo
       const result = await this.panelService.updateStatus(this.clientes.id.toString(), clase);
-      console.log(result)
       if(result.Succes){
         this.toastr.success('la pagina se recargará', 'El Alumno ha sido aceptado', {timeOut: 1000});
         setTimeout( () =>{
@@ -127,7 +126,6 @@ export class ClientesCardComponent {
       clase.status = 'finalizado'
       clase.fecha_fin = dayjs().format('YYYY-MM-DD')
       const result = await this.panelService.updateStatus(this.clientes.id.toString(), clase);
-      console.log(result)
       if(result.Succes){
         this.toastr.success('la pagina se recargará', 'El Alumno ha sido rechazado', {timeOut: 1000});
         setTimeout( () =>{

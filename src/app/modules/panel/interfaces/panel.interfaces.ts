@@ -12,7 +12,10 @@ export type cliente = {
 }
 
 export type logopedas = {
+    id:any,
     nombre: string,
+    logopeda_id: number,
+    cliente_id:any,
     apellidos: string,
     email: string,
     localidad: string,

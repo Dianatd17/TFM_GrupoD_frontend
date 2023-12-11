@@ -1,63 +1,9 @@
-/* *{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
 
-.logopedas_wrapped{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    row-gap: 20px;
-    column-gap: 10px;
-    margin-left: 4%;
-}
-
-.logopedas_card{
-    background-color: #F2F8EE;
-    border-radius: 10px;
-    border: 1px solid grey;
-    display: flex;
-    gap: 20px;
-    width: 100%;
-    max-width: 700px;
-}
-
-.card_iamgen{
-    padding: 10px;
-    border-right: 1px solid grey;
-}
-
-.card_info{
-    padding: 10px;
-}
-
-.info_des{
-    margin-top: 10px;
-}
-
-.info_exp{
-    margin-top: 10px;
-}
-
-
-@media (max-width: 970px){
-    .logopedas_wrapped{
-        grid-template-columns:  1fr;
-        margin-left: 0;
-        margin-top: 20px;
-    }
-
-    .logopedas_card{
-        margin-left: auto;
-        margin-right: auto;
-        
-    }
-} */
 *{
-    box-sizing: border-box;
+    box-sizing: border-box; 
     margin: 0;
-    padding: 0;
-}
+    padding: 0; 
+}   
 
 .logopedas_wrapped{
     display: grid;
@@ -72,11 +18,18 @@
     border-radius: 10px;
     border: 1px solid grey;
     display: flex;
-    
     width: 100%;
     max-width: 700px;
-
     flex-direction: column;
+    
+}
+
+h5{
+    cursor: pointer; 
+}
+
+h5:hover{
+    text-decoration: underline;
 }
 
 .card_above{
@@ -124,6 +77,51 @@
     border-radius: 10px;
     border: 0.1px solid grey;
 }
+
+.modal-content{
+    min-height: 440px;
+    
+    
+}
+
+.modal-dialog{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.modal_wrapped{
+    padding: 20px;
+}
+
+.modal-content{
+    height: 40vh;  
+}
+
+textarea{
+    padding: 10px;
+    margin-top: 10px;
+}
+
+
+
+.midiv{
+    font-size: 22px;
+    flex-direction: row-reverse;
+    justify-content: center;
+    display: flex
+}
+
+
+.estrella{
+    transition: fill 0.2s cubic-bezier(0.4, 0, 1, 1);
+    cursor: pointer;
+}
+
+
+.estrella:hover ~ .estrella,  .estrella:hover{
+    fill: yellow;
+}
+
 
 
 @media (max-width: 970px){
