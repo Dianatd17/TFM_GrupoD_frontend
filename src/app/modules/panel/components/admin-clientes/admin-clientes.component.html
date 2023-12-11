@@ -1,1 +1,13 @@
-<p>admin-clientes works!</p>
+<div class="container mb-3">
+    <div class="fs-2 title border-bottom">Desactivar clientes</div>
+    <div class="search p-3 align-center">
+        <input class="form-control" value="" placeholder="Buscar cliente" (change)="buscar($event)">
+    </div>
+    <div class="listado col-xs-12">
+        <article *ngFor="let cliente of listado">
+            <div class="listado_card">
+                <app-lista-delete-clientes [usuario]="cliente"></app-lista-delete-clientes>
+            </div>
+        </article>
+    </div>
+</div>
