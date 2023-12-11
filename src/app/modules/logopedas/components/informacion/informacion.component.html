@@ -22,8 +22,8 @@
                     <div class=""></div>
                     <div class="card-text ">
                         <p class="card-text">&#11088; {{ miLogopeda.puntuacion | number:'1.0-1' }}</p>
-
-
+                        <button type="submit" class="btn btn-principal" *ngIf="rol==='cliente' && conexion.length <= 0"
+                        (click)="contactarLogopeda(miLogopeda.id)">Contactar</button>
                     </div>
 
 

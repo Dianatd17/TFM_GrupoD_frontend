@@ -15,6 +15,11 @@
     margin-top: 10px;
 }
 
+.btn-principal {
+    background-color: #216a92;
+    color: white;
+}
+
 @media only screen and (min-width: 720px) and (max-width: 1920px) {
     .card {
         flex-direction: column;

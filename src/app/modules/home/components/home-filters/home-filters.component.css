@@ -1,5 +1,4 @@
 .main_w-edad {
-    margin-right: 5cap;
     text-align: center;
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -25,4 +24,13 @@
 .dropdown-toggle:hover {
     background-color: #216a92;
     color: white;
+}
+
+@media (max-width: 1024px) {
+
+
+    .nav-item {
+        width: 100%;
+    }
+
 }

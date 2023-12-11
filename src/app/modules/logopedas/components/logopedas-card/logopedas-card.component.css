@@ -60,6 +60,7 @@
     align-items: center;
     padding: 10px;
     flex-wrap: wrap;
+    border-top: 1px solid grey;
 }
 
 .card_bellow p{
