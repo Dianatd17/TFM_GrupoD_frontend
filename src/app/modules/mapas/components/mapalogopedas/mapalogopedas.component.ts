@@ -1,4 +1,4 @@
-import { Component, Input, QueryList, ViewChildren, inject } from '@angular/core';
+import { AfterViewInit, Component, Input, QueryList, ViewChildren, inject } from '@angular/core';
 import { mapalogopedasService } from '../../services/mapalogopedas.service';
 import { ILogopeda } from 'src/app/core/models/logopeda.interface';
 import { MapInfoWindow, MapMarker } from '@angular/google-maps';
@@ -18,10 +18,11 @@ export class MapalogopedasComponent {
   options: any = {
     width: '100%',
     height: '85vh',
-    zoom: 5,
+    zoom: 7,
     center: new google.maps.LatLng(40,-3)
   
   }
+  map: google.maps.Map | undefined;
 
   mapalogopedasService = inject(mapalogopedasService);
   usuariosService = inject(UsuariosService);
@@ -31,9 +32,30 @@ export class MapalogopedasComponent {
 
 
     ngAfterViewInit(): void {
-     this.inicializarMapa(); 
+      this.inicializarMapa(); 
+       this.obtenerUbicacionActual();
     }
-
+     obtenerUbicacionActual() {
+       if (navigator.geolocation) {
+         navigator.geolocation.getCurrentPosition(
+           (position) => {
+             const latitud = position.coords.latitude;
+             const longitud = position.coords.longitude;
+  
+             // Actualizar el centro del mapa con las coordenadas actuales
+             this.options.center = { lat: latitud, lng: longitud };
+  
+             // Inicializar el mapa con las nuevas opciones
+           
+           },
+           (error) => {
+             console.error('Error al obtener la ubicación:', error);
+          }
+         );
+       } else {
+         console.error('La geolocalización no está disponible en este navegador.');
+       }
+     }
 
   actualizarRuta(nuevaRuta: string) {
     this.ruta = nuevaRuta;
